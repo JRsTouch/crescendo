@@ -20,6 +20,7 @@ class DefaultController extends Controller
 		$data['pictures'] = getPictures();
 
 		$this->show('default/home' , ['data' => $data ]);
+
 	}
 
 	public function getActus()
@@ -28,7 +29,7 @@ class DefaultController extends Controller
 		$presseManager = new \Manager\PresseManager();
 
 		$news = $newsManager->getLastNews();
-		$presse = $presseManager->getLastPress();
+		$presse = $presseManager->getLastPresse();
 
 		$actusTable = array();
 
@@ -60,13 +61,16 @@ class DefaultController extends Controller
 		$actusTable = array_sort($actusTable,'date');
 
 		return $actusTable;
+
 	}
 	
-	public function getHeader() {
+	public function getHeader()
+	{
 		$manager = new \Manager\OptionsManager();
 		$header = $manager->getBDDheader();
 		//$this->show('default/header', ['header' => $header]);
 		return $header;
+
 	}
 
 }
