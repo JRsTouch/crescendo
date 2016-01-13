@@ -14,31 +14,41 @@ class DefaultController extends Controller
 	{
 
 		$data = array();
-		$data['header'] = $this->getHeader();
 		$data['options'] = $this->getOptions();
 		$data['actus'] = $this->getActus();
 		$data['videos'] = $this->getVideos();
-		$data['pictures'] = $this->getPictures();
+		$data['images'] = $this->getImages();
 
 		$this->show('default/home' , ['data' => $data ]);
 
 	}
 
-	public function getOptions(){
+	public function getOptions()
+	{
 
 		$optionsManager = new \Manager\OptionsManager();
 		$options = $optionsManager->findAll();
 
 		return $options;
+
 	}
 
-	public function getVideos(){
+	public function getVideos()
+	{
 
 		$videosManager = new \Manager\VideosManager();
 		$video = $videosManager->findLimit(3);
 
 		return $video;
 	
+	}
+
+	public function getImages(){
+
+		$imagesManager = new \Manager\ImagesManager();
+		$images = $imagesManager->getLastImages();
+
+		return $images;
 
 	}
 
@@ -89,6 +99,7 @@ class DefaultController extends Controller
 		$header = $manager->getBDDheader();
 		//$this->show('default/header', ['header' => $header]);
 		return $header;
+
 	}
 
 }

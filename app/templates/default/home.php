@@ -1,11 +1,12 @@
 <?php $this->layout('layout', ['title' => 'Accueil !']) ?>
 
 <?php $this->start('main_content') ?>
+<?php var_dump($data) ?>
 	<header>
 		<div class="container">
-		<img src="<?php echo $data['header' => 'url_logo']?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
+		<img src="<?= $data['options'][0]['url_logo'] ?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
 
-		<h1><?php echo $data['header' => 'title']?> </h1> <!-- Récupération du titre dans le tableau data -->
+		<h1><?php echo $data['options'][0]['titre']?> <!--  </h1> Récupération du titre dans le tableau data --> 
 		<nav>
 		
 		</nav>
@@ -15,7 +16,7 @@
 
 	<div id="presentation">
 		<div class="container">
-			<p><?= substr($data['options'][0]['description'], 0, 200).'...' ?></p>
+		<p><?= substr($data['options'][0]['description'], 0, 200).'...' ?></p> 
 		</div>
 	</div>
 	
