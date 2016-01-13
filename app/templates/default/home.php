@@ -3,17 +3,17 @@
 <?php $this->start('main_content') ?>
 	<header>
 		<div class="container">
-		<h1></h1>
-		<nav>
-		
-		</nav>
+			<h1></h1>
+
+			<nav>
+			
+			</nav>
 		</div>
 	</header><!-- /header -->
 
 	<div id="presentation">
 		<div class="container">
-			
-
+			<p><?= $options[0]['description'] ?></p>
 		</div>
 	</div>
 	

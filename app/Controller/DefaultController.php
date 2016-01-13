@@ -12,7 +12,10 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
-		$this->show('default/home');
+		$optionsManager = new \Manager\OptionsManager();
+		$options = $optionsManager->findAll();
+
+		$this->show('default/home', ['options' => $options]);
 	}
 
 }
