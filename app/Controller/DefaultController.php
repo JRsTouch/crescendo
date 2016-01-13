@@ -62,4 +62,11 @@ class DefaultController extends Controller
 		return $actusTable;
 	}
 	
+	public function getHeader() {
+		$manager = new \Manager\OptionsManager();
+		$header = $manager->getBDDheader();
+		//$this->show('default/header', ['header' => $header]);
+		return $header;
+	}
+
 }

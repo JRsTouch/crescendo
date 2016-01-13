@@ -2,8 +2,9 @@
 
 <?php $this->start('main_content') ?>
 	<header>
+		<img src="<?php echo $data['header' => 'url_logo']?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
 		<div class="container">
-		<h1></h1>
+		<h1><?php echo $data['header' => 'title']?> </h1> <!-- Récupération du titre dans le tableau data -->
 		<nav>
 		
 		</nav>
