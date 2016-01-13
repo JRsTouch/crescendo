@@ -12,14 +12,33 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
+
 		$data = array();
-		$data['header'] = getHeader();
-		$data['options'] = getOptions();
-		$data['actus'] = getActus();
-		$data['videos'] = getVideos();
-		$data['pictures'] = getPictures();
+		$data['header'] = $this->getHeader();
+		$data['options'] = $this->getOptions();
+		$data['actus'] = $this->getActus();
+		$data['videos'] = $this->getVideos();
+		$data['pictures'] = $this->getPictures();
 
 		$this->show('default/home' , ['data' => $data ]);
+
+	}
+
+	public function getOptions(){
+
+		$optionsManager = new \Manager\OptionsManager();
+		$options = $optionsManager->findAll();
+
+		return $options;
+	}
+
+	public function getVideos(){
+
+		$videosManager = new \Manager\VideosManager();
+		$video = $videosManager->findLimit(3);
+
+		return $video;
+	
 
 	}
 
@@ -70,7 +89,6 @@ class DefaultController extends Controller
 		$header = $manager->getBDDheader();
 		//$this->show('default/header', ['header' => $header]);
 		return $header;
-
 	}
 
 }

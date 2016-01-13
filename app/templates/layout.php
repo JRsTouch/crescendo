@@ -3,8 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
-
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/reset.css') ?>">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="<?= $this->assetUrl('js/javascript.js') ?>"></script>
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 </head>
 <body>
 	
