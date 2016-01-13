@@ -3,11 +3,13 @@
 <?php $this->start('main_content') ?>
 	<header>
 		<div class="container">
-			<h1></h1>
+		<img src="<?php echo $data['header' => 'url_logo']?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
 
-			<nav>
-			
-			</nav>
+		<h1><?php echo $data['header' => 'title']?> </h1> <!-- Récupération du titre dans le tableau data -->
+		<nav>
+		
+		</nav>
+
 		</div>
 	</header><!-- /header -->
 
