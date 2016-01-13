@@ -12,10 +12,19 @@ class DefaultController extends Controller
 	 */
 	public function home()
 	{
+
+		$data = array();
+		$data['options'] = $this->getOptions();
+
+		$this->show('default/home', ['data' => $data]);
+	}
+
+	public function getOptions(){
+
 		$optionsManager = new \Manager\OptionsManager();
 		$options = $optionsManager->findAll();
 
-		$this->show('default/home', ['options' => $options]);
+		return $options;
 	}
 
 }

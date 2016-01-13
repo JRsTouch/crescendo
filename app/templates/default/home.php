@@ -13,7 +13,7 @@
 
 	<div id="presentation">
 		<div class="container">
-			<p><?= $options[0]['description'] ?></p>
+			<p><?= substr($data['options'][0]['description'], 0, 200).'...' ?></p>
 		</div>
 	</div>
 	
