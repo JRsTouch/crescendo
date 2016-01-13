@@ -1,0 +1,16 @@
+{
+    "name": "wf3/w",
+    "description": "Framework pédagogique de la Web Force 3",
+    "require": {
+        "altorouter/altorouter": "^1.0",
+        "league/plates": "^3.0",
+        "ircmaxell/random-lib": "^1.1",
+        "ircmaxell/password-compat": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "W\\": "W/",
+            "": "app/"
+        }
+    }
+}
