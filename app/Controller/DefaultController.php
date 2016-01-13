@@ -15,6 +15,7 @@ class DefaultController extends Controller
 
 		$data = array();
 		$data['options'] = $this->getOptions();
+		$data['videos'] = $this->getVideos();
 
 		$this->show('default/home', ['data' => $data]);
 	}
@@ -25,6 +26,14 @@ class DefaultController extends Controller
 		$options = $optionsManager->findAll();
 
 		return $options;
+	}
+
+	public function getVideos(){
+
+		$videosManager = new \Manager\VideosManager();
+		$video = $videosManager->findLimit(3);
+
+		return $video;
 	}
 
 }
