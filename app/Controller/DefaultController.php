@@ -15,4 +15,11 @@ class DefaultController extends Controller
 		$this->show('default/home');
 	}
 
+	public function getHeader() {
+		$manager = new \Manager\OptionsManager();
+		$header = $manager->getBDDheader();
+		//$this->show('default/header', ['header' => $header]);
+		return $header;
+	}
+
 }
