@@ -13,5 +13,7 @@
 		<?php endforeach ?>
 	</ul>
 
+	<a href="<?= $this->url('home') ?>">Retour a l'accueil !</a>
+
 
 <?php $this->stop('main_content') ?>
