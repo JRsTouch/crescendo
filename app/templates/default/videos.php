@@ -8,7 +8,7 @@
 	<ul>
 		<?php foreach($videos as $key => $value): ?>
 
-			<li><a href="<?= $value['url'] ?>" data-embed="<?= preg_replace('/watch\?v=/', 'v/',  $value['url']) ?>" data-description="<?= $value['description'] ?>"><?= $value['titre'] ?></a></li>
+			<li><a class="videos" href="<?= $value['url'] ?>" data-embed="<?= preg_replace('/watch\?v=/', 'v/',  $value['url']) ?>" data-description="<?= $value['description'] ?>"><?= $value['titre'] ?></a></li>
 
 		<?php endforeach ?>
 	</ul>
