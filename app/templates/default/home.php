@@ -2,8 +2,8 @@
 
 <?php $this->start('main_content') ?>
 	<header>
-		<div class="container">
 		<img src="<?= $data['options'][0]['url_logo'] ?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
+		<div class="container">
 
 		<h1><?php echo $data['options'][0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
 		<nav>
@@ -114,6 +114,15 @@
 
 	<footer>
 		<div class="container">
+			<p>©2016 - CrescendO Joeuf® . Credits : <?php
+														echo "<ul>";
+																											
+														foreach ($data['options'][0]['copyrights'] as $value) {
+															echo "<li>".$value."</li>";
+														}
+														
+														echo "</ul>";
+													?> </p>
 			
 
 		</div>
