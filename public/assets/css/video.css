@@ -1,0 +1,26 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#player{
+	display: none;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	height: 100%;
+}
+
+#player>object{
+	display: block;
+	margin: auto;
+	margin-top: 5%;
+}
+
+#player>p{
+	text-align: center;
+	margin-top: 20px;
+	padding-left: 20%;
+	padding-right: 20%;
+	color: white;
+}

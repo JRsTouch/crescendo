@@ -52,6 +52,7 @@
 				<?php endforeach ?>			
 				</ul>
 			</div>
+			<a href="<?= $this->url('videos') ?>">Toutes les vidéos</a>
 		</div>
 	</div>
 
