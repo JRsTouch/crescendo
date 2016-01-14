@@ -49,7 +49,7 @@
 
 	<div id="photo">
 		<div class="container">
-			<div class="flexslider" id="carousel">
+			<div class="flexslide" id="carousel">
 				<ul class="slides">
 				<?php foreach ($data['images'] as $key => $value): ?>
 					<li>
