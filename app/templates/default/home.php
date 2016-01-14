@@ -1,7 +1,6 @@
 <?php $this->layout('layout', ['title' => 'Accueil !']) ?>
 
 <?php $this->start('main_content') ?>
-<?php var_dump($data) ?>
 	<header>
 		<div class="container">
 		<img src="<?= $data['options'][0]['url_logo'] ?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
@@ -16,7 +15,7 @@
 
 	<div id="presentation">
 		<div class="container">
-		<p><?= substr($data['options'][0]['description'], 0, 200).'...' ?></p>
+		<p><?= substr($data['options'][0]['description'], 0, 825).'...' ?></p>
 		<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
 		</div>
 	</div>
