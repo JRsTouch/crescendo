@@ -22,16 +22,40 @@
 
 	<div id="presentation">
 		<div class="container">
+
 			<h2>Présentation</h2>
-			<p><?= substr($data['options'][0]['description'], 0, 825).'...' ?></p>
-			<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
+
+
+		<?= $data['options'][0]['description'] ?>
+		<?= $data['options'][0]['description2'] ?>
+		<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
+
 		</div>
 	</div>
 	
 	<section id="actus">
 		<div class="container">
+
 			<h2>Actualités de presse</h2>
-			<a href="<?= $this->url('presse') ?>">En savoir plus</a>
+
+
+			<?php
+			
+			for ($i=0; $i <9 ; $i++) { 
+				if( isset ($data['actus'][$i]) ) {
+					foreach ($data['actus'] as $i) {
+						echo "	<article><h3>".$i['titre'].
+								"</h3><img src=\"".$i['url']."\" alt=\"".$i['alt']."\" />".
+								"<p>".$i['extrait']."<a href=\""."lien de l'article"."\">Voir l'article</a></p>".
+								"</article>";
+						
+					}
+					
+				}
+			}
+			?>
+			
+			<a href="<?= $this->url('presse') ?>">Plus D'articles</a>
 
 		</div>
 	</section>
