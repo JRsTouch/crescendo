@@ -5,17 +5,18 @@
 		<div class="container">
 		<img src="<?= $data['options'][0]['url_logo'] ?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
 
-		<h1><?php echo $data['options'][0]['titre']?> <!--  </h1> Récupération du titre dans le tableau data --> 
-		<nav>
-		
-		</nav>
+		<h1><?php echo $data['options'][0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
+		<a href="<?= $this->url('home') ?>">Retour à l'accueil</a>
 
 		</div>
 	</header><!-- /header -->
 
 	<div id="presentation">
 		<div class="container">
-		<p><?= $data['options'][0]['description'] ?></p>
+		<?= $data['options'][0]['description'] ?>
+		<?= $data['options'][0]['description2'] ?>
+		<?= $data['options'][0]['description3'] ?>
+		<?= $data['options'][0]['description4'] ?>
 	
 
 		</div>

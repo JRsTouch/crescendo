@@ -89,6 +89,8 @@ class DefaultController extends Controller
 
 		$actusTable = array_sort($actusTable,'date');
 
+		$actusTable = array_reverse ($actusTable);
+
 		return $actusTable;
 
 	}
