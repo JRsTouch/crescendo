@@ -14,7 +14,7 @@
 				<li><a href="#video">Vidéos</a></li>
 				<li><a href="#photo">Photos</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="/choristes">Coin des Choristes</a></li>
+				<li><a href="/choristes">Coin des Choristes</a></li> 
 			</ul>
 		</nav>
 
