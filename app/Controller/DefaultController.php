@@ -111,4 +111,10 @@ class DefaultController extends Controller
 		$this->show('default/presentation', ['data' => $data]);
 	}
 
+	public function presse() {
+		$presseManager = new \Manager\PresseManager();
+		$articles = $presseManager->getAllPresse();
+		$this->show('default/presse', ['articles' => $articles]);
+	}
+
 }

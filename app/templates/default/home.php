@@ -22,20 +22,23 @@
 
 	<div id="presentation">
 		<div class="container">
-		<p><?= substr($data['options'][0]['description'], 0, 825).'...' ?></p>
-		<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
+			<h2>Présentation</h2>
+			<p><?= substr($data['options'][0]['description'], 0, 825).'...' ?></p>
+			<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
 		</div>
 	</div>
 	
 	<section id="actus">
 		<div class="container">
-			
+			<h2>Actualités de presse</h2>
+			<a href="<?= $this->url('presse') ?>">En savoir plus</a>
 
 		</div>
 	</section>
 
 	<div id="video">
 		<div class="container">
+			<h2>Vidéos</h2>
 			<div class="flexslider" id="slider">
 				<ul class="slides">
 				<?php foreach ($data['videos'] as $key => $value): ?>
@@ -57,6 +60,7 @@
 
 	<div id="photo">
 		<div class="container">
+			<h2>Photos</h2>
 			<div class="flexslide" id="carousel">
 				<ul class="slides">
 				<?php foreach ($data['images'] as $key => $value): ?>
@@ -72,6 +76,7 @@
 
 	<div id="contact">
 		<div class="container">
+			<h2>Nous contacter</h2>
 			
 
 		</div>

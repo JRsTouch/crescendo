@@ -12,4 +12,13 @@
 
 				return $sth->fetchAll();
 			}
+
+		public function getAllPresse() 
+		{	
+			$pdo = $this->dbh;
+			$sql = "SELECT * FROM presses ORDER BY date DESC";
+			$stmt = $pdo->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}
 	}
