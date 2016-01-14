@@ -4,31 +4,26 @@
 	<header>
 		<img src="<?= $data['options'][0]['url_logo'] ?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
 		<div class="container">
-
-		<h1><?php echo $data['options'][0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
-		<nav>
-			<ul>
-				<li><a href="#presentation">Présentation</a></li>
-				<li><a href="#actus">Actualités</a></li>
-				<li><a href="#video">Vidéos</a></li>
-				<li><a href="#photo">Photos</a></li>
-				<li><a href="#contact">Contact</a></li>
-				<li><a href="/choristes">Coin des Choristes</a></li> 
-			</ul>
-		</nav>
-
+			<h1><?php echo $data['options'][0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
+			<nav>
+				<ul>
+					<li><a href="#presentation">Présentation</a></li>
+					<li><a href="#actus">Actualités</a></li>
+					<li><a href="#video">Vidéos</a></li>
+					<li><a href="#photo">Photos</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="/choristes">Coin des Choristes</a></li> 
+				</ul>
+			</nav>
 		</div>
 	</header><!-- /header -->
 
 	<div id="presentation">
 		<div class="container">
 
-			<h2>Présentation</h2>
-
-
-		<?= $data['options'][0]['description'] ?>
-		<?= $data['options'][0]['description2'] ?>
-		<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
+			<?= $data['options'][0]['description'] ?>
+			<?= $data['options'][0]['description2'] ?>
+			<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
 
 		</div>
 	</div>

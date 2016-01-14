@@ -1,0 +1,61 @@
+*
+	margin: 0
+	padding: 0
+
+body
+	color: white 
+
+.container
+	width: 1140px
+	height: auto
+	margin-left: auto
+	margin-right: auto
+	//text-align: center
+
+header 
+	margin-bottom: 0
+	background-color: #564ce1
+nav
+	background-color: #564ce1
+	padding: 10px
+	margin-top: 0
+	margin-bottom: 0
+	ul
+		li
+			list-style: none
+			display: inline
+			padding: 20px
+			a
+				text-decoration: none
+				color: white
+			&:last-of-type::after 
+				content: " *"
+				color: #ff4e6e
+
+#presentation
+	background-color: #393294
+	margin-top: 0
+	margin-bottom: 0
+	img, p
+		width: 40%
+		padding: 5%
+	&::after
+		visibility: hidden
+		display: block
+		font-size: 0
+		content: " "
+		clear: both
+		height: 0
+
+#actus 
+	background-color: #4e45cc
+
+#video
+	background-color: #584ee6
+
+#photo
+	background-color: #393294
+
+#contact
+	background-color: #201c54
+
