@@ -28,7 +28,10 @@ class DefaultController extends Controller
 
 		$optionsManager = new \Manager\OptionsManager();
 		$options = $optionsManager->findAll();
+		//$options['copyrights'] = explode(";", $options['copyrights']);
+		$options[0]['copyrights']=explode(';',$options[0]['copyrights']);
 
+		
 		return $options;
 
 	}

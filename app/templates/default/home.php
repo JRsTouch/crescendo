@@ -114,6 +114,15 @@
 
 	<footer>
 		<div class="container">
+			<p>©2016 - CrescendO Joeuf® . Credits : <?php
+														echo "<ul>";
+																											
+														foreach ($data['options'][0]['copyrights'] as $value) {
+															echo "<li>".$value."</li>";
+														}
+														
+														echo "</ul>";
+													?> </p>
 			
 
 		</div>
