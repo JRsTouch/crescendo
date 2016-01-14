@@ -1,6 +1,6 @@
 $(function(){
 
-	$('a').on('click', function(){
+	$('ul a').on('click', function(){
 		var url = $(this).attr('href');
 		var embed = $(this).attr('data-embed');
 		var description = $(this).attr('data-description');
