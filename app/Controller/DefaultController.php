@@ -102,4 +102,13 @@ class DefaultController extends Controller
 
 	}
 
+	public function presentation(){
+		$data = array();
+		$data['options'] = $this->getOptions();
+		$optionsmanager = new \Manager\OptionsManager();
+		$options = $optionsmanager->findAll();
+
+		$this->show('default/presentation', ['data' => $data]);
+	}
+
 }

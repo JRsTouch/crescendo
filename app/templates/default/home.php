@@ -22,7 +22,7 @@
 
 	<div id="presentation">
 		<div class="container">
-		<p><?= substr($data['options'][0]['description'], 0, 200).'...' ?></p>
+		<p><?= substr($data['options'][0]['description'], 0, 825).'...' ?></p>
 		<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
 		</div>
 	</div>
