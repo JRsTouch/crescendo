@@ -1,0 +1,30 @@
+﻿Merge branch 'master' of https://github.com/JRsTouch/crescendo
+
+# Conflicts:
+#	app/routes.php
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 6 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   .gitignore
+#	modified:   app/Controller/DefaultController.php
+#	modified:   app/routes.php
+#	modified:   app/templates/default/home.php
+#	new file:   app/templates/default/presentation.php
+#	new file:   public/assets/img/chorale.jpg
+#	new file:   public/assets/img/staff.gif
+#
+
