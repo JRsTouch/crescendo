@@ -40,7 +40,7 @@
 				</ul>
 			</div>
 			
-			<a href="<?= $this->url('presse') ?>">Plus D'articles</a>
+			<a href="<?= $this->url('presse') ?>">Plus d'articles</a>
 
 		</div>
 	</section>
@@ -52,7 +52,7 @@
 				<ul class="slides">
 				<?php foreach ($data['videos'] as $key => $value): ?>
 					<li>
-						<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1024" height="616" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">
+						<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="640" height="385" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">
 							<param name="allowFullScreen" value="true" />
 							<param name="allowscriptaccess" value="always" />
 							<param name="src" value="<?= $value['url'] ?>&amp;hl=fr_FR&amp;fs=1" />
@@ -84,11 +84,30 @@
 		</div>
 	</div>
 
-	
+	<div id="contact">
+		<div class="container">
+			<h2>Nous contacter</h2>
+			<form action="<?= $this->url('contact') ?>" method="POST" accept-charset="utf-8">
+				<label for="name">Votre Nom :<input type="text" name="name" placeholder="Doe John"></label>
+				<label for="email">Votre Email :<input type="email" name="email" placeholder="Doe.john@crescendo.fr"></label>
+				<label for="message">Votre Message :<textarea name="message" placeholder="Bonjour.."></textarea></label>
+				<button type="submit" name="sent">Envoyer</button>
+			</form>
 
-	
+		</div>
+	</div>
 
-
-
+	<footer>
+		<button class="retour">Retour en haut</button>
+		<div class="container">
+			<p>©2016 - CrescendO Joeuf® . Credits : <?php
+														echo "<ul>";
+																											
+														foreach ($data['options'][0]['copyrights'] as $value) {
+															echo "<li>".$value."</li>";
+														}
+														
+														echo "</ul>";
+													?> </p>
 
 <?php $this->stop('main_content') ?>

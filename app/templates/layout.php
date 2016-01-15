@@ -4,7 +4,6 @@
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
-
 	<?php 
 		if ($layout_display['ismain'] && $layout_display['form']) {
 			?>
@@ -24,7 +23,6 @@
 			<?php
 		}
 	 ?>
-	
 
 </head>
 <body>
