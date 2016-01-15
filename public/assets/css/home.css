@@ -6,6 +6,9 @@ body {
   color: white;
   font-family: "PT Sans", sans-serif; }
 
+footer {
+  background-color: #201c54; }
+
 .container {
   width: 1140px;
   height: auto;
@@ -14,7 +17,8 @@ body {
 
 header {
   margin-bottom: 0;
-  background-color: #564ce1; }
+  background-color: #564ce1;
+  position: relative; }
 
 header img {
   margin-left: auto;
@@ -31,11 +35,15 @@ nav {
     display: inline;
     font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
-    padding-left: 42px;
-    padding-right: 42px; }
+    padding-left: 32px;
+    padding-right: 32px; }
     nav ul li a {
       text-decoration: none;
       color: white; }
+      nav ul li a:hover {
+        background-color: #181540;
+        padding: 10px;
+        border-radius: 5px; }
     nav ul li:last-of-type::after {
       content: "*";
       color: #ff4e6e; }
@@ -44,7 +52,8 @@ nav {
   background-color: #393294;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 50px; }
+  padding: 50px;
+  box-shadow: inset 0px 3px 20px #29237B; }
   #presentation img {
     width: 40%;
     padding: 5%;
@@ -65,19 +74,24 @@ nav {
       content: " + "; }
   #presentation p {
     padding: 8px; }
+  #presentation ul li {
+    margin-left: 20px; }
 
 #actus {
   background-color: #4e45cc;
   height: 500px; }
 
 #video {
-  background-color: #584ee6; }
+  background-color: #584ee6;
+  height: 550px; }
 
 #photo {
-  background-color: #393294; }
+  background-color: #393294;
+  height: 640px; }
 
 #contact {
-  background-color: #201c54; }
+  background-color: #201c54;
+  height: 640px; }
 
 article {
   width: 320px;
@@ -126,4 +140,93 @@ section > .container > a {
     clear: both;
     height: 0; }
 
-/*# sourceMappingURL=style.css.map */
+h2 {
+  padding: 20px;
+  font-size: 20px;
+  text-transform: uppercase; }
+
+.flexslider {
+  background: none;
+  text-align: center;
+  border: none;
+  margin-bottom: 0; }
+  .flexslider li p {
+    padding-top: 15px;
+    font-size: 20px; }
+
+@font-face {
+  font-family: "AnabelleScript";
+  src: url("../font/AnabelleScriptLight.ttf") format("truetype"); }
+h1 {
+  font-family: "AnabelleScript";
+  font-size: 150px;
+  position: absolute;
+  top: 20px;
+  display: block;
+  margin-left: 420px;
+  margin-right: 420px;
+  text-shadow: 3px 2px 20px #765eba, 2px 2px #181540; }
+
+.retour {
+  background-color: #201c54;
+  width: 142px;
+  height: 52px;
+  border: none;
+  border-radius: 4px;
+  color: #6257FF;
+  font-size: 18px;
+  font-weight: 400;
+  position: fixed;
+  right: 30px;
+  bottom: 50px;
+  border: 1px solid white;
+  cursor: pointer; }
+  .retour:hover {
+    background-color: #393294;
+    color: white;
+    border: 1px solid #282367; }
+
+.flex-viewport {
+  text-align: center; }
+
+#carousel {
+  width: 640px;
+  height: 385px;
+  margin: auto; }
+
+label {
+  text-transform: uppercase;
+  padding-right: 10px; }
+
+textarea {
+  width: 680px;
+  height: 250px;
+  margin-top: 50px;
+  background-color: #393294;
+  color: white;
+  resize: none;
+  font-family: "PT Sans", sans-serif;
+  font-size: 14px;
+  padding: 5px; }
+
+input[type="text"], input[type="email"] {
+  background-color: #393294;
+  border: 1px solid #1E1A4D;
+  padding: 5px;
+  margin-left: 10px; }
+
+form {
+  padding-left: 200px;
+  padding-top: 30px; }
+
+form button {
+  border: none;
+  padding: 8px;
+  background-color: #393294;
+  color: white;
+  display: block;
+  margin-top: 8px;
+  margin-left: 620px;
+  text-transform: uppercase; }
+
+/*# sourceMappingURL=home.css.map */
