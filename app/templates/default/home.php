@@ -20,10 +20,11 @@
 
 	<div id="presentation">
 		<div class="container">
+			<h2>Présentation</h2>
 
 			<?= $data['options'][0]['description'] ?>
 			<?= $data['options'][0]['description2'] ?>
-			<a href="<?= $this->url('presentation') ?>">En savoir plus.</a>
+			<a href="<?= $this->url('presentation') ?>">En savoir plus</a>
 
 		</div>
 	</div>
