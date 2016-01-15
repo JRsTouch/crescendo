@@ -9,7 +9,9 @@
 		if ($layout_display['ismain'] && $layout_display['form']) {
 			?>
 			<script src="<?= $this->assetUrl('js/jquery.flexslider.js') ?>"></script>
-			<script src="<?= $this->assetUrl('js/ajax.js') ?>"></script>
+			<script src="<?= $this->assetUrl('js/javascript.js') ?>"></script>
+			<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+			<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 			<link rel="stylesheet" href="<?= $this->assetUrl('css/flexslider.css') ?>">
 			<link rel="stylesheet" href="<?= $this->assetUrl('css/home.css') ?>">
 			<?php
@@ -19,12 +21,13 @@
 			<?php
 		} else if (!$layout_display['ismain'] && !$layout_display['form']) {
 			?>
+			<script src="<?= $this->assetUrl('js/ajax.js') ?>"></script>
 			<link rel="stylesheet" href="<?= $this->assetUrl('css/medias.css') ?>">
 			<?php
 		}
 	 ?>
 	
-	<script src="<?= $this->assetUrl('js/javascript.js') ?>"></script>
+	
 
 </head>
 <body>
@@ -54,7 +57,7 @@
 		} else if (!$layout_display['ismain']){
 			?>
 				<header>
-					<img src="<?= $layout_data[0]['url_logo'] ?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
+					
 					<div class="container">
 
 						<h1><?php echo $layout_data[0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 

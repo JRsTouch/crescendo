@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.container {
+  width: 1140px;
+  margin: auto; }
+
+header {
+  width: 100%;
+  background-color: #564ce1;
+  box-shadow: inset 0px -5px 10px #3D35AC; }
+  header .container h1 {
+    font-size: 40px;
+    text-align: center;
+    color: white; }
+  header .container a {
+    display: block;
+    text-align: center; }
+
+#presentation {
+  width: 100%;
+  background-color: #393294;
+  box-shadow: inset 0px 3px 10px #29237B, inset 0px -5px 10px #29237B;
+  font-family: "PT Sans", sans-serif;
+  color: white; }
+  #presentation .container img {
+    display: block; }
+    #presentation .container img:nth-of-type(1) {
+      margin: auto;
+      width: 80%;
+      height: auto;
+      margin-bottom: 10px; }
+  #presentation .container h2 {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  #presentation .container p {
+    text-align: justify; }
+    #presentation .container p:not:last-of-type {
+      margin-bottom: 10px; }
+    #presentation .container p strong {
+      text-shadow: 1px 1px 1px #29237B; }
+    #presentation .container p em {
+      font-weight: normal; }
+
+#contact {
+  width: 100%;
+  background-color: #201c54;
+  box-shadow: inset 0px 3px 10px #13103B, inset 0px -5px 10px #13103B; }
+  #contact .container h2 {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    color: white; }
+
+/*# sourceMappingURL=presentation.css.map */
