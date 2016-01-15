@@ -1,5 +1,7 @@
 $(function(){
 
+	/*VIDEOS*/
+
 	$('.videos').on('click', function(){
 		var url = $(this).attr('href');
 		var embed = $(this).attr('data-embed');
@@ -23,11 +25,15 @@ $(function(){
 
 
 
-	$('.images').on('click', function(){
+	$('#player').on('click', function(){
 
 		$('#player').slideUp('slow');
 		$('#player').empty();
 	});
+
+
+
+	/*IMAGES*/
 
 
 	var index;
@@ -95,6 +101,30 @@ $(function(){
 		$('#slider').slideUp('slow');
 		$('#slider>img').remove();
 
+	});
+
+	/*ACTUS*/
+
+	$('.article').on('click', function(){
+		var title = $(this).attr('href');
+		var description = $(this).attr('data-description');
+		
+		$('#presse').empty();
+		$('#presse').append('<h3>'+title+'</h3>');
+		$('#presse').append('<p>'+description+'</p>')
+
+		$('#presse').slideDown('slow');
+
+
+		return false;
+	});
+
+
+
+	$('#presse').on('click', function(){
+
+		$('#presse').slideUp('slow');
+		$('#presse').empty();
 	});
 
 

@@ -25,7 +25,7 @@
 	 ?>
 	
 	<script src="<?= $this->assetUrl('js/javascript.js') ?>"></script>
-	
+
 </head>
 <body>
 	
@@ -67,6 +67,7 @@
 
 	<?= $this->section('main_content') ?>
 
+
 	<?php
 		if($layout_display['form']){
 			?>
@@ -103,5 +104,6 @@
 
 			</div>
 		</footer>
+
 </body>
 </html>
