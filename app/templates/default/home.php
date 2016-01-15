@@ -26,9 +26,15 @@
 					if( isset ($data['actus'][$i]) ) {
 						foreach ($data['actus'] as $i) {
 							echo '<li>';
-							echo "	<article><h3>".$i['titre'].
-									"</h3><img src=\"".$i['url']."\" alt=\"".$i['alt']."\" />".
-									"<p>".$i['extrait']."<a href=\""."lien de l'article"."\">Voir l'article</a></p>".
+							echo "	<article>".
+										"<img src=\"".$i['url']."\" alt=\"".$i['alt']."\" />".
+										"<div>".
+											"<div class='infoactu'>".
+												"<h3>".$i['titre']."</h3>".
+												"<p>".$i['extrait']."</p>".
+												"<a href=\""."lien de l'article"."\">Voir l'article</a>".
+											"</div>".
+										"</div>".
 									"</article>";
 							echo '</li>';
 							
@@ -81,33 +87,8 @@
 				<?php endforeach ?>			
 				</ul>
 			</div>
+			<a href="<?= $this->url('images') ?>">Toutes les photos</a>
 		</div>
 	</div>
-
-	<div id="contact">
-		<div class="container">
-			<h2>Nous contacter</h2>
-			<form action="<?= $this->url('contact') ?>" method="POST" accept-charset="utf-8">
-				<label for="name">Votre Nom :<input type="text" name="name" placeholder="Doe John"></label>
-				<label for="email">Votre Email :<input type="email" name="email" placeholder="Doe.john@crescendo.fr"></label>
-				<label for="message">Votre Message :<textarea name="message" placeholder="Bonjour.."></textarea></label>
-				<button type="submit" name="sent">Envoyer</button>
-			</form>
-
-		</div>
-	</div>
-
-	<footer>
-		<button class="retour">Retour en haut</button>
-		<div class="container">
-			<p>©2016 - CrescendO Joeuf® . Credits : <?php
-														echo "<ul>";
-																											
-														foreach ($data['options'][0]['copyrights'] as $value) {
-															echo "<li>".$value."</li>";
-														}
-														
-														echo "</ul>";
-													?> </p>
 
 <?php $this->stop('main_content') ?>
