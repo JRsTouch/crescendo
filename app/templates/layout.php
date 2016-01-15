@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<?php 
 		if ($layout_display['ismain'] && $layout_display['form']) {
 			?>
@@ -23,6 +25,7 @@
 			<?php
 		}
 	 ?>
+
 
 </head>
 <body>
@@ -52,6 +55,7 @@
 		} else if (!$layout_display['ismain']){
 			?>
 				<header>
+
 					<div class="container">
 
 						<h1><?php echo $layout_data[0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 

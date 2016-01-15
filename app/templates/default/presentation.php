@@ -5,12 +5,11 @@
 
 	<div id="presentation">
 		<div class="container">
-		<?= $data['options'][0]['description'] ?>
-		<?= $data['options'][0]['description2'] ?>
-		<?= $data['options'][0]['description3'] ?>
-		<?= $data['options'][0]['description4'] ?>
-	
-
+			<h2>Présentation</h2>
+			<?= $data['options'][0]['description'] ?>
+			<?= $data['options'][0]['description2'] ?>
+			<?= $data['options'][0]['description3'] ?>
+			<?= $data['options'][0]['description4'] ?>
 		</div>
 	</div>
 	
