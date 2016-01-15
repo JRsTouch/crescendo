@@ -51,7 +51,7 @@
 			}
 			?>
 			
-			<a href="<?= $this->url('presse') ?>">Plus D'articles</a>
+			<a href="<?= $this->url('presse') ?>">Plus d'articles</a>
 
 		</div>
 	</section>
@@ -63,7 +63,7 @@
 				<ul class="slides">
 				<?php foreach ($data['videos'] as $key => $value): ?>
 					<li>
-						<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="1024" height="616" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">
+						<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="640" height="385" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">
 							<param name="allowFullScreen" value="true" />
 							<param name="allowscriptaccess" value="always" />
 							<param name="src" value="<?= $value['url'] ?>&amp;hl=fr_FR&amp;fs=1" />
@@ -82,7 +82,7 @@
 	<div id="photo">
 		<div class="container">
 			<h2>Photos</h2>
-			<div class="flexslide" id="carousel">
+			<div class="flexslider" id="carousel">
 				<ul class="slides">
 				<?php foreach ($data['images'] as $key => $value): ?>
 					<li>
@@ -109,6 +109,7 @@
 	</div>
 
 	<footer>
+		<button class="retour">Retour en haut</button>
 		<div class="container">
 			<p>©2016 - CrescendO Joeuf® . Credits : <?php
 														echo "<ul>";
