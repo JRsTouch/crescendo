@@ -10,21 +10,22 @@ class DefaultController extends Controller
 	/**
 	 * Page d'accueil par défaut
 	 */
-	public function home()
-	{
+
+	public function home(){
 
 		$data = array();
 		$data['options'] = $this->getOptions();
 		$data['actus'] = $this->getActus();
 		$data['videos'] = $this->getVideos();
 		$data['images'] = $this->getImages();
-
-		$this->show('default/home' , ['data' => $data ]);
-
+		$layout = array(
+						'ismain'	=>	true,
+						'form'		=>	true,
+						);
+		$this->show('default/home' , ['data' => $data, 'layout'=> $layout ] );
 	}
 
-	public function getOptions()
-	{
+	public function getOptions(){
 
 		$optionsManager = new \Manager\OptionsManager();
 		$options = $optionsManager->findAll();
@@ -33,30 +34,24 @@ class DefaultController extends Controller
 
 		
 		return $options;
-
 	}
 
-	public function getVideos()
-	{
+	public function getVideos(){
 
 		$videosManager = new \Manager\VideosManager();
 		$video = $videosManager->findLimit(3);
 
 		return $video;
-	
 	}
 
 	public function getImages(){
-
 		$imagesManager = new \Manager\ImagesManager();
 		$images = $imagesManager->getLastImages();
 
 		return $images;
-
 	}
 
-	public function getActus()
-	{
+	public function getActus(){
 		$newsManager = new \Manager\NewsManager();
 		$presseManager = new \Manager\PresseManager();
 
@@ -95,16 +90,6 @@ class DefaultController extends Controller
 		$actusTable = array_reverse ($actusTable);
 
 		return $actusTable;
-
-	}
-	
-	public function getHeader()
-	{
-		$manager = new \Manager\OptionsManager();
-		$header = $manager->getBDDheader();
-		//$this->show('default/header', ['header' => $header]);
-		return $header;
-
 	}
 
 	public function presentation(){
@@ -112,14 +97,24 @@ class DefaultController extends Controller
 		$data['options'] = $this->getOptions();
 		$optionsmanager = new \Manager\OptionsManager();
 		$options = $optionsmanager->findAll();
+		$layout = array(
+						'ismain'	=>	false,
+						'form'		=>	true,
+						);
 
-		$this->show('default/presentation', ['data' => $data]);
+		$this->show('default/presentation', ['data' => $data, 'layout' => $layout]);
 	}
 
 	public function presse() {
+		$data = array();
+		$data['options'] = $this->getOptions();
 		$presseManager = new \Manager\PresseManager();
 		$articles = $presseManager->getAllPresse();
-		$this->show('default/presse', ['articles' => $articles]);
+		$layout = array(
+						'ismain'	=>	false,
+						'form'		=>	false,
+						);
+		$this->show('default/presse', ['articles' => $articles, 'data' => $data, 'layout' => $layout]);
 	}
 
 	public function contact(){
@@ -165,7 +160,36 @@ class DefaultController extends Controller
 		# fin du script
 		$result = ["success"=>$success,"errors"=>$errors];
 		echo json_encode($result);
+	}
 
+	public function getAllVideos(){
+
+
+		$videoManager = new \Manager\VideosManager();
+		$videos = $videoManager->findAll();
+		$data = array();
+		$data['options'] = $this->getOptions();
+		$layout = array(
+						'ismain'	=>	false,
+						'form'		=>	false,
+						);
+
+		$this->show('default/videos' , ['videos' => $videos, 'data' => $data, 'layout' => $layout ]);
+	}
+
+	public function getAllImages(){
+
+		$imagesManager = new \Manager\ImagesManager();
+
+		$images = $imagesManager->findAll();
+		$data = array();
+		$data['options'] = $this->getOptions();
+		$layout = array(
+						'ismain'	=>	false,
+						'form'		=>	false,
+						);
+
+		$this->show('default/images' , ['images' => $images, 'data' => $data, 'layout' => $layout ]);
 	}
 
 }

@@ -11,7 +11,12 @@ class ImagesController extends Controller{
 		$imagesManager = new \Manager\ImagesManager();
 
 		$images = $imagesManager->findAll();
+		$layout = array(
+						'ismain'	=>	false,
+						'form'		=>	false,
+						);
+		$this->layout('layout',['layout'=> $layout, 'layout_data' => $data['options'] ]);
 
-		$this->show('default/images' , ['images' => $images ]);
+		$this->show('layout' , ['images' => $images ]);
 	}
 }

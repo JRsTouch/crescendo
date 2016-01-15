@@ -12,6 +12,12 @@ class VideosController extends Controller{
 
 		$videos = $videoManager->findAll();
 
-		$this->show('default/videos' , ['videos' => $videos ]);
+		$layout = array(
+						'ismain'	=>	false,
+						'form'		=>	false,
+						);
+		$this->layout('layout',['layout'=> $layout, 'layout_data' => $data['options'] ]);
+
+		$this->show('layout' , ['videos' => $videos ]);
 	}
 }

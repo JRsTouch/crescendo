@@ -1,9 +1,7 @@
-<?php $this->layout('layout', ['title' => 'Articles de presse']); //permet d'afficher le layout.php ?> 
+<?php $this->layout('layout', ['title' => 'Articles de presse','layout_data' => $data['options'] , 'layout_display' => $layout ]); //permet d'afficher le layout.php ?> 
 
 <?php $this->start('main_content');//Il faut placer entre start et stop le main content ?>
 
-<a href="<?php echo $this->url('home');?>">Home</a> 
-	
 	<div id="presse">
 		<div class="container">
 		<?php foreach ($articles as $article) {
@@ -13,5 +11,6 @@
 		?>
 
 		</div>
+	</div>
 
 <?php $this->stop('main_content'); ?>

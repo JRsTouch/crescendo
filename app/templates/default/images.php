@@ -1,4 +1,4 @@
-<?php $this->layout('images', ['title' => 'Images !']) ?>
+<?php $this->layout('images', ['title' => 'Images !','layout_data' => $data['options'] , 'layout_display' => $layout ]) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -13,8 +13,6 @@
 			
 		<?php endforeach ?>
 	</ul>
-
-	<a href="<?= $this->url('home') ?>">Retour a l'accueil !</a>
 
 
 <?php $this->stop('main_content') ?>
