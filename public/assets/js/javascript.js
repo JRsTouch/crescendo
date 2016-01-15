@@ -71,4 +71,19 @@ $(function(){
 		return false;
 	
 	});
+
+	$('#actusslide article').on('mouseenter', function(){
+		$(this).find('.infoactu').animate({
+			top: '0',
+			height: '100%',
+		}, 500);
+	});
+
+	$('#actusslide article').on('mouseleave', function(){
+		$('.infoactu').animate({
+			top: '190px',
+			height: 'auto',
+		}, 500);
+	});
+
 });

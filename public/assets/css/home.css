@@ -39,10 +39,17 @@ nav {
     padding-right: 32px; }
     nav ul li a {
       text-decoration: none;
+<<<<<<< HEAD
       color: white;
       padding: 8px; }
       nav ul li a:hover {
         background-color: #181540;
+=======
+      color: white; }
+      nav ul li a:hover {
+        background-color: #181540;
+        padding: 10px;
+>>>>>>> david-actus
         border-radius: 5px; }
     nav ul li:last-of-type::after {
       content: "*";
@@ -90,6 +97,7 @@ nav {
 #video {
   background-color: #584ee6;
   height: 550px; }
+<<<<<<< HEAD
   #video a {
     text-decoration: none;
     color: white; }
@@ -99,6 +107,8 @@ nav {
       text-align: center;
       float: right;
       margin-top: 50px; }
+=======
+>>>>>>> david-actus
 
 #photo {
   background-color: #393294;
@@ -106,7 +116,11 @@ nav {
 
 #contact {
   background-color: #201c54;
+<<<<<<< HEAD
   height: 540px; }
+=======
+  height: 640px; }
+>>>>>>> david-actus
 
 article {
   width: 320px;
@@ -116,6 +130,7 @@ article {
   margin: 30px; }
   article img {
     width: 320px;
+<<<<<<< HEAD
     height: 320px; }
   article h3 {
     position: absolute;
@@ -128,19 +143,32 @@ article {
   article a {
     text-decoration: none;
     color: white;
+=======
+    margin-bottom: 0; }
+  article div {
+    width: 100%;
+    height: 240px;
+>>>>>>> david-actus
     position: absolute;
-    top: 290px;
-    right: 20px; }
-    article a::before {
-      content: " + ";
-      color: white; }
-  article::after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0; }
+    top: 0;
+    overflow: hidden; }
+    article div div {
+      background-color: rgba(102, 88, 206, 0.7);
+      height: auto;
+      position: absolute;
+      top: 190px; }
+      article div div h3 {
+        width: 300px;
+        padding-left: 20px;
+        padding-top: 15px; }
+      article div div a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        text-align: right; }
+        article div div a::before {
+          content: " + ";
+          color: white; }
 
 section > .container > a {
   text-decoration: none;
@@ -164,6 +192,12 @@ h2 {
   text-align: center;
   border: none;
   margin-bottom: 0; }
+<<<<<<< HEAD
+=======
+  .flexslider li p {
+    padding-top: 15px;
+    font-size: 20px; }
+>>>>>>> david-actus
 
 @font-face {
   font-family: "AnabelleScript";
@@ -218,16 +252,24 @@ textarea {
   resize: none;
   font-family: "PT Sans", sans-serif;
   font-size: 14px;
+<<<<<<< HEAD
   padding: 5px;
   border: none;
   border-radius: 5px; }
+=======
+  padding: 5px; }
+>>>>>>> david-actus
 
 input[type="text"], input[type="email"] {
   background-color: #393294;
   border: 1px solid #1E1A4D;
   padding: 5px;
+<<<<<<< HEAD
   margin-left: 10px;
   border-radius: 5px; }
+=======
+  margin-left: 10px; }
+>>>>>>> david-actus
 
 form {
   padding-left: 200px;
@@ -243,10 +285,13 @@ form button {
   margin-left: 620px;
   text-transform: uppercase; }
 
+<<<<<<< HEAD
 footer {
   text-align: center;
   color: #6156FF; }
   footer ul li {
     list-style: none; }
 
+=======
+>>>>>>> david-actus
 /*# sourceMappingURL=home.css.map */

@@ -26,9 +26,15 @@
 					if( isset ($data['actus'][$i]) ) {
 						foreach ($data['actus'] as $i) {
 							echo '<li>';
-							echo "	<article><h3>".$i['titre'].
-									"</h3><img src=\"".$i['url']."\" alt=\"".$i['alt']."\" />".
-									"<p>".$i['extrait']."<a href=\""."lien de l'article"."\">Voir l'article</a></p>".
+							echo "	<article>".
+										"<img src=\"".$i['url']."\" alt=\"".$i['alt']."\" />".
+										"<div>".
+											"<div class='infoactu'>".
+												"<h3>".$i['titre']."</h3>".
+												"<p>".$i['extrait']."</p>".
+												"<a href=\""."lien de l'article"."\">Voir l'article</a>".
+											"</div>".
+										"</div>".
 									"</article>";
 							echo '</li>';
 							
@@ -81,6 +87,7 @@
 				<?php endforeach ?>			
 				</ul>
 			</div>
+			<a href="<?= $this->url('images') ?>">Toutes les photos</a>
 		</div>
 	</div>
 
