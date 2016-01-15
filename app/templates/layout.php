@@ -14,6 +14,5 @@
 	
 	<?= $this->section('main_content') ?>
 		
-	
 </body>
 </html>

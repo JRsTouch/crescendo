@@ -1,20 +1,30 @@
-<?php $this->layout('images', ['title' => 'Images !']) ?>
+<?php $this->layout('medias', ['title' => 'Images !']) ?>
 
 <?php $this->start('main_content') ?>
 
-	<div id="slider">
+	<div id="slider" class="view">
+
 		<a id="previous" href="" data-description="" data-alt="" data-index="">previous</a>
 		<a id="next" href="" data-description="" data-alt="" data-index="">next</a>
+
 	</div>
-	<ul>
-		<?php foreach($images as $key => $value): ?>
 
-			<li><a class="images" href="<?= $value['url'] ?>" data-description="<?= $value['description'] ?>" data-alt="<?= $value['description'] ?>" data-index="<?= $key ?>"><?= $value['alt'] ?></a></li>
-			
-		<?php endforeach ?>
-	</ul>
+	<main>
 
-	<a href="<?= $this->url('home') ?>">Retour a l'accueil !</a>
+		<div class="container">
+
+			<ul class="slider">
+				<?php foreach($images as $key => $value): ?>
+
+					<li><a class="images" href="<?= $value['url'] ?>" data-description="<?= $value['description'] ?>" data-alt="<?= $value['description'] ?>" data-index="<?= $key ?>"><?= $value['alt'] ?></a></li>
+					
+				<?php endforeach ?>
+			</ul>
+		
+		</div>
+
+	</main>
+
 
 
 <?php $this->stop('main_content') ?>

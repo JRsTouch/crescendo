@@ -6,7 +6,7 @@
 	
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/ajax.js') ?>"></script>
-	<link rel="stylesheet" href="<?= $this->assetUrl('css/images.css') ?>">
+	<link rel="stylesheet" href="<?= $this->assetUrl('css/medias.css') ?>">
 </head>
 <body>
 	
