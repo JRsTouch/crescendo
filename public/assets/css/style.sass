@@ -4,6 +4,7 @@
 
 body
 	color: white 
+	font-family: 'PT Sans', sans-serif
 
 .container
 	width: 1140px
@@ -15,6 +16,11 @@ body
 header 
 	margin-bottom: 0
 	background-color: #564ce1
+header img
+	margin-left: auto
+	margin-right: auto
+	display: block
+
 nav
 	background-color: #564ce1
 	padding: 10px
@@ -24,21 +30,26 @@ nav
 		li
 			list-style: none
 			display: inline
-			padding: 20px
+			font-family: 'Montserrat', sans-serif
+			text-transform: uppercase
+			padding-left: 42px
+			padding-right: 42px
 			a
 				text-decoration: none
 				color: white
 			&:last-of-type::after 
-				content: " *"
+				content: "*"
 				color: #ff4e6e
 
 #presentation
 	background-color: #393294
 	margin-top: 0
 	margin-bottom: 0
-	img, p
+	padding: 50px
+	img
 		width: 40%
 		padding: 5%
+		float: left
 	&::after
 		visibility: hidden
 		display: block
@@ -46,9 +57,22 @@ nav
 		content: " "
 		clear: both
 		height: 0
+	a
+		text-decoration: none
+		color: white
+		text-decoration: none
+		margin-left: 1000px
+		&::before 
+			content: " + " 
+	p
+		padding: 8px
+	ul li 
+		padding: 20px
+		text-transform: uppercase
 
 #actus 
 	background-color: #4e45cc
+	height: 500px
 
 #video
 	background-color: #584ee6
@@ -59,3 +83,51 @@ nav
 #contact
 	background-color: #201c54
 
+article 
+	width: 320px
+	height: 320px
+	float: left
+	position: relative
+	margin: 30px
+	img
+		width: 320px
+		height: 320px
+		float: left
+	h3 
+		position: absolute
+		height: 50px
+		width: 300px
+		background-color: rgba(102, 88, 206, 0.7)
+		top: 255px
+		padding-left: 20px
+		padding-top: 15px
+	a
+		text-decoration: none
+		color: white
+		position: absolute
+		top: 290px
+		right: 20px
+		&::before
+			content: " + "
+			color: white
+	&::after
+		visibility: hidden
+		display: block
+		font-size: 0
+		content: " "
+		clear: both
+		height: 0
+
+
+
+section>.container>a
+	text-decoration: none
+	color: white
+	margin-left: 1000px
+	&::after
+		visibility: hidden
+		display: block
+		font-size: 0
+		content: " "
+		clear: both
+		height: 0
