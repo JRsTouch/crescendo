@@ -2,6 +2,11 @@
 	margin: 0
 	padding: 0
 
+@font-face 
+	font-family: 'AnabelleScript'
+	src: url('../font/AnabelleScriptLight.ttf')  format('truetype')
+
+
 .container
 	width: 1140px
 	margin: auto
@@ -12,12 +17,19 @@ header
 	box-shadow: inset 0px -5px 10px #3D35AC
 	.container
 		h1
-			font-size: 40px
+			font-family: 'AnabelleScript'
+			font-size: 150px
 			text-align: center
+			text-shadow: 3px 2px 20px #765eba, 2px 2px #181540
 			color: white
 		a
 			display: block
 			text-align: center
+			color: white
+			text-decoration: none
+			&:hover
+				position: relative
+				top: -5px
 
 #presentation
 	width: 100%
@@ -32,40 +44,85 @@ header
 				margin: auto
 				width: 80%
 				height: auto
-				margin-bottom: 10px
+				margin-bottom: 60px
+			&:last-of-type
+				float: right
+				width: 50%
+				height: auto
+				margin-top: 40px
+				margin-right: 50px
 		h2
 			font-family: 'Montserrat', sans-serif
 			text-align: center
 			color: white
-			padding-top: 10px
-			padding-bottom: 10px
+			padding-top: 40px
+			padding-bottom: 40px
 		p
 			text-align: justify
 			&:not:last-of-type
-				margin-bottom: 10px
+				margin-bottom: 40px
+			&:last-of-type
+				padding-bottom: 80px
 			strong
 				text-shadow: 1px 1px 1px #29237B 
 			em
 				font-weight: normal
 		ul
+			margin-top: 40px
+			margin-bottom: 80px
 			li
+				list-style-type: none
 		aside
 			dl
+				padding-left: 50px
+				margin-bottom: 80px
 				dt
 				dd
+					padding-left: 30px
+					font-style: italic
 #contact
 	width: 100%
 	background-color: #201c54
 	box-shadow: inset 0px 3px 10px #13103B,inset 0px -5px 10px #13103B
+	padding-top: 60px
 	.container
 		h2
 			font-family: 'Montserrat', sans-serif
 			text-align: center
 			color: white
 		form
+			padding-left: 200px
+			padding-top: 30px
 			label
-				input
+				text-transform: uppercase
+				padding-right: 10px
+
+				input[type="text"], input[type="email"] 
+					background-color: #393294
+					border: 1px solid #1E1A4D
+					padding: 5px
+					margin-left: 10px
+
+			textarea
+				width: 680px
+				height: 250px
+				margin-top: 50px
+				background-color: #393294
+				color: white 
+				resize: none
+				font-family: 'PT Sans', sans-serif
+				font-size: 14px 
+				padding: 5px
 			button
+				border: none
+				padding: 8px
+				background-color: #393294
+				color: white 
+				display: block
+				margin-top: 8px
+				margin-left: 620px
+				text-transform: uppercase
+				
 #footer
 	.container
 		p
