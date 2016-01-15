@@ -1,5 +1,5 @@
 
-<?php $this->layout('images', ['title' => 'Images !','layout_data' => $data['options'] , 'layout_display' => $layout ]) ?>
+<?php $this->layout('layout', ['title' => 'Images !','layout_data' => $data['options'] , 'layout_display' => $layout ]) ?>
 
 
 <?php $this->start('main_content') ?>
@@ -23,7 +23,7 @@
 				<?php endforeach ?>
 			</ul>
 		
-		</div>
+		</div><div class="clearfix"></div>
 
 	</main>
 

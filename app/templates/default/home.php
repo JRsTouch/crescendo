@@ -18,22 +18,27 @@
 
 			<h2>Actualités de presse</h2>
 
-
-			<?php
-			
-			for ($i=0; $i <9 ; $i++) { 
-				if( isset ($data['actus'][$i]) ) {
-					foreach ($data['actus'] as $i) {
-						echo "	<article><h3>".$i['titre'].
-								"</h3><img src=\"".$i['url']."\" alt=\"".$i['alt']."\" />".
-								"<p>".$i['extrait']."<a href=\""."lien de l'article"."\">Voir l'article</a></p>".
-								"</article>";
+			<div class="flexslider" id="actusslide">
+				<ul class="slides">
+				<?php
+				
+				for ($i=0; $i <9 ; $i++) { 
+					if( isset ($data['actus'][$i]) ) {
+						foreach ($data['actus'] as $i) {
+							echo '<li>';
+							echo "	<article><h3>".$i['titre'].
+									"</h3><img src=\"".$i['url']."\" alt=\"".$i['alt']."\" />".
+									"<p>".$i['extrait']."<a href=\""."lien de l'article"."\">Voir l'article</a></p>".
+									"</article>";
+							echo '</li>';
+							
+						}
 						
 					}
-					
 				}
-			}
-			?>
+				?>
+				</ul>
+			</div>
 			
 			<a href="<?= $this->url('presse') ?>">Plus D'articles</a>
 
@@ -56,17 +61,17 @@
 						</object>
 						<p><?= $value['description'] ?></p>
 					</li>
-				<?php endforeach ?>			
+				<?php endforeach ?>
 				</ul>
 			</div>
 			<a href="<?= $this->url('videos') ?>">Toutes les vidéos</a>
 		</div>
-	</div>
+	</div><div class="clearfix"></div>
 
 	<div id="photo">
 		<div class="container">
 			<h2>Photos</h2>
-			<div class="flexslide" id="carousel">
+			<div class="flexslider" id="carousel">
 				<ul class="slides">
 				<?php foreach ($data['images'] as $key => $value): ?>
 					<li>
