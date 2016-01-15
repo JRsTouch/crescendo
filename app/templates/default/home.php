@@ -84,30 +84,4 @@
 		</div>
 	</div>
 
-	<div id="contact">
-		<div class="container">
-			<h2>Nous contacter</h2>
-			<form action="<?= $this->url('contact') ?>" method="POST" accept-charset="utf-8">
-				<label for="name">Votre Nom :<input type="text" name="name" placeholder="Doe John"></label>
-				<label for="email">Votre Email :<input type="email" name="email" placeholder="Doe.john@crescendo.fr"></label>
-				<label for="message">Votre Message :<textarea name="message" placeholder="Bonjour.."></textarea></label>
-				<button type="submit" name="sent">Envoyer</button>
-			</form>
-
-		</div>
-	</div>
-
-	<footer>
-		<button class="retour">Retour en haut</button>
-		<div class="container">
-			<p>©2016 - CrescendO Joeuf® . Credits : <?php
-														echo "<ul>";
-																											
-														foreach ($data['options'][0]['copyrights'] as $value) {
-															echo "<li>".$value."</li>";
-														}
-														
-														echo "</ul>";
-													?> </p>
-
 <?php $this->stop('main_content') ?>
