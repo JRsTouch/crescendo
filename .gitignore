@@ -1,4 +1,5 @@
 /vendor/
+/public/assets/css/home.css
 /app/config.php
 /phpDocumentor.phar
 /public/assets/css/home.css
