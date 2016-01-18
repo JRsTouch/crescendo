@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Accueil des choristes !']); ?>
+<?php $this->layout('choristes', ['title' => 'Accueil des choristes !']); ?>
 
 <?php $this->start('main_content');  ?>
  
