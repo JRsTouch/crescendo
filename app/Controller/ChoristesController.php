@@ -29,4 +29,8 @@
 			
 			return $options;
 		}
+
+		public function chansons(){
+			
+		}
 	}
