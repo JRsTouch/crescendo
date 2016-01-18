@@ -13,9 +13,11 @@ $(function(){
 
 	$(window).load(function() {
 	  $('#slider').flexslider({
-	    animation: "slide"
+	    animation: "slide",
+	    slideshow: false
 	  });
 	});
+
 
 	$(window).load(function() {
 	  $('#carousel').flexslider({

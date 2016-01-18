@@ -35,19 +35,15 @@ nav {
     display: inline;
     font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
-    padding-left: 32px;
-    padding-right: 32px; }
+    padding-left: 25px;
+    padding-right: 25px; }
     nav ul li a {
       text-decoration: none;
-<<<<<<< HEAD
-      color: white; }
-=======
       color: white;
-      padding: 8px; }
->>>>>>> 6186f6425168bc6fbab016e923ff297d38fa869a
+      padding: 8px;
+      padding: 10px; }
       nav ul li a:hover {
         background-color: #181540;
-        padding: 10px;
         border-radius: 5px; }
     nav ul li:last-of-type::after {
       content: "*";
