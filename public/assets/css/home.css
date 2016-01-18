@@ -39,9 +39,17 @@ nav {
     padding-right: 25px; }
     nav ul li a {
       text-decoration: none;
+<<<<<<< HEAD
+      color: white; }
+=======
       color: white;
+<<<<<<< HEAD
       padding: 8px;
       padding: 10px; }
+=======
+      padding: 8px; }
+>>>>>>> 6186f6425168bc6fbab016e923ff297d38fa869a
+>>>>>>> d6e99132bdff4e8910b053b58fbc32266945430f
       nav ul li a:hover {
         background-color: #181540;
         border-radius: 5px; }
