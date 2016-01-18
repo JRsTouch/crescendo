@@ -1,5 +1,10 @@
 /vendor/
 /public/assets/css/home.css
+/public/assets/pdf/
+/public/assets/mp3/
+/public/assets/_pdf/
+/public/assets/_mp3/
+/public/assets/ogg/
 /app/config.php
 /phpDocumentor.phar
 /public/assets/css/home.css

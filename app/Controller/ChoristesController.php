@@ -42,4 +42,9 @@
 			$this->show('choristes/ajout_news');
 		}
 
+
+		public function chansons(){
+			
+		}
+
 	}
