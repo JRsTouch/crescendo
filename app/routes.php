@@ -15,11 +15,10 @@
 		
 		// Partie Privée
 		['GET', '/choristes', 'Choristes#Home', 'choristes_home'],
-<<<<<<< HEAD
-		['GET|POST', '/choristes/ajout_news', 'Choristes#Ajout', 'choriste_ajout_news']
-=======
+
+		['GET|POST', '/choristes/ajout_news', 'Choristes#Ajout', 'choriste_ajout_news'],
 		['GET', '/choristes/ajout_news', 'Choristes#Ajout', 'choristes_news'],
 		['GET', '/choristes/chansons', 'Choristes#Chansons', 'choristes_chansons'],
->>>>>>> julien-chansons
+
 
 	);
