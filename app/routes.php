@@ -7,8 +7,11 @@
 		['GET', '/presentation', 'Default#presentation', 'presentation'],
 		['GET', '/videos', 'Default#GetAllVideos', 'videos'],
 		['GET', '/images', 'Default#GetAllImages', 'images'],
+
 		['GET', '/presse', 'Default#presse', 'presse' ],
 		
 		// Partie Privée
 		['GET', '/choristes', 'Choristes#Home', 'choristes_home'],
+		['GET', '/choristes/ajout_news', 'Actus#Ajout', 'ajout_news']
+
 	);
