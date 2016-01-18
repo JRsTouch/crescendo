@@ -39,17 +39,10 @@ nav {
     padding-right: 32px; }
     nav ul li a {
       text-decoration: none;
-<<<<<<< HEAD
-      color: white;
-      padding: 8px; }
-      nav ul li a:hover {
-        background-color: #181540;
-=======
       color: white; }
       nav ul li a:hover {
         background-color: #181540;
         padding: 10px;
->>>>>>> david-actus
         border-radius: 5px; }
     nav ul li:last-of-type::after {
       content: "*";
