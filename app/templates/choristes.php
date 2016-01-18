@@ -6,6 +6,14 @@
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+<<<<<<< HEAD
+	<script src="<?= $this->assetUrl('js/jquery.flexslider.js') ?>"></script>
+</head>
+<body>
+
+	<?= $this->section('main_content') ?>
+
+=======
 	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/choristes_home.css') ?>">
 
 </head>
@@ -46,5 +54,6 @@
 				
 		</footer>
 
+>>>>>>> 7ef8aec5e9c863bed2f9a4b8de387f3605fd3642
 </body>
 </html>

@@ -5,11 +5,17 @@
 	use \W\Controller\Controller;
 
 	class ChoristesController extends Controller
-	{
+	{		
+
 		/**
 		 * Page d'accueil du coin choriste
 		 */
 
+		public function __construct(){
+		
+			$this->allowTo(['admin', 'user']);
+
+		}
 		
 		public function home()
 		{
@@ -30,8 +36,10 @@
 			return $options;
 		}
 
+
 		public function Ajout() {
 			
 			$this->show('choristes/ajout_news');
 		}
+
 	}
