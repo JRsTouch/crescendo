@@ -12,6 +12,6 @@
 		
 		// Partie Privée
 		['GET', '/choristes', 'Choristes#Home', 'choristes_home'],
-		['GET', '/choristes/ajout_news', 'Actus#Ajout', 'ajout_news']
+		['GET|POST', '/choristes/ajout_news', 'Choristes#Ajout', 'choriste_ajout_news']
 
 	);

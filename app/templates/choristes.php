@@ -18,7 +18,7 @@
 
 		<nav>
 			<ul>
-				<li><a href="">Actus</a></li>
+				<li><a href="/choristes/ajout_news">Actus</a></li>
 				<li><a href="">Chansons</a></li>
 				<li><a href="">Documents Bureau</a></li>
 				<li><a href="">Messagerie du site ()</a></li>

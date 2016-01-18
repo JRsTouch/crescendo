@@ -29,4 +29,9 @@
 			
 			return $options;
 		}
+
+		public function Ajout() {
+			
+			$this->show('choristes/ajout_news');
+		}
 	}

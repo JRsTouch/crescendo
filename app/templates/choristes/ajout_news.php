@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'Ajout de News']); ?>
+<?php $this->layout('choristes', ['title' => 'Ajout de News']); ?>
 
 <?php $this->start('main_content');  ?>
  	
@@ -9,19 +9,9 @@
  		<label> Description </label><br>
  		<textarea name="description" required></textarea><br>
 		Sélectionner le fichier : <input name="my-file" type="file" /><br>
-		<input type="text" name="alt" value="" placeholder="description de l'image"><br>
+		<input type="text" name="alt" value="" placeholder="description succinte de l'image"><br>
+		<input type="text" name="desc_img" value="" placeholder="description complète de l'image"><br>
 		<input type="submit" value="Envoyer le fichier" />
 	</form>
 
-<?php $this->stop('main_content'); 
-
-		$titre = $_POST['titre'];
-		$description = $_POST['description'];
-		$alt_img = $_POST['alt'];
-
-
-
-
-
-
-?>
+<?php $this->stop('main_content'); ?>
