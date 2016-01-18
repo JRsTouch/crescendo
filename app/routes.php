@@ -11,6 +11,8 @@
 
 		['GET', '/choristes', 'Choriste#Home', 'choristes_home'],
 
-		['GET', '/presse', 'Default#presse', 'presse' ]
+		['GET', '/presse', 'Default#presse', 'presse' ],
+		
+		['GET', '/choristes/ajout_news', 'Actus#Ajout', 'ajout_news']
 
 	);
