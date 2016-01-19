@@ -13,15 +13,16 @@
 
 		public function __construct(){
 		
-			$this->allowTo(['admin', 'user']);
+			$this->allowTo(['admin', 'choriste', 'chef', 'gestion', 'bureau']);
 
 		}
 		
 		public function home()
 		{
-			
+	
 			$data = array();
 			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
 			$layout = array();
 			$this->show('choristes/home',['data' => $data, 'layout'=> $layout ]);
 		}
@@ -66,6 +67,7 @@
 			    	//die();
 			    }
 
+
 			    $path = '../public/assets/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
 				$moved = move_uploaded_file($_FILES['my-file']['tmp_name'], $path);
 				if(!$moved) {
@@ -100,4 +102,14 @@
 				
 			$this->show('choristes/ajout_news');
 		}
+
+		public function calendar(){
+
+			$calendarManager = new \Manager\CalendarsManager();
+			
+			$calendarManager->findAll();
+
+
+		}
+
 	}
