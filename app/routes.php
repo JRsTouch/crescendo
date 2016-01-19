@@ -10,11 +10,14 @@
 		['GET', '/presse', 'Default#presse', 'presse' ],
 
 		['GET|POST', '/login', 'Users#Login', 'users_login'],
-		['GET', '/inscription', 'Users#Inscription', 'users_inscription'],
+		['GET|POST', '/inscription', 'Users#Register', 'users_inscription'],
 		['GET', '/resetpass', 'Users#Reset', 'users_reset'],
+		['GET', '/logout', 'Users#Logout', 'users_logout'],
+		['GET', '/validate', 'Users#toBeValidate', 'users_Validate'],
 		
 		// Partie Privée
 		['GET', '/choristes', 'Choristes#Home', 'choristes_home'],
+		['GET', '/calendar', 'Choristes#Calendar', 'choristes_calendar'],
 
 		['GET|POST', '/choristes/ajout_news', 'Choristes#Ajout', 'choriste_ajout_news'],
 		['GET', '/choristes/ajout_news', 'Choristes#Ajout', 'choristes_news'],
