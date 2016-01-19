@@ -8,10 +8,7 @@
 	<script src="<?= $this->assetUrl('js/calendar.js') ?>"></script>
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD
-=======
 	<link href="<?= $this->assetUrl('css/jquery-ui.css') ?>" rel="stylesheet">
->>>>>>> david-users
 	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/choristes_home.css') ?>">
 </head>
 
@@ -28,21 +25,10 @@
 
 		<nav>
 			<ul>
-<<<<<<< HEAD
-
-				<li><a href="<?=$this->url('choriste_ajout_news') ?>">Actus</a></li>
+				<li><a href="<?= $this->url('choristes_ajout_news') ?>">Actus</a></li>
 				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a></li>
-				<li><a href="">Documents Bureau</a></li>
-				<li><a href="">Messagerie du site ()</a></li>
-				<li><a href="">Gestion Chanson</a></li>
-				<li><a href="">Gestion Répetition</a></li>
-				<li><a href="">Gestion Contenu</a></li>
-				<li><a href="">Gestion Profils</a></li>
-=======
-				<li><a href="/choristes/ajout_news">Actus</a></li>
-
-				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a></li>
-
+				<li><a href="">Membres</a></li>
+				
 				<?php if($user['role'] == 'bureau' || $user['role'] == 'chef' || $user['role'] == 'admin'): ?>
 					<li><a href="">Documents Bureau</a></li>				
 
@@ -50,7 +36,7 @@
 				<?php endif ?>
 				
 				<?php if($user['role'] == 'chef' || $user['role'] == 'admin'): ?>
-					<li><a href="">Gestion Chanson</a></li>				
+					<li><a href="<?= $this->url('choristes_chansons_ajout') ?>">Gestion Chanson</a></li>				
 
 					<li><a href="">Gestion Répetition</a></li>
 				<?php endif ?>
@@ -64,7 +50,7 @@
 				<?php endif ?>
 				
 
->>>>>>> david-users
+
 			</ul>
 		</nav>
 
@@ -84,9 +70,6 @@
 														?> </p>
 				
 		</footer>
-<<<<<<< HEAD
 
-=======
->>>>>>> david-users
 </body>
 </html>
