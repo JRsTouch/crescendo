@@ -6,17 +6,10 @@
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-<<<<<<< HEAD
-	<script src="<?= $this->assetUrl('js/jquery.flexslider.js') ?>"></script>
-</head>
-<body>
-
-	<?= $this->section('main_content') ?>
-
-=======
 	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/choristes_home.css') ?>">
 
 </head>
+
 <body>
 	<div id="container">
 		
@@ -26,13 +19,9 @@
 
 		<nav>
 			<ul>
-<<<<<<< HEAD
-				<li><a href="/choristes/ajout_news">Actus</a></li>
-				<li><a href="">Chansons</a></li>
-=======
-				<li><a href="">Actus</a></li>
+
+				<li><a href="<?=$this->url('choriste_ajout_news') ?>">Actus</a></li>
 				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a></li>
->>>>>>> julien-chansons
 				<li><a href="">Documents Bureau</a></li>
 				<li><a href="">Messagerie du site ()</a></li>
 				<li><a href="">Gestion Chanson</a></li>
@@ -59,6 +48,5 @@
 				
 		</footer>
 
->>>>>>> 7ef8aec5e9c863bed2f9a4b8de387f3605fd3642
 </body>
 </html>

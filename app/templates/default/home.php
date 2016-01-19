@@ -81,7 +81,7 @@
 				<ul class="slides">
 				<?php foreach ($data['images'] as $key => $value): ?>
 					<li>
-						<img src="<?= $value['url'] ?>" alt="<?= $value['alt'] ?>">
+						<img src="<?= $this->assetUrl($value['url']) ?>" alt="<?= $value['alt'] ?>">
 						<p><?= $value['description'] ?></p>
 					</li>
 				<?php endforeach ?>			

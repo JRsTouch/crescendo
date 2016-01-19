@@ -53,10 +53,10 @@ class DefaultController extends Controller
 
 	public function getActus(){
 		$newsManager = new \Manager\NewsManager();
-		$presseManager = new \Manager\PresseManager();
+		$pressesManager = new \Manager\PressesManager();
 
 		$news = $newsManager->getLastNews();
-		$presse = $presseManager->getLastPresse();
+		$presse = $pressesManager->getLastPresses();
 
 		$actusTable = array();
 
@@ -108,8 +108,8 @@ class DefaultController extends Controller
 	public function presse() {
 		$data = array();
 		$data['options'] = $this->getOptions();
-		$presseManager = new \Manager\PresseManager();
-		$articles = $presseManager->getAllPresse();
+		$presseManager = new \Manager\PressesManager();
+		$articles = $presseManager->getAllPresses();
 		$layout = array(
 						'ismain'	=>	false,
 						'form'		=>	false,
