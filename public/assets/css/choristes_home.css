@@ -17,6 +17,10 @@ body main {
   height: 900px;
   float: right;
   border: 1px solid black; }
+  body main #ajout_chanson fieldset fieldset {
+    box-sizing: border-box;
+    width: 33%;
+    float: left; }
 body footer {
   width: 100%;
   border: 1px solid black; }
