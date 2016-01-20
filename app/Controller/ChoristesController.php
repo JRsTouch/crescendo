@@ -65,6 +65,10 @@
 		 * Envoi à view.
 		**/
 		public function addNewsActus(){
+			$layout = array();
+			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
 			if(isset($_POST['sent'])) {
 
 				/* Upload images */
@@ -134,7 +138,7 @@
 				} 
 			}
 				
-			$this->show('choristes/ajout_news');
+			$this->show('choristes/ajout_news',['data'=>$data, 'layout'=>$layout]);
 
 		}
 
@@ -166,6 +170,8 @@
 			$title = "";
 				// Données à envoyer au layout
 			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
 				// Données concernant la mise en page du layout ( feuilles de styles dynamiques, balises meta...)
 			$layout = array();
 				// Valeur de $pupitre dépendant de l'étape du formulaire

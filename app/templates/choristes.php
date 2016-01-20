@@ -31,7 +31,7 @@
 				<li><a href="">Membres</a></li>
 				
 				<!-- Partie accessible à partir du membre du CA  -->
-				<?php if($user['role'] == 'bureau' || $user['role'] == 'gestion' || $user['role'] == 'chef' || $user['role'] == 'admin'): ?>
+				<?php if( $user['role'] == 'bureau' || $user['role'] == 'gestion' || $user['role'] == 'chef' || $user['role'] == 'admin'): ?>
 					<li><a href="">Documents Bureau</a></li>				
 					<li><a href="">Messagerie du site ()</a></li>
 				<?php endif ?>
