@@ -138,15 +138,18 @@ article {
     overflow: hidden; }
     article div div {
       background-color: rgba(102, 88, 206, 0.7);
-      height: auto;
+      height: 240px;
       position: absolute;
-      top: 190px; }
+      top: 195px; }
       article div div h3 {
         width: 300px;
         padding-left: 20px;
         padding-top: 15px; }
       article div div a {
         text-decoration: none;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
         color: white;
         display: block;
         text-align: right; }
