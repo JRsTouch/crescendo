@@ -1,6 +1,6 @@
 $(function(){
 
-	$(window).load(function() {
+	$(window).load(function() { // slider des actualités
 	  $('#actusslide').flexslider({
 		   animation: "slide",
 	    animationLoop: false,
@@ -11,7 +11,7 @@ $(function(){
 	  });
 	});
 
-	$(window).load(function() {
+	$(window).load(function() { // slider des vidéos
 	  $('#slider').flexslider({
 	    animation: "slide",
 	    slideshow: false
@@ -19,13 +19,13 @@ $(function(){
 	});
 
 
-	$(window).load(function() {
+	$(window).load(function() { // slider des images
 	  $('#carousel').flexslider({
 	    animation: "slide"
 	  });
 	});
 
-	$('button[name=sent]').on('click', function(){
+	$('button[name=sent]').on('click', function(){ // au click sur le boutton du formulaire on vérifie les champs avant de l'envoyer
 
 		$('form>label>p').remove();
 
@@ -74,16 +74,18 @@ $(function(){
 	
 	});
 
-	$('#actusslide article').on('mouseenter', function(){
+	$('#actusslide article').on('mouseenter', function(){ // quand la souris survol l'article le résumé apparait
+		$('.infoactu').stop( false, true );
 		$(this).find('.infoactu').animate({
 			top: '0',
 			height: '100%',
 		}, 500);
 	});
 
-	$('#actusslide article').on('mouseleave', function(){
+	$('#actusslide article').on('mouseleave', function(){ // quand la souris ne survol plus l'article, il disparait
+		$('.infoactu').stop( false, true );
 		$('.infoactu').animate({
-			top: '190px',
+			top: '195px',
 			height: 'auto',
 		}, 500);
 	});

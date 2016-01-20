@@ -7,16 +7,21 @@
 	class UsersController extends Controller
 	{
 
+		/**
+		* Login de l'utilisateur
+		* Affichage de la page des choriste
+		**/
+
 		public function login(){
 
 
 			$userLogin = new \W\Security\AuthentificationManager;
 
 			if($this->getuser() != NULL){
-				$this->redirectToRoute('choristes_home');
+				$this->redirectToRoute('choristes_home'); // si l'utilisateur est deja connecté on le renvoi vers le coin des choristes
 			}
 
-			if(isset($_POST['sent'])){
+			if(isset($_POST['sent'])){ // si il n'est pas connecté il arrive sur le formulaire de connexion ou il renseigne mail et mdp
 
 				$login = $_POST['login'];
 				$password = $_POST['password'];
@@ -43,11 +48,16 @@
 		}
 
 
+		/**
+		* Enregistrement d'un utilisateur
+		* @param array contenant les informations renseigné dans le formulaire
+		**/
+
 		public function register(){
 
 			$usersManager = new \manager\UsersManager();
 
-			if(isset($_POST['sent'])){
+			if(isset($_POST['sent'])){ // a la soumission du formulaire on insert les nouvelles données en BDD table user
 
 				$newUser = array(
 					'username' => $_POST['fname'].' '.$_POST['lname'],
@@ -66,6 +76,12 @@
 
 		}
 
+
+		/**
+		* Deconnexion de l'utilisateur
+		* Affichage de la page home
+		**/
+
 		public function logOut(){
 
 			$user = new \W\Security\AuthentificationManager();
@@ -73,6 +89,7 @@
 
 			$this->redirectToRoute('home');
 		}
+		
 
 		public function toBeValidate(){
 
