@@ -6,7 +6,8 @@
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<?php 
+	<?php
+		// Page d'accueil
 		if ($layout_display['ismain'] && $layout_display['form']) {
 			?>
 			<script src="<?= $this->assetUrl('js/jquery.flexslider.js') ?>"></script>
@@ -14,10 +15,12 @@
 			<link rel="stylesheet" href="<?= $this->assetUrl('css/home.css') ?>">
 			<script src="<?= $this->assetUrl('js/javascript.js') ?>"></script>
 			<?php
+		// Page présentation
 		} else if (!$layout_display['ismain'] && $layout_display['form']) {
 			?>
 			<link rel="stylesheet" href="<?= $this->assetUrl('css/presentation.css') ?>">
 			<?php
+		// Pages Presse, Images, Videos
 		} else if (!$layout_display['ismain'] && !$layout_display['form']) {
 			?>
 			<script src="<?= $this->assetUrl('js/ajax.js') ?>"></script>
@@ -31,6 +34,7 @@
 <body>
 	
 	<?php 
+		// Header de la page principale
 		if ($layout_display['ismain']) {
 			?>
 			<header>
@@ -52,6 +56,7 @@
 				</div>
 			</header>
 			<?php
+		// Header des autres pages
 		} else if (!$layout_display['ismain']){
 			?>
 				<header>
@@ -70,6 +75,7 @@
 
 
 	<?php
+		// Formulaire de contact sur : Page principale, Page présentation .
 		if($layout_display['form']){
 			?>
 

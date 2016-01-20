@@ -25,32 +25,32 @@
 
 		<nav>
 			<ul>
+				<!-- Certaines Partie du menu sont visibles par défaut, d'autres réservées à certains rangs -->
 				<li><a href="<?= $this->url('choristes_ajout_news') ?>">Actus</a></li>
 				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a></li>
 				<li><a href="">Membres</a></li>
 				
-				<?php if($user['role'] == 'bureau' || $user['role'] == 'chef' || $user['role'] == 'admin'): ?>
+				<!-- Partie accessible à partir du membre du CA  -->
+				<?php if($user['role'] == 'bureau' || $user['role'] == 'gestion' || $user['role'] == 'chef' || $user['role'] == 'admin'): ?>
 					<li><a href="">Documents Bureau</a></li>				
-
 					<li><a href="">Messagerie du site ()</a></li>
 				<?php endif ?>
 				
+				<!-- Partie reservée aux chefs de choeur -->
 				<?php if($user['role'] == 'chef' || $user['role'] == 'admin'): ?>
 					<li><a href="<?= $this->url('choristes_chansons_ajout') ?>">Gestion Chanson</a></li>				
-
 					<li><a href="">Gestion Répetition</a></li>
 				<?php endif ?>
 				
+				<!-- Partie reservée au gestionnaire de contenu -->
 				<?php if($user['role'] == 'gestion' ||$user['role'] == 'bureau' || $user['role'] == 'chef' || $user['role'] == 'admin'): ?>
 					<li><a href="">Gestion Contenu</a></li>
 				<?php endif ?>
 
+				<!-- Partie reservée à L'administrateur -->
 				<?php if($user['role'] == 'admin'): ?>
 					<li><a href="">Gestion Profils</a></li>
 				<?php endif ?>
-				
-
-
 			</ul>
 		</nav>
 

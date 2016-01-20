@@ -1,7 +1,9 @@
+// Normalisation des marges internes et externes
 *
 	margin: 0
 	padding: 0
 
+// Police integrée en local , elle ne concerne que le logo du site, donc indispensable, donc en local.
 @font-face 
 	font-family: 'AnabelleScript'
 	src: url('../font/AnabelleScriptLight.ttf')  format('truetype')
@@ -31,7 +33,7 @@ header
 				position: relative
 				top: -5px
 
-#presentation
+#presentation 
 	width: 100%
 	background-color: #393294
 	box-shadow: inset 0px 3px 10px #29237B,inset 0px -5px 10px #29237B
@@ -76,10 +78,11 @@ header
 			dl
 				padding-left: 50px
 				margin-bottom: 80px
-				dt
 				dd
 					padding-left: 30px
 					font-style: italic
+					
+// Formulaire de prise de contact avec Gestionnaire Communication de la chorale .
 #contact
 	width: 100%
 	background-color: #201c54
@@ -123,6 +126,10 @@ header
 				margin-left: 620px
 				text-transform: uppercase
 				
-#footer
-	.container
-		p
+footer
+	text-align: center
+	color: #6156FF
+	ul
+		li 
+			list-style: none
+	text-transform: uppercase

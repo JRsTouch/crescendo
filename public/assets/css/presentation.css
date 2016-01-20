@@ -115,4 +115,11 @@ header {
       margin-left: 620px;
       text-transform: uppercase; }
 
+footer {
+  text-align: center;
+  color: #6156FF;
+  text-transform: uppercase; }
+  footer ul li {
+    list-style: none; }
+
 /*# sourceMappingURL=presentation.css.map */

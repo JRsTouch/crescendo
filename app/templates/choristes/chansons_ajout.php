@@ -2,19 +2,9 @@
 
 <?php $this->start('main_content');  ?>
 	<main>	
-		
-		<?php
-			echo $_SESSION['song']['id'];
-			if ($count==0){
-
-				echo "<p>La Chanson à été correctement ajoutée au site !</p>";
-
-			}else{
-
-				$this->insert('choristes/chansons_ajout/step-'.$count); 
-			}
-
-		?>
+	
+		<!-- Récuperation du formulaire en fonction de l'étape d'enregistrement -->
+		<?php $this->insert('choristes/chansons_ajout/step-'.$count); ?>
  	
 	</main>
 

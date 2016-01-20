@@ -2,6 +2,7 @@
 
 <?php $this->start('main_content') ?>
 
+	<!-- Récuperation d'un partie de la présentation de la chorale en BDD, lien vers la presentation complète -->
 	<div id="presentation">
 		<div class="container">
 			<h2>Présentation</h2>
@@ -13,6 +14,7 @@
 		</div>
 	</div>
 	
+	<!-- Display en  slider des 9 dernieres actus , 3 par 3 , lien vers listes des actus publiques -->
 	<section id="actus">
 		<div class="container">
 
@@ -51,6 +53,7 @@
 		</div>
 	</section>
 
+	<!-- Display en slider des 9 dernières vidéos , 1 par 1 , lien vers listing des vidéos -->
 	<div id="video">
 		<div class="container">
 			<h2>Vidéos</h2>
@@ -74,6 +77,7 @@
 		</div>
 	</div><div class="clearfix"></div>
 
+	<!-- Display en slider des 9 dernières photos , 1 par 1 , lien vers listing des photos -->
 	<div id="photo">
 		<div class="container">
 			<h2>Photos</h2>

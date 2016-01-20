@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 	
-
+	<!-- Récupération de la présentation globale de la chorale , stockage en BDD -->
 	<div id="presentation">
 		<div class="container">
 			<h2>Présentation</h2>
