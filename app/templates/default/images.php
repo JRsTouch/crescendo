@@ -15,7 +15,7 @@
 
 		<div class="container">
 
-			<ul class="slider">
+			<ul class="slider"> <!-- Flexslider JS -->
 				<?php foreach($images as $key => $value): ?>
 
 					<li><a class="images" href="<?= $this->assetUrl($value['url']) ?>" data-description="<?= $value['description'] ?>" data-alt="<?= $value['description'] ?>" data-index="<?= $key ?>"><?= $value['alt'] ?></a></li>
