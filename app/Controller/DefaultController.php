@@ -14,10 +14,10 @@ class DefaultController extends Controller
 	public function home(){
 
 		$data = array();
-		$data['options'] = $this->getOptions();
-		$data['actus'] = $this->getActus();
-		$data['videos'] = $this->getVideos();
-		$data['images'] = $this->getImages();
+		$data['options'] = $this->getOptions(); 
+		$data['actus'] = $this->getActus(); //Actus presse et news
+		$data['videos'] = $this->getVideos(); //Contenu du flexslider video
+		$data['images'] = $this->getImages(); //Contenu du flexslider image 
 		$layout = array(
 						'ismain'	=>	true,
 						'form'		=>	true,
@@ -25,6 +25,11 @@ class DefaultController extends Controller
 		$this->show('default/home' , ['data' => $data, 'layout'=> $layout ] );
 	}
 
+
+	/**
+	 * Va chercher les options dans la BDD * 
+	 * @return options (array)
+	 **/
 	public function getOptions(){
 
 		$optionsManager = new \Manager\OptionsManager();
@@ -36,6 +41,11 @@ class DefaultController extends Controller
 		return $options;
 	}
 
+
+	/**
+	 * Va chercher les urls des vidéos YouTube dans la BDD 
+	 * @return options (array)
+	 **/
 	public function getVideos(){
 
 		$videosManager = new \Manager\VideosManager();
@@ -44,6 +54,11 @@ class DefaultController extends Controller
 		return $video;
 	}
 
+
+	/**
+	 * Va chercher les images dans la BDD  
+	 * @return images (array)
+	 **/
 	public function getImages(){
 		$imagesManager = new \Manager\ImagesManager();
 		$images = $imagesManager->getLastImages();
@@ -51,6 +66,11 @@ class DefaultController extends Controller
 		return $images;
 	}
 
+
+	/**
+	 * Va chercher les Actus dans la base presses ET la base news et les retourne par ordre chronologique décroissant 
+	 * @return actusTable (array)
+	 **/
 	public function getActus(){
 		$newsManager = new \Manager\NewsManager();
 		$pressesManager = new \Manager\PressesManager();
@@ -92,6 +112,11 @@ class DefaultController extends Controller
 		return $actusTable;
 	}
 
+
+	/**
+	 * Va chercher les options (enregistrements uniques) dans la BDD  
+	 * Pour les intégrer au Layout de la FrontPage
+	 **/
 	public function presentation(){
 		$data = array();
 		$data['options'] = $this->getOptions();
@@ -105,6 +130,11 @@ class DefaultController extends Controller
 		$this->show('default/presentation', ['data' => $data, 'layout' => $layout]);
 	}
 
+
+	/**
+	 * Va chercher tous les articles de presse  dans la BDD ainsi que les options 
+	 * Pour les intégrer au Layout de la page "presse" - options dans le footer
+	 **/
 	public function presse() {
 		$data = array();
 		$data['options'] = $this->getOptions();
@@ -117,18 +147,22 @@ class DefaultController extends Controller
 		$this->show('default/presse', ['articles' => $articles, 'data' => $data, 'layout' => $layout]);
 	}
 
+
+	/**
+	 * Gestion du formulaire de contact  
+	 **/
 	public function contact(){
 	  
-		# récupération des paramètres
+		// récupération des paramètres
 		$name = isset($_POST['name']) ? $_POST['name'] : ''; // champs name
 		$email = isset($_POST['email']) ? $_POST['email'] : ''; // champs email
 		$message = isset($_POST['message']) ? $_POST['message'] : ''; // champs message
 		  
-		# variables
+		// variables
 		$errors = []; // erreurs du script
 		$success = false; // est ce qu'il y'a une erreur ?
 		$min_characters = 50; // nombre de caractères minimum pour le champs messag
-		# traitement
+		// traitement
 		  
 		// suppression des espaces autour des chaînes
 		$name = trim($name);
@@ -142,7 +176,7 @@ class DefaultController extends Controller
 		if( filter_var($email, FILTER_VALIDATE_EMAIL) == false ){ $errors['email'] = "L'email saisi n'est pas valide"; }
 		if( strlen($message)<$min_characters ){ $errors['message'] = "La longueur du message doit être supérieure à ".$min_characters." caractères"; }
 
-		# si le tableau $errors est vide, alors l'opération est un success
+		// si le tableau $errors est vide, alors l'opération est un success
 		if( count($errors) == 0 ){
 		    $success = true;
 
@@ -162,8 +196,12 @@ class DefaultController extends Controller
 		echo json_encode($result);
 	}
 
-	public function getAllVideos(){
 
+	/**
+	 * Va chercher tous les liens de vidéos  dans la BDD ainsi que les options 
+	 * Pour les intégrer au Layout de la page "vidéos" - options dans le footer
+	 **/
+	public function getAllVideos(){
 
 		$videoManager = new \Manager\VideosManager();
 		$videos = $videoManager->findAll();
@@ -177,6 +215,11 @@ class DefaultController extends Controller
 		$this->show('default/videos' , ['videos' => $videos, 'data' => $data, 'layout' => $layout ]);
 	}
 
+
+	/**
+	 * Va chercher tous les liens d'images de la chorale  dans la BDD ainsi que les options 
+	 * Pour les intégrer au Layout de la page "images" - options dans le footer
+	 **/
 	public function getAllImages(){
 
 		$imagesManager = new \Manager\ImagesManager();

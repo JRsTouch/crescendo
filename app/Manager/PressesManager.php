@@ -3,6 +3,11 @@
 	namespace Manager;
 
 	class PressesManager extends \W\Manager\Manager{
+
+		/**
+	 	* Va chercher les derniers articles de presses et les images qui y sont liées en clé étrangère dans la BDD  
+	 	* @return (array)
+	 	*/
 		public function getLastPresses()
 			{
 				$presses = $this->table;
@@ -13,6 +18,11 @@
 				return $sth->fetchAll();
 			}
 
+
+		/**
+	 	* Va chercher tout le contenu des articles de presses dans la BDD  
+	 	* @return (array)
+	 	*/
 		public function getAllPresses() 
 		{	
 			$pdo = $this->dbh;
@@ -23,7 +33,13 @@
 		}
 
 
-		function insertArticle($titre, $description,$id_img) {
+		/**
+		* Insère le contenu du formulaire de la page /choristes/ajout_news en BackOffice et insère les données correspondantes dans la table Presses 
+		* @param titre : le titre de l'article de presse 
+		* @param description: le contenu de l'article'
+		* @param id_img: id_img est un paramètre qui vient d'une autre fonction (Image#InsertImage) et qui est une clé étrangère 
+ 		*/
+		public function insertArticle($titre, $description,$id_img) {
 
 			$sql = "INSERT INTO presses (`titre`, `description`, `extrait`, `id_image`, `date`) VALUES (:titre, :description, :extrait, :id_img , CURRENT_TIMESTAMP)";
 			$stmt = $this->dbh->prepare($sql);

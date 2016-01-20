@@ -14,8 +14,7 @@ footer
 	height: auto
 	margin-left: auto
 	margin-right: auto
-	//text-align: center
-
+	
 header 
 	margin-bottom: 0
 	background-color: #564ce1
@@ -47,12 +46,13 @@ nav
 				&:hover
 					background-color: #181540
 					border-radius: 5px
-			&:last-of-type::after 
+			&:last-of-type::after //Etoile qui signifie que le "coin choriste" est à part dans la navigation (requiert une connexion)
 				content: "*"
 				color: #ff4e6e
 
 
-#presentation
+//Div de présentation de la chorale 
+#presentation 
 	background-color: #393294
 	margin-top: 0
 	margin-bottom: 0
@@ -87,12 +87,16 @@ nav
 	ul
 		li 
 			margin-left: 20px
+
 			
+//Div des actus (presses et news) de la chorale
 #actus 
 	background-color: #4e45cc
 	height: 500px
 
-#video
+
+//flexslider avec intégration de liens YouTubes en BDD
+#video 
 	background-color: #584ee6
 	height: 550px
 	a 
@@ -105,11 +109,15 @@ nav
 			float: right 
 			margin-top: 50px
 
-#photo
+
+//Flexslider avec les images de la BDD
+#photo 
 	background-color: #393294
 	height: 640px
-	
-#contact
+
+
+//Formulaire de contact
+#contact 
 	background-color: #201c54
 	height: 540px
 
@@ -126,7 +134,7 @@ article
 		position: absolute
 		height: 50px
 		width: 300px
-		background-color: rgba(102, 88, 206, 0.7)
+		background-color: rgba(102, 88, 206, 0.7) 
 		top: 255px
 		padding-left: 20px
 		padding-top: 15px
@@ -188,12 +196,16 @@ h2
 			padding-top: 15px
 			font-size: 20px
 
+
+//Installation de police en local
 @font-face 
 	font-family: 'AnabelleScript'
 	src: url('../font/AnabelleScriptLight.ttf')  format('truetype')
 
 
-h1
+
+//Logo du header
+h1 
 	font-family: 'AnabelleScript'
 	font-size: 150px
 	position: absolute
@@ -225,6 +237,7 @@ h1
 .flex-viewport
 	text-align: center
 
+//flexslider des photos
 #carousel 
 	width: 640px
 	height: 385px
