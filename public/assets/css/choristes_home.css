@@ -26,10 +26,23 @@ body {
     float: right;
     border: 1px solid black;
     /* Formulaire d'ajout de chansons a la library des choristes */ }
+    body main #player {
+      display: none;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      width: 80%;
+      height: 100%;
+      z-index: 5; }
+      body main #player object {
+        display: block;
+        margin: auto;
+        margin-top: 5%; }
     body main #ajout_chanson fieldset fieldset {
       box-sizing: border-box;
       width: 33%;
       float: left; }
+    body main #tutti_song {
+      display: none; }
   body footer {
     width: 100%;
     border: 1px solid black; }
