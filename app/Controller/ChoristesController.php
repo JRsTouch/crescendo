@@ -149,7 +149,7 @@
 
 			$calendarManager = new \Manager\CalendarsManager();
 			
-			$calendarManager->findAll();
+			$calendarManager->findAllEvent();
 
 		}
 
@@ -394,5 +394,54 @@
 			$this->show('choristes/chansons_ajout',['count'=>$count, 'data' => $data, 'layout'=> $layout]);
 
 		}
+
+		public function repetitions(){
+
+			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
+			$layout = array();
+
+			if(isset($_POST['sent'])){
+				$event = array(
+						'heure' => $_POST['heure'],
+						'description' => $_POST['description'],
+						'day' => substr($_POST['date'], 8, 2),
+						'mounth' => substr($_POST['date'], 5, 2),
+						'year' => substr($_POST['date'], 0, 4),
+					);
+
+				$calendarsManager = new \Manager\CalendarsManager();
+
+				$calendarsManager->insert($event);
+			}
+
+			$this->show('choristes/repetitions', ['data' => $data, 'layout'=> $layout ]);
+		}
+
+		public function event(){
+
+			$calendarManager = new \Manager\CalendarsManager();
+			
+			echo json_encode($calendarManager->findAll());
+
+		}
+
+		public function membres(){
+
+			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
+			$layout = array();
+
+
+			$usersManager = new \Manager\UsersManager();
+
+			$membres = $usersManager->findAllOrder();
+
+
+			$this->show('choristes/membres', ['data' => $data, 'layout'=> $layout, 'membres' => $membres ]);
+		}
+
 
 	}

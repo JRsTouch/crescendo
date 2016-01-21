@@ -372,7 +372,7 @@ function Datepicker() {
 		prevText: "Prev", // Display text for previous month link
 		nextText: "Next", // Display text for next month link
 		currentText: "Today", // Display text for current month link
-		monthNames: ["Janvier","Février","Mai","Avril","Mai","Juin",
+		monthNames: ["Janvier","Février","Mars","Avril","Mai","Juin",
 			"Juillet","Aout","Septembre","Octobre","Novembre","Decembre"], // Names of months for drop-down and formatting
 		monthNamesShort: ["Jan", "Fev", "Mar", "Avr", "Mai", "Jui", "Jui", "Aou", "Sep", "Oct", "Nov", "Dec"], // For formatting
 		dayNames: ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"], // For formatting

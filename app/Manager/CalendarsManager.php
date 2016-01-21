@@ -4,7 +4,7 @@
 
 	class CalendarsManager extends \W\Manager\Manager{
 
-		public function findAll(){
+		public function findAllEvent(){
 
 			$day = $_GET['day'];
 			$mounth = $_GET['mounth'];

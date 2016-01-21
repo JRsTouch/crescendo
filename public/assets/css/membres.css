@@ -1,0 +1,33 @@
+body .pupitre .membre figure {
+  position: relative;
+  float: left;
+  width: 10%; }
+  body .pupitre .membre figure img {
+    display: block;
+    margin: auto; }
+  body .pupitre .membre figure .infos {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    margin-left: 20px;
+    overflow: hidden; }
+    body .pupitre .membre figure .infos div {
+      width: 100%;
+      height: 100%;
+      top: 150px;
+      position: absolute;
+      background-color: rgba(0, 68, 255, 0.5); }
+      body .pupitre .membre figure .infos div p {
+        margin-top: 10%;
+        text-align: center; }
+  body .pupitre .membre figure figcaption {
+    text-align: center; }
+body .clearfix {
+  height: 200px; }
+  body .clearfix::before {
+    content: " ";
+    display: block;
+    clear: both; }
+
+/*# sourceMappingURL=membres.css.map */

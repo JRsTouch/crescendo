@@ -19,12 +19,15 @@
 		// Partie Privée
 		['GET', '/choristes', 'Choristes#Home', 'choristes_home'],
 		['GET', '/calendar', 'Choristes#Calendar', 'choristes_calendar'],
+		['GET', '/event', 'Choristes#Event', 'choristes_event'],
 
 		['GET|POST', '/choristes/ajout_news', 'Choristes#addNewsActus', 'choristes_ajout_news'],
 
 		['GET', '/choristes/chansons', 'Choristes#Chansons', 'choristes_chansons'],
 		['GET', '/choristes/chansons/ajout', 'Choristes#Chansons_Ajout', 'choristes_chansons_ajout'],
 		['POST', '/choristes/chansons/ajout', 'Choristes#Chansons_Ajout', 'choristes_chansons_ajoute'],
+		['GET|POST', '/choristes/repetitions', 'Choristes#Repetitions', 'choristes_repetitions'],
+		['GET', '/choristes/membres', 'Choristes#Membres', 'choristes_membres'],
 
 
 	);
