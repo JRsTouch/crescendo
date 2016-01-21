@@ -28,5 +28,17 @@
 			return $sth->fetchAll();
 		}
 
+		/**
+		* Insère un lien youtube et sa description en BDD
+		* @param url = url de la video youtube
+		* @param description = description du contenu 
+		*/
+		public function insertVideosUrl ($url, $description) {
+			$sql = "INSERT INTO ". $this->table ."(`url`, `description`) VALUES (:url, :description)";
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->bindValue(':url', $url);
+			$stmt->bindValue(':description', $description);
+			$stmt->execute();		
+		}
 
 	}

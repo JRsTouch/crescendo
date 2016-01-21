@@ -52,4 +52,7 @@ body {
         color: white;
         text-align: center; }
 
+form#news, form#document, form#youtube, form#image {
+  display: none; }
+
 /*# sourceMappingURL=choristes_home.css.map */

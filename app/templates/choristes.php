@@ -6,6 +6,7 @@
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/jquery-ui.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/calendar.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/contenu.js') ?>" type="text/javascript" charset="utf-8" async defer></script>
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link href="<?= $this->assetUrl('css/jquery-ui.css') ?>" rel="stylesheet">
@@ -26,7 +27,7 @@
 		<nav>
 			<ul>
 				<!-- Certaines Partie du menu sont visibles par défaut, d'autres réservées à certains rangs -->
-				<li><a href="<?= $this->url('choristes_ajout_news') ?>">Actus</a></li>
+				<li><a href="<?= $this->url('choristes_actus') ?>">Actus</a></li>
 				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a></li>
 				<li><a href="">Membres</a></li>
 				
@@ -44,7 +45,7 @@
 				
 				<!-- Partie reservée au gestionnaire de contenu -->
 				<?php if($user['role'] == 'gestion' ||$user['role'] == 'bureau' || $user['role'] == 'chef' || $user['role'] == 'admin'): ?>
-					<li><a href="">Gestion Contenu</a></li>
+					<li><a href="<?= $this->url('choristes_ajout_contenu') ?>">Gestion Contenu</a></li>
 				<?php endif ?>
 
 				<!-- Partie reservée à L'administrateur -->

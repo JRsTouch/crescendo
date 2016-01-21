@@ -64,83 +64,6 @@
 		 * Ajout en BDD et Upload d'une Actu.
 		 * Envoi à view.
 		**/
-		public function addNewsActus(){
-			$layout = array();
-			$data = array();
-			$data['options'] = $this->getOptions();
-			$data['user'] = $this->getuser();
-			if(isset($_POST['sent'])) {
-
-				/* Upload images */
-				$alt_img = $_POST['alt'];
-				$desc_img  = $_POST['desc_img'];
-
-				$finfo = new \finfo(FILEINFO_MIME_TYPE);
-				// Récupération du Mime
-				$mimeType = $finfo->file($_FILES['my-file']['tmp_name']);
-
-				$extFoundInArray = array_search(
-			        $mimeType,
-			        array(
-			            'jpg' => 'image/jpeg',
-			            'png' => 'image/png',
-			            'gif' => 'image/gif',
-			            'bmp' => 'image/bmp'
-			        )
-			    );
-
-			    if ($extFoundInArray === false) { //Si le fichier envoyé n'est pas une image 
-			    	echo 'Le fichier n\'est pas une image';
-			    	//die();
-			    }
-
-
-			    //On renomme l'image et on l'envoie dans le bon dossier 
-			    $path = '../public/assets/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
-				$moved = move_uploaded_file($_FILES['my-file']['tmp_name'], $path);
-				if(!$moved) {
-					echo 'Erreur lors de l\'enregistrement';
-				}
-				
-				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en FrontOffice
-			    $path = '/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
-				$imagesManager = new \Manager\ImagesManager();
-				$id_img = $imagesManager->insertImage($path, $alt_img, $desc_img);
-
-				
-				if($_POST['table'] == 'Presse') { 
-					//Pour rentrer un article de presse dans la table Presses
-					$titre = $_POST['titre'];
-					$description = $_POST['description'];
-
-					$PressesManager = new \Manager\PressesManager();
-					$PressesManager->insertArticle($titre, $description,$id_img);
-					echo "<h2>votre formulaire a bien été envoyé !</h2>";
-					$this->show('choristes/home');
-
-				} else if ($_POST['table'] == 'News'){
-					//Pour rentrer une news dans la table news 
-					$titre = $_POST['titre'];
-					$description = $_POST['description'];
-					if($_POST['private'] == '1') { 
-						//Si la news n'est visible que pour les choristes en partie privée
-						$private = 1;
-					}	else if ($_POST['private'] == 0 ){ 
-						//Si la news est visible en display FrontOffice
-						$private = 0;
-					}
-
-					$NewsManager = new \Manager\NewsManager();
-					$NewsManager->insertArticle($titre, $description,$id_img, $private);
-					echo "<p>votre formulaire a bien été envoyé !</p>";
-					//Retour à la page d'accueil du coin choriste 
-					$this->show('choristes/home');
-				} 
-			}
-				
-			$this->show('choristes/ajout_news',['data'=>$data, 'layout'=>$layout]);
-
-		}
 
 		/**
 		 * AJAX : Recuperation des données BDD : Calendars
@@ -395,4 +318,195 @@
 
 		}
 
+		public function getActus() {
+			$actuManager = new \Manager\ActusManager;
+			$actus = $actuManager->getAllActus();
+			$this->show('choristes/actus', ['actus' => $actus]);
+		}
+
+		
+		public function gestionContenu() {
+			
+			$layout = array();
+			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
+
+
+			if(isset($_POST['documentsent'])) { //Si on soumet le formulaire #document
+			
+				$finfo = new \finfo(FILEINFO_MIME_TYPE);
+				// Récupération du Mime pour vérifier s'il est répertorié dans la liste des fichiers autorisés
+				$mimeType = $finfo->file($_FILES['document']['tmp_name']);
+
+				$extFoundInArray = array_search(
+			        $mimeType,
+			        array(
+			            'doc' => 'application/msword',
+			            'xls' => 'application/excel',
+			            'xls' => 'application/vnd.ms-excel',
+			            'xls' => 'application/x-excel',
+			            'xls' => 'application/x-msexcel',
+			            'txt' => 'text/plain',
+			            'odt' => 'application/vnd.oasis.opendocument.text',
+			            'pdf' => 'application/pdf'
+			        )
+			    );
+
+			    if ($extFoundInArray === false) { //Si le fichier envoyé n'est pas dans les types répertoriés
+			    	echo 'Le fichier n\'est pas au bon format. Formats acceptés: .doc, .xls, .odt, .txt, .pdf';
+			    	//die();
+			    }
+
+
+			    //On renomme le document et on l'envoie dans le bon dossier 
+			    $path = '../public/assets/docs/' .mb_strtolower(preg_replace('/[\s-]/','_',$_POST['titre'])). '.' . $extFoundInArray;
+				$moved = move_uploaded_file($_FILES['document']['tmp_name'], $path);
+				if(!$moved) {
+					echo 'Erreur lors de l\'enregistrement';
+				}
+				
+				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en BackOffice
+			    $url = '/docs/' .mb_strtolower(preg_replace('/[\s-]/','_',$_POST['titre'])). '.' . $extFoundInArray;
+				$documentManager = new \Manager\DocumentsManager();
+				$insertion = array (
+						'titre'		  => $_POST['titre'],
+						'description' => $_POST['description'],
+						'url' 		  => $url
+					);
+				$documentManager->insert($insertion);
+
+					echo "<p>votre formulaire a bien été envoyé !</p>";
+					//Retour à la page d'accueil du coin choriste 
+					$this->show('choristes/home');
+
+			} 
+
+			if(isset($_POST['youtubesent'])) { //Si on soumet le formulaire #youtube
+
+				$url = $_POST['url'];
+				$description = $_POST['description'];
+				$video = new \Manager\VideosManager;
+				$video->InsertVideosUrl($url, $description);
+
+				echo "<p>votre formulaire a bien été envoyé !</p>";
+				//Retour à la page d'accueil du coin choriste 
+
+				$this->show('choristes/home');
+
+			} 
+
+
+			if(isset($_POST['imagesent'])) { //Si on soumet le formulaire #image
+				/* Upload images */
+				$alt_img = $_POST['alt'];
+				$desc_img  = $_POST['desc_img'];
+
+				$finfo = new \finfo(FILEINFO_MIME_TYPE);
+				// Récupération du Mime
+				$mimeType = $finfo->file($_FILES['image']['tmp_name']);
+
+				$extFoundInArray = array_search(
+			        $mimeType,
+			        array(
+			            'jpg' => 'image/jpeg',
+			            'png' => 'image/png',
+			            'gif' => 'image/gif',
+			            'bmp' => 'image/bmp'
+			        )
+			    );
+
+			    if ($extFoundInArray === false) { //Si le fichier envoyé n'est pas une image 
+			    	echo 'Le fichier n\'est pas une image';
+			    	//die();
+			    }
+
+
+			    //On renomme l'image et on l'envoie dans le bon dossier 
+			    $path = '../public/assets/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+				$moved = move_uploaded_file($_FILES['image']['tmp_name'], $path);
+				if(!$moved) {
+					echo 'Erreur lors de l\'enregistrement';
+				}
+				
+				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en FrontOffice
+			    $path = '/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+				$imagesManager = new \Manager\ImagesManager();
+				$id_img = $imagesManager->insertImage($path, $alt_img, $desc_img);
+				echo "<p>votre formulaire a bien été envoyé !</p>";
+					//Retour à la page d'accueil du coin choriste 
+				$this->show('choristes/home');
+
+			} 
+
+			if(isset($_POST['newssent'])) {
+				/* Upload images */
+				$alt_img = $_POST['alt'];
+				$desc_img  = $_POST['desc_img'];
+
+				$finfo = new \finfo(FILEINFO_MIME_TYPE);
+				// Récupération du Mime
+				$mimeType = $finfo->file($_FILES['my-file']['tmp_name']);
+
+				$extFoundInArray = array_search(
+			        $mimeType,
+			        array(
+			            'jpg' => 'image/jpeg',
+			            'png' => 'image/png',
+			            'gif' => 'image/gif',
+			            'bmp' => 'image/bmp'
+			        )
+			    );
+
+			    if ($extFoundInArray === false) { //Si le fichier envoyé n'est pas une image 
+			    	echo 'Le fichier n\'est pas une image';
+			    	//die();
+			    }
+
+
+			    //On renomme l'image et on l'envoie dans le bon dossier 
+			    $path = '../public/assets/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+				$moved = move_uploaded_file($_FILES['my-file']['tmp_name'], $path);
+				if(!$moved) {
+					echo 'Erreur lors de l\'enregistrement';
+				}
+				
+				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en FrontOffice
+			    $path = '/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+				$imagesManager = new \Manager\ImagesManager();
+				$id_img = $imagesManager->insertImage($path, $alt_img, $desc_img);
+
+				
+				if($_POST['table'] == 'Presse') { 
+					//Pour rentrer un article de presse dans la table Presses
+					$titre = $_POST['titre'];
+					$description = $_POST['description'];
+
+					$PressesManager = new \Manager\PressesManager();
+					$PressesManager->insertArticle($titre, $description,$id_img);
+					echo "<h2>votre formulaire a bien été envoyé !</h2>";
+					$this->show('choristes/home');
+
+				} else if ($_POST['table'] == 'News'){
+					//Pour rentrer une news dans la table news 
+					$titre = $_POST['titre'];
+					$description = $_POST['description'];
+					if($_POST['private'] == '1') { 
+						//Si la news n'est visible que pour les choristes en partie privée
+						$private = 1;
+					}	else if ($_POST['private'] == 0 ){ 
+						//Si la news est visible en display FrontOffice
+						$private = 0;
+					}
+
+					$NewsManager = new \Manager\NewsManager();
+					$NewsManager->insertArticle($titre, $description,$id_img, $private);
+					echo "<p>votre formulaire a bien été envoyé !</p>";
+					//Retour à la page d'accueil du coin choriste 
+					$this->show('choristes/home'); //Si on soumet le formulaire #news
+				} 
+			} 
+			//Sinon on affiche la page de formulaire vierge avec le select
+			$this->show('choristes/ajout_contenu', ['data' => $data, 'layout'=> $layout ]);  
+		} 
 	}

@@ -25,6 +25,6 @@
 		['GET', '/choristes/chansons', 'Choristes#Chansons', 'choristes_chansons'],
 		['GET', '/choristes/chansons/ajout', 'Choristes#Chansons_Ajout', 'choristes_chansons_ajout'],
 		['POST', '/choristes/chansons/ajout', 'Choristes#Chansons_Ajout', 'choristes_chansons_ajoute'],
-
-
+		['GET', '/choristes/actus', 'Choristes#getActus', 'choristes_actus'],
+		['GET|POST', '/choristes/gestion_contenu', 'Choristes#gestionContenu', 'choristes_ajout_contenu']
 	);

@@ -74,7 +74,6 @@ class App
 	 */
 	public function run()
 	{
-
 		$matcher = new \W\Router\AltoRouter\Matcher($this->router);
 		$matcher->match();
 	}
