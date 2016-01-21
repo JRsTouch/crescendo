@@ -56,8 +56,22 @@
 		 * @param 
 		 * @return Array : Contenu chanson à display. Envoi à view.
 		**/
-		public function chansons(){
-			
+		public function chansons($id=0){
+			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
+			$layout = array();
+			$pupitre = $data['user']['pupitre'];
+			$chansonsManager = new \Manager\ChansonsManager();
+			$chansons = $chansonsManager->findAll();
+			if ($id>0) {
+				$chanson = $chansonsManager->getSongBySection($id,$pupitre);
+				$chanson['titre'] = ucwords(preg_replace('/[_]/',' ',$chanson['titre']));
+			} else {
+				$chanson = 0;
+			}
+
+			$this->show('choristes/chansons',['data' => $data, 'layout'=> $layout, 'chansons' => $chansons ,'chanson' => $chanson, 'pupitre'=>$pupitre]);
 		}
 
 		/**
@@ -166,6 +180,7 @@
 		public function chansons_Ajout(){
 			// Définition de variables 
 
+
 				// Titre de la chanson
 			$title = "";
 				// Données à envoyer au layout
@@ -187,7 +202,6 @@
 				// Recupère les données à afficher dans le footer
 			$data['options'] = $this->getOptions();
 			
-
 			// Traitement des formulaires
 
 				// Sans action de formulaire
@@ -211,8 +225,13 @@
 				//Ajout du Titre en BDD
 				$chansonsManager = new \Manager\ChansonsManager();
 
+				$choregraphy = filter_var(trim($_POST['choregraphy']), FILTER_VALIDATE_URL);
+				$informations = trim($_POST['informations']);
+
 				$data = array(
 								'titre'	=>	$_SESSION['song']['title'],
+								'choregraphie' => $choregraphy,
+								'informations' => $informations
 							);				
 				
 				$_SESSION['song']['id']= $chansonsManager->insert($data);//Recupération de l'ID de la chanson en SESSION
@@ -235,7 +254,7 @@
 				$mimeType = $finfo->file($_FILES['mp3_tutti']['tmp_name']);
 				if ( preg_match('/mpeg/',$mimeType)) {
 					// Normalisation de l'URL pour MP3
-					$pathMp3 = '../public/assets/mp3/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.mp3' ;
+					$pathMp3 = 'assets/mp3/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.mp3' ;
 					$movedMp3 = move_uploaded_file($_FILES['mp3_tutti']['tmp_name'], $pathMp3);
 					if(!$movedMp3) {
 						echo 'Erreur lors de l\'enregistrement Mp3';
@@ -252,7 +271,7 @@
 				
 				if ( preg_match('/.*\/ogg$/',$mimeType) ) {
 					// Normalisation de l'URL pour Ogg
-					$pathOgg = '../public/assets/ogg/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.ogg';
+					$pathOgg = 'assets/ogg/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.ogg';
 					$movedOgg = move_uploaded_file($_FILES['ogg_tutti']['tmp_name'], $pathOgg);
 					if(!$movedOgg) {
 						echo 'Erreur lors de l\'enregistrement Ogg';
@@ -263,8 +282,8 @@
 
 				$musiquesManager = new \Manager\MusiquesManager();
 				$data = array(
-								'mp3_'.$current_pupitre => $pathMp3,
-								'ogg_'.$current_pupitre => $pathOgg,
+								'mp3_'.$current_pupitre => '../../../'.$pathMp3,
+								'ogg_'.$current_pupitre => '../../../'.$pathOgg,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
@@ -277,7 +296,7 @@
 				$mimeType = $finfo->file($_FILES['pdf_tutti']['tmp_name']);
 				if ( $mimeType == 'application/pdf') {
 					// Normalisation de l'URL pour Pdf
-					$pathPdf = '../public/assets/pdf/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.pdf';
+					$pathPdf = 'assets/pdf/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.pdf';
 					$movedPdf = move_uploaded_file($_FILES['pdf_tutti']['tmp_name'], $pathPdf);
 					if(!$movedPdf) {
 						echo 'Erreur lors de l\'enregistrement Pdf';
@@ -288,7 +307,7 @@
 
 				$pdfsManager = new \Manager\PdfsManager();
 				$data = array(
-								'pdf_'.$current_pupitre => $pathPdf,
+								'pdf_'.$current_pupitre => '../../../'.$pathPdf,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
@@ -323,7 +342,7 @@
 				$mimeType = $finfo->file($_FILES['mp3_'.$current_pupitre]['tmp_name']);
 				if ( preg_match('/mpeg/',$mimeType)) {
 					// Normalisation de l'URL pour MP3
-					$pathMp3 = '../public/assets/mp3/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.mp3' ;
+					$pathMp3 = 'assets/mp3/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.mp3' ;
 					$movedMp3 = move_uploaded_file($_FILES['mp3_'.$current_pupitre]['tmp_name'], $pathMp3);
 					if(!$movedMp3) {
 						echo 'Erreur lors de l\'enregistrement Mp3';
@@ -338,7 +357,7 @@
 				
 				if ( preg_match('/.*\/ogg$/',$mimeType) ) {
 					// Normalisation de l'URL pour Ogg
-					$pathOgg = '../public/assets/ogg/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.ogg';
+					$pathOgg = 'assets/ogg/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.ogg';
 					$movedOgg = move_uploaded_file($_FILES['ogg_'.$current_pupitre]['tmp_name'], $pathOgg);
 					if(!$movedOgg) {
 						echo 'Erreur lors de l\'enregistrement Ogg';
@@ -349,8 +368,8 @@
 
 				$musiquesManager = new \Manager\MusiquesManager();
 				$data = array(
-								'mp3_'.$current_pupitre => $pathMp3,
-								'ogg_'.$current_pupitre => $pathOgg,
+								'mp3_'.$current_pupitre => '../../../'.$pathMp3,
+								'ogg_'.$current_pupitre => '../../../'.$pathOgg,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
@@ -363,7 +382,7 @@
 				$mimeType = $finfo->file($_FILES['pdf_'.$current_pupitre]['tmp_name']);
 				if ( $mimeType == 'application/pdf') {
 					// Normalisation de l'URL pour Pdf
-					$pathPdf = '../public/assets/pdf/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.pdf';
+					$pathPdf = 'assets/pdf/' .$_SESSION['song']['title'].'_'.$current_pupitre. '.pdf';
 					$movedPdf = move_uploaded_file($_FILES['pdf_'.$current_pupitre]['tmp_name'], $pathPdf);
 					if(!$movedPdf) {
 						echo 'Erreur lors de l\'enregistrement Pdf';
@@ -373,7 +392,7 @@
 				// Partie Ajout BDD Pdf
 				$pdfsManager = new \Manager\PdfsManager();
 				$data = array(
-								'pdf_'.$current_pupitre => $pathPdf,
+								'pdf_'.$current_pupitre => '../../../'.$pathPdf,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
@@ -390,7 +409,6 @@
 				}
 
 			}
-
 			$this->show('choristes/chansons_ajout',['count'=>$count, 'data' => $data, 'layout'=> $layout]);
 
 		}

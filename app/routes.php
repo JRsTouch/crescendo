@@ -22,9 +22,10 @@
 
 		['GET|POST', '/choristes/ajout_news', 'Choristes#addNewsActus', 'choristes_ajout_news'],
 
+		['GET|POST', '/choristes/chansons/ajout', 'Choristes#Chansons_Ajout', 'choristes_chansons_ajout'],
+				
 		['GET', '/choristes/chansons', 'Choristes#Chansons', 'choristes_chansons'],
-		['GET', '/choristes/chansons/ajout', 'Choristes#Chansons_Ajout', 'choristes_chansons_ajout'],
-		['POST', '/choristes/chansons/ajout', 'Choristes#Chansons_Ajout', 'choristes_chansons_ajoute'],
+		['GET', '/choristes/chansons/[:id]', 'Choristes#Chansons', 'choristes_chanson'],
 
 
 	);

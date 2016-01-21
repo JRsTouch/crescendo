@@ -6,6 +6,7 @@
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/jquery-ui.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/calendar.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/song.js') ?>"></script>
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link href="<?= $this->assetUrl('css/jquery-ui.css') ?>" rel="stylesheet">
@@ -27,7 +28,20 @@
 			<ul>
 				<!-- Certaines Partie du menu sont visibles par défaut, d'autres réservées à certains rangs -->
 				<li><a href="<?= $this->url('choristes_ajout_news') ?>">Actus</a></li>
-				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a></li>
+				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a>
+					<?php
+						if (isset($chansons)) {
+							echo'<ul id="liste_chansons">';
+							foreach ($chansons as $chanson) {
+								?>
+								<li><a href="<?= $this->url('choristes_chanson', [ 'id' => $chanson['id'] ])?>"><?= $chanson['titre']?></a></li>
+								<?php
+								
+							}
+							echo"</ul>";
+						}
+					?>
+				</li>
 				<li><a href="">Membres</a></li>
 				
 				<!-- Partie accessible à partir du membre du CA  -->

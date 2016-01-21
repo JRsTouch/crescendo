@@ -18,6 +18,17 @@ body
 			height: 600px
 			border: 1px solid black
 	main
+		#player
+			display: none
+			position: absolute
+			background-color: rgba(0,0,0,0.7)
+			width: 80%
+			height: 100%
+			z-index: 5
+			object
+				display: block
+				margin: auto
+				margin-top: 5%
 		box-sizing: border-box
 		width: 80%
 		height: 900px
@@ -37,6 +48,8 @@ body
 					label
 						input
 				button
+		#tutti_song
+			display: none
 	footer
 		&::before
 			content: " "
