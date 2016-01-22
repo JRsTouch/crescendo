@@ -1,4 +1,4 @@
-<?php $this->layout('choristes', ['title' => 'Membres !', 'membres' => $membres, 'layout_data' => $data['options'][0]['copyrights'], 'layout' => $layout, 'user' => $data['user'] ]); ?>
+<?php $this->layout('choristes', [ 'title' => 'Membres !', 'layout' => $layout ]); ?>
 
 
 <?php $this->start('main_content');  ?>
@@ -6,7 +6,7 @@
 
 	<p>Basses :</p>
 	<div class="pupitre">
-	<?php foreach($membres as $key => $value): ?>
+	<?php foreach($data['membres'] as $key => $value): ?>
 		
 		<?php if($value['pupitre'] == 'basse'): ?>
 			<div class="membre">
@@ -30,7 +30,7 @@
 
 	<p>Tenor :</p>
 	<div class="pupitre">
-	<?php foreach($membres as $key => $value): ?>
+	<?php foreach($data['membres'] as $key => $value): ?>
 		
 		<?php if($value['pupitre'] == 'tenor'): ?>
 			<div class="membre">
@@ -54,7 +54,7 @@
 
 	<p>Alto :</p>
 	<div class="pupitre">
-	<?php foreach($membres as $key => $value): ?>
+	<?php foreach($data['membres'] as $key => $value): ?>
 		
 		<?php if($value['pupitre'] == 'alto'): ?>
 			<div class="membre">
@@ -78,7 +78,7 @@
 
 	<p>Soprane1 :</p>
 	<div class="pupitre">
-	<?php foreach($membres as $key => $value): ?>
+	<?php foreach($data['membres'] as $key => $value): ?>
 		
 		<?php if($value['pupitre'] == 'soprane1'): ?>
 			<div class="membre">
@@ -102,7 +102,7 @@
 
 	<p>Soprane2 :</p>
 	<div class="pupitre">
-	<?php foreach($membres as $key => $value): ?>
+	<?php foreach($data['membres'] as $key => $value): ?>
 		
 		<?php if($value['pupitre'] == 'soprane2'): ?>
 			<div class="membre">
