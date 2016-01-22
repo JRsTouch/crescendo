@@ -38,4 +38,11 @@
 				$stmt->execute();						
 		}
 
+			public function getAllNews() { //Récupérer toutes les news sans distinction pour affichage en partie privée 
+				$sql = "SELECT news.titre, news.description, news.extrait, images.url, images.description FROM news LEFT JOIN images ON id_image=images.id";
+				$stmt = $this->dbh->prepare($sql);
+				$stmt->execute();
+				return $stmt->fetchAll();
+			}
+
 	}

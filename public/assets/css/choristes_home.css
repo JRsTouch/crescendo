@@ -37,12 +37,6 @@ body {
         display: block;
         margin: auto;
         margin-top: 5%; }
-    body main #ajout_chanson fieldset fieldset {
-      box-sizing: border-box;
-      width: 33%;
-      float: left; }
-    body main #tutti_song {
-      display: none; }
   body footer {
     width: 100%;
     border: 1px solid black; }
@@ -67,5 +61,12 @@ body {
 
 form#news, form#document, form#youtube, form#image {
   display: none; }
+
+figure img {
+  width: 200px;
+  height: 200px; }
+
+article {
+  width: 500px; }
 
 /*# sourceMappingURL=choristes_home.css.map */

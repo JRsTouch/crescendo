@@ -26,10 +26,29 @@
 		public function getAllPresses() 
 		{	
 			$pdo = $this->dbh;
-			$sql = "SELECT * FROM presses ORDER BY date DESC";
+			$presses = $this->table;
+			$sql = "SELECT * FROM $presses LEFT JOIN images ON $presses.id_image = images.id ORDER BY date DESC ";
 			$stmt = $pdo->prepare($sql);
 			$stmt->execute();
 			return $stmt->fetchAll();
+		}
+
+		public function getAllPressesPagination($premiereEntree, $articleParPage) 
+		{	
+			$pdo = $this->dbh;
+			$presses = $this->table;
+			$sql = "SELECT * FROM $presses LEFT JOIN images ON $presses.id_image = images.id ORDER BY presses.id DESC LIMIT $premiereEntree , $articleParPage";
+			$stmt = $pdo->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}
+
+		public function countPresses() {
+			$pdo = $this->dbh;
+			$sql = "SELECT COUNT(*) AS nombre_articles FROM presses";
+			$stmt = $pdo->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();;
 		}
 
 

@@ -151,13 +151,13 @@
 				$choregraphy = filter_var(trim($_POST['choregraphy']), FILTER_VALIDATE_URL);
 				$informations = trim($_POST['informations']);
 
-				$data = array(
+				$dataSong = array(
 								'titre'	=>	$_SESSION['song']['title'],
 								'choregraphie' => $choregraphy,
 								'informations' => $informations
 							);				
 				
-				$_SESSION['song']['id']= $chansonsManager->insert($data);//Recupération de l'ID de la chanson en SESSION
+				$_SESSION['song']['id']= $chansonsManager->insert($dataSong);//Recupération de l'ID de la chanson en SESSION
 
 			// Si Etape 2 soumise ( INSERT INTO musiques + pdfs )
 			} else if ( isset($_POST['submit']) && $_POST['submit'] == '2') {
@@ -204,13 +204,13 @@
 			 	// Ajout BDD Mp3 et OGG
 
 				$musiquesManager = new \Manager\MusiquesManager();
-				$data = array(
+				$dataSong = array(
 								'mp3_'.$current_pupitre => '../../../'.$pathMp3,
 								'ogg_'.$current_pupitre => '../../../'.$pathOgg,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
-				$musiquesManager->insert($data);
+				$musiquesManager->insert($dataSong);
 
 				// Partie  Upload PDF
 
@@ -229,12 +229,12 @@
 				// Ajout BDD PDF
 
 				$pdfsManager = new \Manager\PdfsManager();
-				$data = array(
+				$dataSong = array(
 								'pdf_'.$current_pupitre => '../../../'.$pathPdf,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
-				$pdfsManager->insert($data);
+				$pdfsManager->insert($dataSong);
 
 				
 				// Si il n'y a pas eu d'erreurs, on passe à l'étape 3 .
@@ -290,13 +290,13 @@
 			 	// Ajout BDD Mp3 et Ogg
 
 				$musiquesManager = new \Manager\MusiquesManager();
-				$data = array(
+				$dataSong = array(
 								'mp3_'.$current_pupitre => '../../../'.$pathMp3,
 								'ogg_'.$current_pupitre => '../../../'.$pathOgg,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
-				$musiquesManager->updateMusiques($data, $_SESSION['song']['id']);
+				$musiquesManager->updateMusiques($dataSong, $_SESSION['song']['id']);
 
 				// Partie Upload Pdf
 
@@ -314,12 +314,12 @@
 
 				// Partie Ajout BDD Pdf
 				$pdfsManager = new \Manager\PdfsManager();
-				$data = array(
+				$dataSong = array(
 								'pdf_'.$current_pupitre => '../../../'.$pathPdf,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
-				$pdfsManager->updatePdfs($data, $_SESSION['song']['id']);
+				$pdfsManager->updatePdfs($dataSong, $_SESSION['song']['id']);
 
 				// Si il n'y a pas d'erreurs, on passe à l'étape suivante.
 			    if (isset($errors)){
@@ -337,9 +337,47 @@
 		}
 
 		public function getActus() {
-			$actuManager = new \Manager\ActusManager;
-			$actus = $actuManager->getAllActus();
-			$this->show('choristes/actus', ['actus' => $actus]);
+			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
+			$NewsManager = new \Manager\NewsManager;
+			$news = $NewsManager->getAllNews();
+
+			$presseManager = new \Manager\PressesManager;
+			$presse = $presseManager->getAllPresses();
+
+			$NbArticles = new \Manager\PressesManager;
+			$Nb = $NbArticles->countPresses();
+
+			$articlesParPage = 5;
+			$total=$Nb[0]['nombre_articles'];
+			$nombreDePages=ceil($total/$articlesParPage);
+			
+			
+
+			if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
+			{
+			     $pageActuelle=intval($_GET['page']);
+			 
+			     if($pageActuelle>$nombreDePages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
+			     {
+			          $pageActuelle=$nombreDePages;
+			     }
+			}
+			else // Sinon
+			{
+			     $pageActuelle=1; // La page actuelle est la n°1    
+			}
+			 
+			$premiereEntree=($pageActuelle-1)*$articlesParPage; // On calcul la première entrée à lire
+
+			
+			$pagination = new \Manager\PressesManager;
+			$pages = $pagination->getAllPressesPagination($premiereEntree, $articlesParPage);
+			$nombreDePages=ceil($total/$articlesParPage);
+		 
+
+			$this->show('choristes/actus', ['news' => $news, 'presse' => $presse, 'Nb' => $Nb, 'data' => $data, 'pages' => $pages, 'total' => $total, 'nombreDePages' => $nombreDePages]);
 		}
 
 		
@@ -396,7 +434,7 @@
 
 					echo "<p>votre formulaire a bien été envoyé !</p>";
 					//Retour à la page d'accueil du coin choriste 
-					$this->show('choristes/home');
+					$this->show('choristes/home', ['data' => $data, 'layout'=> $layout]);
 
 			} 
 
@@ -410,7 +448,7 @@
 				echo "<p>votre formulaire a bien été envoyé !</p>";
 				//Retour à la page d'accueil du coin choriste 
 
-				$this->show('choristes/home');
+				$this->show('choristes/home', ['data' => $data, 'layout'=> $layout]);
 
 			} 
 
@@ -458,6 +496,7 @@
 			} 
 
 			if(isset($_POST['newssent'])) {
+
 				/* Upload images */
 				$alt_img = $_POST['alt'];
 				$desc_img  = $_POST['desc_img'];
@@ -499,13 +538,15 @@
 					//Pour rentrer un article de presse dans la table Presses
 					$titre = $_POST['titre'];
 					$description = $_POST['description'];
-
-					$PressesManager = new \Manager\PressesManager();
+					$PressesManager = new \Manager\PressesManager;
 					$PressesManager->insertArticle($titre, $description,$id_img);
+
 					echo "<h2>votre formulaire a bien été envoyé !</h2>";
-					$this->show('choristes/home');
+					$this->show('choristes/home', ['data' => $data, 'layout'=> $layout]);
+
 
 				} else if ($_POST['table'] == 'News'){
+
 					//Pour rentrer une news dans la table news 
 					$titre = $_POST['titre'];
 					$description = $_POST['description'];
@@ -517,11 +558,11 @@
 						$private = 0;
 					}
 
-					$NewsManager = new \Manager\NewsManager();
+					$NewsManager = new \Manager\NewsManager;
 					$NewsManager->insertArticle($titre, $description,$id_img, $private);
 					echo "<p>votre formulaire a bien été envoyé !</p>";
 					//Retour à la page d'accueil du coin choriste 
-					$this->show('choristes/home'); //Si on soumet le formulaire #news
+					$this->show('choristes/home', ['data' => $data, 'layout'=> $layout ]); //Si on soumet le formulaire #news
 				} 
 			} 
 			//Sinon on affiche la page de formulaire vierge avec le select
