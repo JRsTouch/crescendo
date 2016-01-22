@@ -32,6 +32,7 @@
 				<!-- Certaines Partie du menu sont visibles par défaut, d'autres réservées à certains rangs -->
 
 				<li><a href="<?= $this->url('choristes_actus') ?>">Actus</a></li>
+				
 				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a>
 					<?php
 						if (isset($chansons)) {

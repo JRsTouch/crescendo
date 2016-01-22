@@ -33,5 +33,6 @@
 		['GET|POST', '/choristes/gestion_contenu', 'Choristes#gestionContenu', 'choristes_ajout_contenu'],
 		['GET|POST', '/choristes/repetitions', 'Choristes#Repetitions', 'choristes_repetitions'],
 		['GET', '/choristes/membres', 'Choristes#Membres', 'choristes_membres'],
+		['GET', '/choristes', 'Choristes#getActus', 'choristes_actus_nav']
 
 	);

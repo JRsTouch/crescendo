@@ -338,13 +338,49 @@
 
 		public function getActus() {
 
+
 			$data = array();
 			$data['options'] = $this->getOptions();
 			$data['user'] = $this->getuser();
+			$NewsManager = new \Manager\NewsManager;
+			$news = $NewsManager->getAllNews();
 
-			$actuManager = new \Manager\ActusManager;
-			$actus = $actuManager->getAllActus();
-			$this->show('choristes/actus', ['actus' => $actus, 'data' => $data]);
+			$presseManager = new \Manager\PressesManager;
+			$presse = $presseManager->getAllPresses();
+
+			$NbArticles = new \Manager\PressesManager;
+			$Nb = $NbArticles->countPresses();
+
+			$articlesParPage = 5;
+			$total=$Nb[0]['nombre_articles'];
+			$nombreDePages=ceil($total/$articlesParPage);
+			
+			
+
+			if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
+			{
+			     $pageActuelle=intval($_GET['page']);
+			 
+			     if($pageActuelle>$nombreDePages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
+			     {
+			          $pageActuelle=$nombreDePages;
+			     }
+			}
+			else // Sinon
+			{
+			     $pageActuelle=1; // La page actuelle est la n°1    
+			}
+			 
+			$premiereEntree=($pageActuelle-1)*$articlesParPage; // On calcul la première entrée à lire
+
+			
+			$pagination = new \Manager\PressesManager;
+			$pages = $pagination->getAllPressesPagination($premiereEntree, $articlesParPage);
+			$nombreDePages=ceil($total/$articlesParPage);
+		 
+
+			$this->show('choristes/actus', ['news' => $news, 'presse' => $presse, 'Nb' => $Nb, 'data' => $data, 'pages' => $pages, 'total' => $total, 'nombreDePages' => $nombreDePages]);
+
 		}
 
 		
@@ -401,7 +437,7 @@
 
 					echo "<p>votre formulaire a bien été envoyé !</p>";
 					//Retour à la page d'accueil du coin choriste 
-					$this->show('choristes/home');
+					$this->show('choristes/home', ['data' => $data, 'layout'=> $layout]);
 
 			} 
 
@@ -415,7 +451,7 @@
 				echo "<p>votre formulaire a bien été envoyé !</p>";
 				//Retour à la page d'accueil du coin choriste 
 
-				$this->show('choristes/home');
+				$this->show('choristes/home', ['data' => $data, 'layout'=> $layout]);
 
 			} 
 
@@ -463,6 +499,7 @@
 			} 
 
 			if(isset($_POST['newssent'])) {
+
 				/* Upload images */
 				$alt_img = $_POST['alt'];
 				$desc_img  = $_POST['desc_img'];
@@ -504,13 +541,15 @@
 					//Pour rentrer un article de presse dans la table Presses
 					$titre = $_POST['titre'];
 					$description = $_POST['description'];
-
-					$PressesManager = new \Manager\PressesManager();
+					$PressesManager = new \Manager\PressesManager;
 					$PressesManager->insertArticle($titre, $description,$id_img);
+
 					echo "<h2>votre formulaire a bien été envoyé !</h2>";
-					$this->show('choristes/home');
+					$this->show('choristes/home', ['data' => $data, 'layout'=> $layout]);
+
 
 				} else if ($_POST['table'] == 'News'){
+
 					//Pour rentrer une news dans la table news 
 					$titre = $_POST['titre'];
 					$description = $_POST['description'];
@@ -522,11 +561,11 @@
 						$private = 0;
 					}
 
-					$NewsManager = new \Manager\NewsManager();
+					$NewsManager = new \Manager\NewsManager;
 					$NewsManager->insertArticle($titre, $description,$id_img, $private);
 					echo "<p>votre formulaire a bien été envoyé !</p>";
 					//Retour à la page d'accueil du coin choriste 
-					$this->show('choristes/home'); //Si on soumet le formulaire #news
+					$this->show('choristes/home', ['data' => $data, 'layout'=> $layout ]); //Si on soumet le formulaire #news
 				} 
 			} 
 			//Sinon on affiche la page de formulaire vierge avec le select
