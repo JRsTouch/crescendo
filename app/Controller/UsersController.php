@@ -18,7 +18,7 @@
 			$userLogin = new \W\Security\AuthentificationManager;
 
 			if($this->getuser() != NULL){
-				$this->redirectToRoute('choristes_home'); // si l'utilisateur est deja connecté on le renvoi vers le coin des choristes
+				$this->redirectToRoute('choristes_actus'); // si l'utilisateur est deja connecté on le renvoi vers le coin des choristes
 			}
 
 			if(isset($_POST['sent'])){ // si il n'est pas connecté il arrive sur le formulaire de connexion ou il renseigne mail et mdp
@@ -38,7 +38,7 @@
 					
 					$this->getUser();
 
-					$this->redirectToRoute('choristes_home');
+					$this->redirectToRoute('choristes_actus');
 				}
 
 			}
