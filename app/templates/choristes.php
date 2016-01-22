@@ -22,7 +22,7 @@
 		<div id="user">
 			<img src="<?= $this->assetUrl($user['avatar']) ?>" alt="avatar" width="100" height="100">
 			<p><?= $user['username'] ?></p>
-			<a href="#">Modifier le profil</a>
+			<a href="<?= $this->url('users_modify') ?>">Modifier le profil</a>
 			<a href="<?= $this->url('users_logout') ?>">Deconnexion</a>
 			<div id="datepicker"></div>
 		</div>

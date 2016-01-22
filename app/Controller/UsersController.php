@@ -63,8 +63,13 @@
 					'username' => $_POST['fname'].' '.$_POST['lname'],
 					'email' => $_POST['email'],
 					'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-					'pupitre' => $_POST['pupitre']
+					'pupitre' => $_POST['pupitre'],
+
 				);
+
+				if($_POST['tel'] != ''){
+					$newUser['tel'] = $_POST['tel'];
+				}
 
 				$usersManager->insert($newUser);
 
@@ -95,5 +100,7 @@
 
 
 		} 
+
+		
 
 	}

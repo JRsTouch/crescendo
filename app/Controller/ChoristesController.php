@@ -151,13 +151,13 @@
 				$choregraphy = filter_var(trim($_POST['choregraphy']), FILTER_VALIDATE_URL);
 				$informations = trim($_POST['informations']);
 
-				$data = array(
+				$dataSong = array(
 								'titre'	=>	$_SESSION['song']['title'],
 								'choregraphie' => $choregraphy,
 								'informations' => $informations
 							);				
 				
-				$_SESSION['song']['id']= $chansonsManager->insert($data);//Recupération de l'ID de la chanson en SESSION
+				$_SESSION['song']['id']= $chansonsManager->insert($dataSong);//Recupération de l'ID de la chanson en SESSION
 
 			// Si Etape 2 soumise ( INSERT INTO musiques + pdfs )
 			} else if ( isset($_POST['submit']) && $_POST['submit'] == '2') {
@@ -204,13 +204,13 @@
 			 	// Ajout BDD Mp3 et OGG
 
 				$musiquesManager = new \Manager\MusiquesManager();
-				$data = array(
+				$dataSong = array(
 								'mp3_'.$current_pupitre => '../../../'.$pathMp3,
 								'ogg_'.$current_pupitre => '../../../'.$pathOgg,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
-				$musiquesManager->insert($data);
+				$musiquesManager->insert($dataSong);
 
 				// Partie  Upload PDF
 
@@ -229,12 +229,12 @@
 				// Ajout BDD PDF
 
 				$pdfsManager = new \Manager\PdfsManager();
-				$data = array(
+				$dataSong = array(
 								'pdf_'.$current_pupitre => '../../../'.$pathPdf,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
-				$pdfsManager->insert($data);
+				$pdfsManager->insert($dataSong);
 
 				
 				// Si il n'y a pas eu d'erreurs, on passe à l'étape 3 .
@@ -290,13 +290,13 @@
 			 	// Ajout BDD Mp3 et Ogg
 
 				$musiquesManager = new \Manager\MusiquesManager();
-				$data = array(
+				$dataSong = array(
 								'mp3_'.$current_pupitre => '../../../'.$pathMp3,
 								'ogg_'.$current_pupitre => '../../../'.$pathOgg,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
-				$musiquesManager->updateMusiques($data, $_SESSION['song']['id']);
+				$musiquesManager->updateMusiques($dataSong, $_SESSION['song']['id']);
 
 				// Partie Upload Pdf
 
@@ -314,12 +314,12 @@
 
 				// Partie Ajout BDD Pdf
 				$pdfsManager = new \Manager\PdfsManager();
-				$data = array(
+				$dataSong = array(
 								'pdf_'.$current_pupitre => '../../../'.$pathPdf,
 								'id_chanson' => $_SESSION['song']['id']
 					);
 
-				$pdfsManager->updatePdfs($data, $_SESSION['song']['id']);
+				$pdfsManager->updatePdfs($dataSong, $_SESSION['song']['id']);
 
 				// Si il n'y a pas d'erreurs, on passe à l'étape suivante.
 			    if (isset($errors)){
@@ -337,9 +337,14 @@
 		}
 
 		public function getActus() {
+
+			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
+
 			$actuManager = new \Manager\ActusManager;
 			$actus = $actuManager->getAllActus();
-			$this->show('choristes/actus', ['actus' => $actus]);
+			$this->show('choristes/actus', ['actus' => $actus, 'data' => $data]);
 		}
 
 		
@@ -574,6 +579,56 @@
 
 
 			$this->show('choristes/membres', ['data' => $data, 'layout'=> $layout, 'membres' => $membres ]);
+		}
+
+		public function userAccount(){
+
+			$data = array();
+			$data['options'] = $this->getOptions();
+			$data['user'] = $this->getuser();
+			$layout = array();
+
+			$usersManager = new \Manager\UsersManager();
+			$user = $this->getUser();
+			$id = $user['id'];
+
+
+			if(isset($_POST['sentmail'])){
+
+				$forUpdate = array('email' => $_POST['email']);
+
+				$_SESSION['user']['email'] = $_POST['email'];
+
+				$usersManager->update($forUpdate, $id);
+			}
+
+			if(isset($_POST['senttel'])){
+
+				$forUpdate = array('tel' => $_POST['tel']);
+
+				$_SESSION['user']['tel'] = $_POST['tel'];
+
+				$usersManager->update($forUpdate, $id);
+			}
+
+			if(isset($_POST['sentpass'])){
+
+				$thisUser = $usersManager->find($id);
+
+				if(password_verify($_POST['password'], $thisUser['password']) && $_POST['newpass'] == $_POST['checkpass']){
+
+					$newpass = password_hash($_POST['newpass'], PASSWORD_DEFAULT);
+
+					$forUpdate = array('password' => $newpass);
+
+					$_SESSION['user']['password'] = $_POST['newpass'];
+
+					$usersManager->update($forUpdate, $id);
+				}
+			}
+
+			$this->show('choristes/modify', ['data' => $data, 'layout'=> $layout]);
+
 		}
 
 	}

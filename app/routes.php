@@ -20,6 +20,7 @@
 		['GET', '/choristes', 'Choristes#Home', 'choristes_home'],
 		['GET', '/calendar', 'Choristes#Calendar', 'choristes_calendar'],
 		['GET', '/event', 'Choristes#Event', 'choristes_event'],
+		['GET|POST', '/modify', 'Choristes#userAccount', 'users_modify'],
 
 		['GET|POST', '/choristes/ajout_news', 'Choristes#addNewsActus', 'choristes_ajout_news'],
 

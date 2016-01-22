@@ -9,6 +9,9 @@
 				<label for="lname">Nom: <input type="text" name="lname"></label>	
 				<label for="email">Email: <input type="text" name="email"></label>	
 				<label for="password">Mot de passe: <input type="password" name="password"></label>
+				<label for="check">Teléphone ?</label>
+				<input type="checkbox" name="check">
+				<label id="tel" for="tel">Numéro de téléphone: <input type="text" name="tel"></label>
 				<label for="pupitre">Pupitre :
 					<select name="pupitre">
 						<option value="basse">Basse</option>

@@ -14,7 +14,10 @@
 					<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 					<div class="infos">
 						<div>
-							<p><?= $value['email'] ?></p>							
+							<p><?= $value['email'] ?></p>
+							<?php if(isset($value['tel'])): ?>
+								<p><?= $value['tel'] ?></p>
+							<?php endif ?>								
 						</div>
 					</div>
 					<figcaption><?= $value['username'] ?></figcaption>			
@@ -35,7 +38,10 @@
 					<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 					<div class="infos">
 						<div>
-							<p><?= $value['email'] ?></p>							
+							<p><?= $value['email'] ?></p>
+							<?php if(isset($value['tel'])): ?>
+								<p><?= $value['tel'] ?></p>
+							<?php endif ?>									
 						</div>
 					</div>
 					<figcaption><?= $value['username'] ?></figcaption>			
@@ -56,7 +62,10 @@
 					<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 					<div class="infos">
 						<div>
-							<p><?= $value['email'] ?></p>							
+							<p><?= $value['email'] ?></p>	
+							<?php if(isset($value['tel'])): ?>
+								<p><?= $value['tel'] ?></p>
+							<?php endif ?>								
 						</div>
 					</div>
 					<figcaption><?= $value['username'] ?></figcaption>			
@@ -77,7 +86,10 @@
 					<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 					<div class="infos">
 						<div>
-							<p><?= $value['email'] ?></p>							
+							<p><?= $value['email'] ?></p>
+							<?php if(isset($value['tel'])): ?>
+								<p><?= $value['tel'] ?></p>
+							<?php endif ?>									
 						</div>
 					</div>
 					<figcaption><?= $value['username'] ?></figcaption>			
@@ -98,7 +110,10 @@
 					<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 					<div class="infos">
 						<div>
-							<p><?= $value['email'] ?></p>							
+							<p><?= $value['email'] ?></p>
+							<?php if(isset($value['tel'])): ?>
+								<p><?= $value['tel'] ?></p>
+							<?php endif ?>									
 						</div>
 					</div>
 					<figcaption><?= $value['username'] ?></figcaption>			
