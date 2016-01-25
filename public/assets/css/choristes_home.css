@@ -68,9 +68,18 @@ body {
 form#news, form#document, form#youtube, form#image {
   display: none; }
 
-figure img {
+.actus figure img {
   width: 200px;
-  height: 200px; }
+  height: 200px;
+  float: left; }
+
+.actus::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
 
 article {
   width: 500px; }

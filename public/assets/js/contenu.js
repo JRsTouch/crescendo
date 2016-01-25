@@ -40,5 +40,12 @@ $(function(){
 			$('.private').css('display', 'block');
 		}
 	});
+
+	$("#news").submit(function(event) {
+		if($('select[name=table]').val() == 'Selectionnez'){
+				alert('Veuillez sélectionner un type de contenu: news ou article');
+				event.preventDefault();
+			}
+	});
 });
 

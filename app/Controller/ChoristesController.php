@@ -333,22 +333,16 @@
 
 		public function getActus() {
 
-
-
-			
-			$NewsManager = new \Manager\NewsManager;
-			$news = $NewsManager->getAllNews();
-
-			$presseManager = new \Manager\PressesManager;
-			$presse = $presseManager->getAllPresses();
-
 			$NbArticles = new \Manager\PressesManager;
-			$Nb = $NbArticles->countPresses();
+			$Nb = $NbArticles->countPresses(); //Renvoie le nombre d'enregistrements de la table Presses
+			$NbNews = new \Manager\NewsManager;
+			$NbN = $NbNews->countNews();
+
+
 
 			$articlesParPage = 5;
-			$total=$Nb[0]['nombre_articles'];
-			$nombreDePages=ceil($total/$articlesParPage);
-			
+			$total=$Nb[0]['nombre_articles'] + $NbN[0]['nombre_news'];
+			$nombreDePages=ceil($total/$articlesParPage);		
 			
 
 			if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
@@ -365,23 +359,23 @@
 			     $pageActuelle=1; // La page actuelle est la n°1    
 			}
 			 
-			$premiereEntree=($pageActuelle-1)*$articlesParPage; // On calcul la première entrée à lire
+			$premiereEntree=($pageActuelle-1)*$articlesParPage; // On calcule la première entrée à lire
 
 			
 			$pagination = new \Manager\PressesManager;
 			$pages = $pagination->getAllPressesPagination($premiereEntree, $articlesParPage);
-			$nombreDePages=ceil($total/$articlesParPage);
+					
+
 			$options = $this->getOptions();
 			$user = $this->getuser();
 	
 
 			$data = array(
-							'news'			=> $news,
-							'presse'		=> $presse,
-							'Nb'			=> $Nb,
-							'pages'			=> $pages,
-							'total'			=> $total,
-							'nombreDePages' => $nombreDePages,
+							'Nb'			  => $Nb,
+							'pages'			  => $pages,
+							'total'			  => $total,
+							'nombreDePages'   => $nombreDePages,
+							'articlesParPages' => $articlesParPage
 						);
 
 			$layout = array(
@@ -619,7 +613,6 @@
 		} 
 
 		public function repetitions(){
-
 
 			if(isset($_POST['sent'])){
 				$event = array(

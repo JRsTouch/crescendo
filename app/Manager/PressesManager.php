@@ -33,11 +33,11 @@
 			return $stmt->fetchAll();
 		}
 
-		public function getAllPressesPagination($premiereEntree, $articleParPage) 
+		public function getAllPressesPagination($premiereEntree, $articlesParPage) 
 		{	
 			$pdo = $this->dbh;
 			$presses = $this->table;
-			$sql = "SELECT * FROM $presses LEFT JOIN images ON $presses.id_image = images.id ORDER BY presses.id DESC LIMIT $premiereEntree , $articleParPage";
+			$sql = "SELECT presses.id, presses.titre, presses.extrait, presses.id_image, images.url, date FROM presses LEFT JOIN images ON presses.id_image = images.id  UNION SELECT news.id, news.titre, news.extrait, news.id_image, images.url, date FROM news LEFT JOIN images ON news.id_image = images.id LIMIT $articlesParPage OFFSET $premiereEntree";
 			$stmt = $pdo->prepare($sql);
 			$stmt->execute();
 			return $stmt->fetchAll();
@@ -48,7 +48,7 @@
 			$sql = "SELECT COUNT(*) AS nombre_articles FROM presses";
 			$stmt = $pdo->prepare($sql);
 			$stmt->execute();
-			return $stmt->fetchAll();;
+			return $stmt->fetchAll();
 		}
 
 

@@ -38,7 +38,7 @@
 	<form enctype="multipart/form-data" action="#" method="post" id="news">
 
  		<select name="table">
- 			<option value="">Veuillez sélectionner le contenu</option>
+ 			<option value="Selectionnez">Veuillez sélectionner le contenu</option>
  			<option value="Presse">Article</option> <!-- Insertion dans la table correspondante --> 
  			<option value="News">News</option>
  		</select>
