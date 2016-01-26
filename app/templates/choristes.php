@@ -11,6 +11,7 @@
 	<script src="<?= $this->assetUrl('js/management.js') ?>"></script>
 	
 	<script src="<?= $this->assetUrl('js/song.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/footer.js') ?>" async defer></script>
 	
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -112,19 +113,28 @@
 															
 															echo "</ul>";
 														?>
-				<a href="https://www.facebook.com/CrescendOJoeuf/"></a>		
+
 			</p>
-			<div class="flip-container">
-				<div class="flipper">
-					<div class="front">
-						<a href="https://www.facebook.com/CrescendOJoeuf/"><img src="<?= $this->assetUrl('img/') ?>" alt="Logo Facebook"></a>
-					</div>
-					<div class="back">
-						<!-- back content -->
-					</div>
-				</div>
-			</div>	
-		</footer>
+			
+			<div class="hover panel">
+  				<div class="front">
+        			<div class="pad">
+        				<a href="https://www.facebook.com/groups/140046179408954/">
+            				<img src="<?= $this->assetUrl('img/facebook_off.png') ?>" alt="logo facebook front" width="64" height="64"/>
+            			</a>
+       				</div>
+    			</div>
+
+    			<div class="back">
+        			<div class="pad">
+        				<a href="https://www.facebook.com/groups/140046179408954/">
+            				<img src="<?= $this->assetUrl('img/facebook_on.png') ?>" alt="logo facebook front" width="64" height="64"/>
+            			</a>
+        			</div>
+    			</div>
+			</div>
+
+		</footer>	
 
 </body>
 </html>
