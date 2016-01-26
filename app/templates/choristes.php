@@ -8,6 +8,7 @@
 	<script src="<?= $this->assetUrl('js/calendar.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/contenu.js') ?>" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="<?= $this->assetUrl('js/membres.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/management.js') ?>"></script>
 	
 	<script src="<?= $this->assetUrl('js/song.js') ?>"></script>
 	
@@ -16,6 +17,7 @@
 	<link href="<?= $this->assetUrl('css/jquery-ui.css') ?>" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/choristes_home.css') ?>">
 	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/membres.css') ?>">
+	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/management.css') ?>">
 </head>
 
 <body>
@@ -90,7 +92,7 @@
 
 				<!-- Partie reservée à L'administrateur -->
 				<?php if($layout['user']['role'] == 'admin'): ?>
-					<li><a href="">Gestion Profils</a></li>
+					<li><a href="<?= $this->url('choristes_management') ?>">Gestion Profils</a></li>
 				<?php endif ?>
 			</ul>
 		</nav>

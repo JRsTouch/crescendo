@@ -12,9 +12,10 @@
 		// Partie Connexion User
 		['GET|POST', '/login', 'Users#Login', 'users_login'],
 		['GET|POST', '/inscription', 'Users#Register', 'users_inscription'],
-		['GET', '/resetpass', 'Users#Reset', 'users_reset'],
+		['GET|POST', '/resetpass', 'Users#Reset', 'users_reset'],
 		['GET', '/logout', 'Users#Logout', 'users_logout'],
 		['GET', '/validate', 'Users#toBeValidate', 'users_Validate'],
+		['GET|POST', '/newpass/[:token]', 'Users#newPass', 'users_newpass'],
 		
 		// Partie Privée
 		
@@ -35,6 +36,7 @@
 		['GET|POST', '/choristes/repetitions', 'Choristes#Repetitions', 'choristes_repetitions'],
 		['GET', '/choristes/membres', 'Choristes#Membres', 'choristes_membres'],
 		['GET', '/choristes', 'Choristes#getActus', 'choristes_actus_nav'],
-		['GET', '/choristes/documents_officiels', 'Choristes#getDocs', 'choristes_documents_officiels']
+		['GET', '/choristes/documents_officiels', 'Choristes#getDocs', 'choristes_documents_officiels'],
+		['GET|POST', '/choristes/management', 'Choristes#membersManagement', 'choristes_management'],
 
 	);

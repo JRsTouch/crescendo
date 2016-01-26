@@ -1,0 +1,31 @@
+body main #manageform {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); }
+  body main #manageform a {
+    background: white; }
+  body main #manageform h3 {
+    margin-top: 3%;
+    text-align: center;
+    color: white; }
+  body main #manageform form {
+    margin-top: 7%;
+    display: block; }
+    body main #manageform form label {
+      display: block;
+      text-align: center; }
+    body main #manageform form input {
+      display: block;
+      margin: auto; }
+    body main #manageform form select {
+      display: block;
+      margin: auto; }
+    body main #manageform form button {
+      display: block;
+      margin: auto; }
+
+/*# sourceMappingURL=management.css.map */
