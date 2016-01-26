@@ -1,4 +1,4 @@
-<?php $this->layout('login', ['title' => 'Connexion']); ?>
+<?php $this->layout('login', ['title' => 'CrescendO : Connexion']); ?>
 
 <?php $this->start('main_content');  ?>
 

@@ -1,4 +1,4 @@
-<?php $this->layout('login', ['title' => 'Nouveau Password', 'layout' => $layout]); ?>
+<?php $this->layout('login', ['title' => 'CrescendO : Nouveau Password', 'layout' => $layout]); ?>
 
 <?php $this->start('main_content');  ?>
 

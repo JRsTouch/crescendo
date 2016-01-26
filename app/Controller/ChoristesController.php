@@ -348,8 +348,6 @@
 			$NbNews = new \Manager\NewsManager;
 			$NbN = $NbNews->countNews();
 
-
-
 			$articlesParPage = 5;
 			$total=$Nb[0]['nombre_articles'] + $NbN[0]['nombre_news'];
 			$nombreDePages=ceil($total/$articlesParPage);		
@@ -762,6 +760,10 @@
 		}
 
 
+		/**
+		 * Renvoie tous les enregistrements de la base documents pour les télécharger
+		 * @return envoi à view documents.php
+		**/
 		public function getDocs() {
 
 			$options = $this->getOptions();
@@ -818,6 +820,47 @@
 
 
 			$this->show('choristes/management', ['data' => $data, 'layout'=> $layout ]);
+		}
+
+
+		/**
+		 * Renvoie un enregistrement de news spécifique donné en ID 
+		 *@param table: table presse ou news passé en URL 
+		 *@param id : ID de l'article ou de la news passée en URL 
+		 * @return envoi à view [:table]/[:id].php
+		**/
+		public function getContentById($table, $id) {
+
+			$options = $this->getOptions();
+			$user = $this->getuser();
+			$news= "";
+			$Presses = "";
+			
+			if( $table == 'news' ){
+
+				$newsById = new \Manager\NewsManager;
+				$news = $newsById->getNewsById($id);
+
+			} else if ($table == 'presses') {
+
+				$PressesById = new \Manager\PressesManager;
+				$Presses = $PressesById->getPressesById($id);
+
+			}
+
+			$layout = array(
+							'table'     =>  $table,
+							'id'		=>  $id,
+							'user'		=>	$user,
+							'options'	=>  $options
+							);
+
+			$data = array(
+							'news'   => $news,
+							'presses'=> $Presses
+				);
+
+			$this->show('choristes/news', ['layout'=> $layout, 'data' => $data]);
 		}
 
 	}

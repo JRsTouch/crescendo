@@ -37,12 +37,16 @@
 		{	
 			$pdo = $this->dbh;
 			$presses = $this->table;
-			$sql = "SELECT presses.id, presses.titre, presses.extrait, presses.id_image, images.url, date FROM presses LEFT JOIN images ON presses.id_image = images.id  UNION SELECT news.id, news.titre, news.extrait, news.id_image, images.url, date FROM news LEFT JOIN images ON news.id_image = images.id LIMIT $articlesParPage OFFSET $premiereEntree";
+			$sql = "SELECT presses.id, presses.titre, presses.extrait, presses.id_image, images.url, date, 'presses' as type FROM presses LEFT JOIN images ON presses.id_image = images.id " .
+					" UNION SELECT news.id, news.titre, news.extrait, news.id_image, images.url, date, 'news' as type FROM news LEFT JOIN images ON news.id_image = images.id LIMIT $articlesParPage OFFSET $premiereEntree";
 			$stmt = $pdo->prepare($sql);
 			$stmt->execute();
 			return $stmt->fetchAll();
 		}
 
+		/**
+		 * Récupérer le nombre d'enregistrements d'articles de presse en database pour gérer la pagination sur la page actu 
+		 */
 		public function countPresses() {
 			$pdo = $this->dbh;
 			$sql = "SELECT COUNT(*) AS nombre_articles FROM presses";
@@ -67,5 +71,15 @@
 			$stmt->bindValue(':extrait', substr($description, 0, 200).'...');
 			$stmt->bindValue(':id_img', $id_img);
 			$stmt->execute();						
+		}
+
+		public function getPressesById($id) 
+		{	
+			$pdo = $this->dbh;
+			$sql = "SELECT presses.titre as newstitre, presses.description as newsdesc, id_image, images.url as img_url, date FROM presses LEFT JOIN images ON presses.id_image = images.id WHERE presses.id =:id";
+			$stmt = $pdo->prepare($sql);
+			$stmt->bindValue(':id', $id);
+			$stmt->execute();
+			return $stmt->fetchAll();
 		}
 	}

@@ -38,5 +38,6 @@
 		['GET', '/choristes', 'Choristes#getActus', 'choristes_actus_nav'],
 		['GET', '/choristes/documents_officiels', 'Choristes#getDocs', 'choristes_documents_officiels'],
 		['GET|POST', '/choristes/management', 'Choristes#membersManagement', 'choristes_management'],
+		['GET', '/choristes/[:table]/[:id]', 'Choristes#getContentById', 'choristes_news_id'],
 
 	);

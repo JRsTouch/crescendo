@@ -1,4 +1,4 @@
-<?php $this->layout('choristes', ['title' => 'Gestion des membres !', 'layout' => $layout ]); ?>
+<?php $this->layout('choristes', ['title' => 'CrescendO : Gestion des membres !', 'layout' => $layout ]); ?>
 
 <?php $this->start('main_content');  ?>
 

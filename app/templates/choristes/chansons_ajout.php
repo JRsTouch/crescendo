@@ -1,4 +1,4 @@
-<?php $this->layout('choristes', ['title' => 'Accueil des choristes !', 'layout' => $layout]); ?>
+<?php $this->layout('choristes', ['title' => 'CrescendO : Ajout de chansons', 'layout' => $layout]); ?>
 
 			
 <?php $this->start('main_content');  ?>
