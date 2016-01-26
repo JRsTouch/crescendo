@@ -99,7 +99,120 @@
 		public function toBeValidate(){
 
 
-		} 
+		}
+
+		public function reset(){
+
+			$usersManager = new \W\Manager\UserManager();
+			$tokensManager = new \Manager\TokensManager();
+			$newToken = new \W\Security\StringUtils();
+
+			$layout = array(
+						'ismain'	=>	false,
+						'form'		=>	false,
+						);
+
+			if(isset($_POST['sent'])){
+				if($usersManager->emailExists($_POST['email'])){
+
+					$token = $newToken->randomString();
+					$email = $_POST['email'];
+
+					if($tokensManager->findEmail($_POST['email'])) {
+
+						$toInsert = array(
+								'token' => $token,
+							);
+
+						$tokensManager->updateFromEmail($toInsert, $_POST['email']);
+
+					}else{						
+
+						$toInsert = array(
+								'email' => $email,
+								'token' => $token,
+							);
+
+						$tokensManager->insert($toInsert);
+
+					}
+					
+					echo "<p>Un email vous a été envoyé pour réinitialiser vôtre mot de passe</p>";
+					echo '<a href="/">Retour a l\'accueil</a>';
+				
+					$message = 	'<p>Voici le lien pour réinitialiser vôtre mot de passe</p>'
+								.'<br>'
+								.'<a href="http://www.crescendo.site/newpass/'.$token.'">réinitialiser mon mot de passe</a>';
+									
+				    $to      = $email;
+				    $subject = 'CrescendO : Réinitialisation du mot de passe.';
+				    $message = $message;
+				    $headers = 'From: service@crescendo.site' . "\r\n" .
+				    'Reply-To: service@crescendo.site' . "\r\n" .
+				    'X-Mailer: PHP/' . phpversion();
+
+				    mail($to, $subject, $message, $headers);					
+
+				}else{
+					echo "<p>L'email renseigné n'existe pas.</p>";
+				}
+			}
+
+			$this->show('choristes/resetPass', ['layout' => $layout]);
+			
+		}
+
+		public function newPass($token){
+
+			$layout = array(
+						'ismain'	=>	false,
+						'form'		=>	false,
+						);
+
+			$tokensManager = new \Manager\TokensManager();
+
+			$user = $tokensManager->findToken($token);
+
+			$usersManager = new \Manager\UsersManager();
+
+			if($user){
+
+				if(isset($_POST['sent'])){
+
+					if($_POST['newpass'] == $_POST['checkpass'] && strlen($_POST['newpass']) >= 5){
+
+						$newpassword = array(
+								'password' => password_hash($_POST['newpass'], PASSWORD_DEFAULT),
+							);
+
+						$usersManager->updateFromEmail($newpassword ,$user['email']);
+
+						$tokensManager->delete($user['email']);
+
+						$this->redirectToRoute('users_login');
+
+					}else{
+
+						if($_POST['newpass'] != $_POST['checkpass']){
+							echo '<p>Les deux mots de passe doivent être identiques.</p>';
+						}
+
+						if(strlen($_POST['newpass']) < 5){
+							echo '<p>Le mot de passe doit contenir minimum 5 caractères.</p>';
+						}
+
+					}
+					
+				}
+			}else{
+
+				$this->redirectToRoute('home');
+
+			}
+
+			$this->show('choristes/newPass', ['layout' => $layout]);
+
+		}
 
 		
 

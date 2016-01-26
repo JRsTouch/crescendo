@@ -735,4 +735,44 @@
 
 		}
 
+		public function membersManagement(){
+
+			
+			$options = $this->getOptions();
+			$user = $this->getuser();
+			
+
+
+			$usersManager = new \Manager\UsersManager();
+
+			$membres = $usersManager->findAllOrder();
+
+			$data = array(
+							'membres'	=>	$membres
+						);
+
+			$layout = array(
+							'name'		=>	'membres',
+							'user'		=>	$user,
+							'options'	=> $options,
+							);
+
+			if(isset($_POST['sent'])){
+
+				$usersManager = new \Manager\UsersManager();
+
+				$newinfos = array(
+						'email' => $_POST['email'], 
+						'tel' => $_POST['tel'], 
+						'role' => $_POST['role'],
+					);
+
+				$usersManager->update($newinfos, $_POST['id']);
+			}
+
+
+			$this->show('choristes/management', ['data' => $data, 'layout'=> $layout ]);
+		}
+
+
 	}
