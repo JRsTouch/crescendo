@@ -92,6 +92,7 @@
 				<?php if($layout['user']['role'] == 'admin'): ?>
 					<li><a href="">Gestion Profils</a></li>
 				<?php endif ?>
+					<li><a href="<?php echo $this->url('home');?>">Retour à l'Accueil</a></li>
 			</ul>
 		</nav>
 
@@ -102,14 +103,25 @@
 		<footer>
 			<p>©2016 - CrescendO Joeuf® . Credits : <?php
 															echo "<ul>";
-															foreach ( $layout['options'][0]['copyrights'] as $value) {
+															foreach ( $layout['options'] as $value) {
 																echo "<li>".$value."</li>";
 
 															}
 															
 															echo "</ul>";
-														?> </p>
-				
+														?>
+				<a href="https://www.facebook.com/CrescendOJoeuf/"></a>		
+			</p>
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="front">
+						<a href="https://www.facebook.com/CrescendOJoeuf/"><img src="<?= $this->assetUrl('img/') ?>" alt="Logo Facebook"></a>
+					</div>
+					<div class="back">
+						<!-- back content -->
+					</div>
+				</div>
+			</div>	
 		</footer>
 
 </body>

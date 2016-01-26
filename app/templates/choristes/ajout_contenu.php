@@ -12,6 +12,10 @@
 		<option value="doc">Documents officiels</option>		
 	</select>
 
+	<?php if ( isset($upload) && $upload ) {
+		echo '<p>Le contenu à correctement été ajouté au site !</p>';
+	} ?>
+
 	<form enctype="multipart/form-data" action="#" method="post" id="document">
  		<label> Titre <input type="text" name="titre" value="" placeholder="Titre du document" required></label><br>
  		Sélectionner le fichier : <input name="document" type="file" /><br>
