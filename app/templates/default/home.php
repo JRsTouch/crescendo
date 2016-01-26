@@ -29,7 +29,7 @@
 						foreach ($data['actus'] as $i) {
 							echo '<li>';
 							echo "	<article>".
-										"<img src=\"".$i['url']."\" alt=\"".$i['alt']."\" />".
+										"<img src=\"assets/".$i['url']."\" alt=\"".$i['alt']."\" />".
 										"<div>".
 											"<div class='infoactu'>".
 												"<h3>".$i['titre']."</h3>".

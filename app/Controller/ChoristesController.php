@@ -33,13 +33,13 @@
 			$options[0]['copyrights']=explode(';',$options[0]['copyrights']);
 
 			
-			return $options;
+			return $options[0]['copyrights'];//a garder
 
 		}
 
+
 		/**
-		 * Rendu d'une chanson en fonction des données user
-		 * @param 
+		 * Rendu d'une chanson en fonction des données user 
 		 * @return Array : Contenu chanson à display. Envoi à view.
 		**/
 		public function chansons($id=0){
@@ -75,12 +75,9 @@
 		
 
 			$this->show('choristes/chansons',['data' => $data, 'layout'=> $layout]);
+
 		}
 
-		/**
-		 * Ajout en BDD et Upload d'une Actu.
-		 * Envoi à view.
-		**/
 
 		/**
 		 * AJAX : Recuperation des données BDD : Calendars
@@ -93,6 +90,7 @@
 
 		}
 
+
 		/**
 		 * Ajout en BDD et Upload d'une chanson
 		 * 6 mp3, 6 ogg, 6 pdf par chanson.
@@ -101,7 +99,8 @@
 		 * 2	: Recuperation mp3,ogg,pdf des tutti ( INSERT INTO musiques + pdfs )
 		 * 3-7	: Récupération mp3,ogg,pdf des différents pupitres ( UPDATE musiques + pdfs )
 		 * 8	: Fin du formulaire
-		 * envoi à view.
+		 * @param id, celle de la chanson, update, verifie si on a faitr la mise a jour ou pas .
+		 * @return envoi à view.
 		**/
 		public function chansons_Ajout($id=0, $update=false){
 			// initialisation de variables 
@@ -314,6 +313,12 @@
 
 		}
 
+
+		/**
+		 * Mise à jour du lien youtube de la chanson, et des informations la concernant.
+		 * @param id, celle de la chanson à update.
+		 * @return indicateur d'execution de l'update.
+		**/
 		public function updateSong($id){
 			$chansonsManager = new \Manager\ChansonsManager();
 			$song_to_update = $chansonsManager->find($id);
@@ -331,7 +336,12 @@
 
 		}
 
-		public function getActus() {
+
+		/**
+		 * récuperation des articles et news dans leur ordre d'ajout, et paginé
+		 * @return contenu paginé
+		**/
+		public function getActus(){
 
 			$NbArticles = new \Manager\PressesManager;
 			$Nb = $NbArticles->countPresses(); //Renvoie le nombre d'enregistrements de la table Presses
@@ -390,8 +400,15 @@
 		}
 
 		
-		public function gestionContenu() {
+		/**
+		 * Upload et ajout en BDD en fonction du type de contenu.
+		 * Retour sur page d'ajout de contenu quand terminé.
+		**/
+		public function gestionContenu(){
 			
+			$options = $this->getOptions();
+			$user = $this->getuser();
+			$data = array();
 
 
 			if(isset($_POST['documentsent'])) { //Si on soumet le formulaire #document
@@ -437,15 +454,12 @@
 					);
 				$documentManager->insert($insertion);
 
-					echo "<p>votre formulaire a bien été envoyé !</p>";
-					//Retour à la page d'accueil du coin choriste 
 					$layout = array(
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
-							'chansons' => $chansons
 							);
-					$this->show('choristes/actus', ['layout'=> $layout]);
+					$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
 
 
 			} 
@@ -457,17 +471,13 @@
 				$video = new \Manager\VideosManager;
 				$video->InsertVideosUrl($url, $description);
 
-				echo "<p>votre formulaire a bien été envoyé !</p>";
-				//Retour à la page d'accueil du coin choriste 
-
 				$layout = array(
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
-							'chansons' => $chansons
 							);
 
-				$this->show('choristes/actus', [ 'layout'=> $layout]);
+				$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
 
 			} 
 
@@ -505,12 +515,18 @@
 				}
 				
 				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en FrontOffice
-			    $path = '/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+			    $path = 'img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
 				$imagesManager = new \Manager\ImagesManager();
 				$id_img = $imagesManager->insertImage($path, $alt_img, $desc_img);
-				echo "<p>votre formulaire a bien été envoyé !</p>";
-					//Retour à la page d'accueil du coin choriste 
-				$this->show('choristes/actus');
+				
+					
+				$layout = array(
+							'name' => 'actus',
+							'user' => $user,
+							'options' => $options,
+							);
+
+				$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
 
 			} 
 
@@ -548,7 +564,7 @@
 				}
 				
 				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en FrontOffice
-			    $path = '/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+			    $path = 'img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
 				$imagesManager = new \Manager\ImagesManager();
 				$id_img = $imagesManager->insertImage($path, $alt_img, $desc_img);
 
@@ -560,15 +576,13 @@
 					$PressesManager = new \Manager\PressesManager;
 					$PressesManager->insertArticle($titre, $description,$id_img);
 
-					echo "<h2>votre formulaire a bien été envoyé !</h2>";
-
 					$layout = array(
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
-							'chansons' => $chansons
 							);
-					$this->show('choristes/actus', [ 'layout'=> $layout]);
+
+					$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
 
 
 				} else if ($_POST['table'] == 'News'){
@@ -586,15 +600,14 @@
 
 					$NewsManager = new \Manager\NewsManager;
 					$NewsManager->insertArticle($titre, $description,$id_img, $private);
-					echo "<p>votre formulaire a bien été envoyé !</p>";
-					//Retour à la page d'accueil du coin choriste 
+					
 					$layout = array(
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
-							'chansons' => $chansons
 							);
-					$this->show('choristes/actus', ['layout'=> $layout ]); //Si on soumet le formulaire #news
+
+					$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
 
 
 				} 
@@ -607,11 +620,17 @@
 							'user' => $user,
 							'options' => $options,
 							);
-			$data = array();
+			
 			//Sinon on affiche la page de formulaire vierge avec le select
 			$this->show('choristes/ajout_contenu', ['data' => $data, 'layout'=> $layout ]);  
 		} 
 
+
+		/**
+		 * Ajout d'un evenement dans le calendrier, en fonction d'une date
+		 * @param $_POSt, contiens les information de l'evenement
+		 * @return envoi à view.
+		**/
 		public function repetitions(){
 
 			if(isset($_POST['sent'])){
@@ -641,8 +660,13 @@
 							);
 
 			$this->show('choristes/repetitions', ['data' => $data, 'layout'=> $layout ]);
+
 		}
 
+
+		/**
+		 * AJAX : Va chercher dans la table calendrier tous les évenements.
+		**/
 		public function event(){
 
 			$calendarManager = new \Manager\CalendarsManager();
@@ -651,6 +675,10 @@
 
 		}
 
+		/**
+		 * Recupere les users, ordonnés par pupitre ( tenor, alto , etc ... )
+		 * @return envoi à view.
+		**/
 		public function membres(){
 
 			
@@ -676,8 +704,13 @@
 
 
 			$this->show('choristes/membres', ['data' => $data, 'layout'=> $layout ]);
+
 		}
 
+		/**
+		 * Modification du user coté utilisateur.
+		 * @return envoi à view.
+		**/
 		public function userAccount(){
 
 			$data = array();
