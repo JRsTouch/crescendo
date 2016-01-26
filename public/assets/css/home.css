@@ -14,6 +14,9 @@ footer {
   height: auto;
   margin-left: auto;
   margin-right: auto; }
+  .container a {
+    text-decoration: none;
+    color: white; }
 
 header {
   margin-bottom: 0;
@@ -111,7 +114,9 @@ nav {
 
 article {
   width: 320px;
-  height: 320px;
+  height: 240px;
+  overflow: hidden;
+  background-color: black;
   float: left;
   position: relative;
   margin: 30px; }
@@ -221,7 +226,8 @@ h1 {
 #carousel {
   width: 640px;
   height: 385px;
-  margin: auto; }
+  margin: auto;
+  overflow: hidden; }
 
 label {
   text-transform: uppercase;

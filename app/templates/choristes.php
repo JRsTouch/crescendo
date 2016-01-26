@@ -62,7 +62,7 @@
 				<!-- Partie accessible à partir du membre du CA  -->
 				<?php if( $layout['user']['role'] == 'bureau' || $layout['user']['role'] == 'gestion' || $layout['user']['role'] == 'chef' || $layout['user']['role'] == 'admin'): ?>
 					<li><a href="<?= $this->url('choristes_documents_officiels') ?>">Documents Bureau</a></li>				
-					<li><a href="">Messagerie du site ()</a></li>
+					<li><a href="https://ssl0.ovh.net/roundcube/?_user=chorale@crescendo.site" target="_blank">Accès messagerie</a></li>
 				<?php endif ?>
 				
 				<!-- Partie reservée aux chefs de choeur -->

@@ -28,9 +28,9 @@
 					if( isset ($data['actus'][$i]) ) {
 						foreach ($data['actus'] as $i) {
 							echo '<li>';
-							echo "	<article>".
-										"<img src=\"assets/".$i['url']."\" alt=\"".$i['alt']."\" />".
+							echo "	<article>".										
 										"<div>".
+											"<img src=\"assets/".$i['url']."\" alt=\"".$i['alt']."\" />".
 											"<div class='infoactu'>".
 												"<h3>".$i['titre']."</h3>".
 												"<p>".$i['extrait']."</p>".
