@@ -59,7 +59,7 @@
 				
 				<!-- Partie accessible à partir du membre du CA  -->
 				<?php if( $layout['user']['role'] == 'bureau' || $layout['user']['role'] == 'gestion' || $layout['user']['role'] == 'chef' || $layout['user']['role'] == 'admin'): ?>
-					<li><a href="">Documents Bureau</a></li>				
+					<li><a href="<?= $this->url('choristes_documents_officiels') ?>">Documents Bureau</a></li>				
 					<li><a href="">Messagerie du site ()</a></li>
 				<?php endif ?>
 				

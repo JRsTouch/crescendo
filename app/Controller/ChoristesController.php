@@ -728,4 +728,22 @@
 
 		}
 
+		public function getDocs() {
+
+			$options = $this->getOptions();
+			$user = $this->getuser();
+
+			$docsManager = new \Manager\DocumentsManager;
+			$docs = $docsManager->getAllDocs();
+
+
+			$layout = array(
+							'docs'		=>	$docs,
+							'user'		=>	$user,
+							'options'	=> $options,
+							);
+
+			$this->show('choristes/documents', ['layout'=> $layout ]);
+		}
+
 	}
