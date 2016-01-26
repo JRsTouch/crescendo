@@ -1,4 +1,4 @@
-<?php $this->layout('choristes', [ 'title' => 'Membres !', 'layout' => $layout ]); ?>
+<?php $this->layout('choristes', [ 'title' => 'CrescendO : Membres !', 'layout' => $layout ]); ?>
 
 
 <?php $this->start('main_content');  ?>

@@ -1,4 +1,4 @@
-<?php $this->layout('choristes', ['title' => 'Répétition', 'layout' => $layout]); ?>
+<?php $this->layout('choristes', ['title' => 'CrescendO : Répétition', 'layout' => $layout]); ?>
 
 <?php $this->start('main_content');  ?>
  	

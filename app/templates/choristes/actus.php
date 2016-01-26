@@ -1,10 +1,10 @@
-<?php $this->layout('choristes', ['title' => 'Ajout de News', 'layout' => $layout ]); ?>
+<?php $this->layout('choristes', ['title' => 'CrescendO : Actualités', 'layout' => $layout ]); ?>
 
 
 <?php $this->start('main_content'); ?>
 	<main>
 
-
+		<?php //echo "<pre>"; print_r($layout); echo "</pre>";?>
 		<h2>Actualité des news</h2>
 
 		<nav>
@@ -53,8 +53,7 @@
 									<img src='".$this->assetUrl($page['url'])."'>
 									<figcaption> Image de l'article </figcaption>
 								</figure>
-								<p>".$page['extrait']."</p>
-						</article>";
+								<p>".$page['extrait']."</p><a href='".$page['type']."/".$page['id']."'>Lien vers l'article</a></article>";
 					} ?>
 		</section>
 
