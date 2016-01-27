@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr" xmlns:og="http://ogp.me/ns#">
 	<head>
 		<meta charset="UTF-8">
@@ -8,6 +9,7 @@
 			foreach ($layout_display['tags']['link'] as $link) {
 				echo '<link rel="stylesheet" href="'.$this->assetUrl($link).'">';
 			}
+
 
 			foreach ($layout_display['tags']['script'] as $script){
 				echo '<script src="'.$this->assetUrl($script).'"></script>';
@@ -22,7 +24,6 @@
 
 	</head>
 <body>
-	
 	<?php 
 		// Header de la page principale
 		if ($layout_display['name'] == 'home') {
@@ -32,7 +33,7 @@
 				<div class="container">
 
 					<h1><?php echo $layout_data[0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
-					<nav>
+					<nav id="posfixed">
 						<ul>
 							<li><a href="#presentation">Présentation</a></li>
 							<li><a href="#actus">Actualités</a></li>
@@ -41,9 +42,15 @@
 							<li><a href="#contact">Contact</a></li>
 							<li><a href="<?= $this->url('users_login') ?>">Coin des Choristes</a></li> 
 						</ul>
+						<div
+						  class='fb-share-button'
+						  data-href='http://crescendo.site'
+						  data-type='button_count'>
+						</div>
 					</nav>
 
-				</div>
+				</div>						
+				
 			</header>
 			<?php
 		// Header des autres pages

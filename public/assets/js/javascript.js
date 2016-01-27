@@ -90,4 +90,17 @@ $(function(){
 		}, 500);
 	});
 
+	var topFix = $('#posfixed');
+	var offset = topFix.offset().top;
+
+	$(window).scroll(function() {    
+	    var scroll = $(window).scrollTop();
+	    
+	    if (scroll >= offset) {
+	        topFix.addClass("fixed");
+	    } else if (scroll < offset){
+	        topFix.removeClass("fixed");
+	    }
+	});
+
 });

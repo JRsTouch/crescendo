@@ -12,6 +12,7 @@
 	
 	<script src="<?= $this->assetUrl('js/song.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/footer.js') ?>" async defer></script>
+	<script src="<?= $this->assetUrl('js/facebook.js') ?>"></script>
 	
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -39,6 +40,7 @@
 				<!-- Certaines Partie du menu sont visibles par défaut, d'autres réservées à certains rangs -->
 
 				<li><a href="<?= $this->url('choristes_actus') ?>">Actus</a></li>
+				
 				
 				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a>
 					<?php

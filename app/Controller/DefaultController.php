@@ -300,4 +300,45 @@ class DefaultController extends Controller
 		$this->show('default/images' , ['images' => $images, 'data' => $data, 'layout' => $layout ]);
 	}
 
+	/**
+	 * Renvoie un enregistrement de news spécifique donné en ID 
+	 *@param table: table presse ou news passé en URL 
+	 *@param id : ID de l'article ou de la news passée en URL 
+	 *@return envoi à view [:table]/[:id].php
+	**/
+	public function getContentById($table, $id) {
+
+			$options = $this->getOptions();
+			$user = $this->getuser();
+			$news= "";
+			$Presses = "";
+			
+			if( $table == 'news' ){
+
+				$newsById = new \Manager\NewsManager;
+				$news = $newsById->getNewsById($id);
+
+			} else if ($table == 'presses') {
+
+				$PressesById = new \Manager\PressesManager;
+				$Presses = $PressesById->getPressesById($id);
+
+			}
+
+			$layout = array(
+							'table'     =>  $table,
+							'id'		=>  $id,
+							'user'		=>	$user,
+							'options'	=>  $options
+							);
+
+			$data = array(
+							'news'   => $news,
+							'presses'=> $Presses,
+							'id'	 => $id
+				);
+
+			$this->show('default/news', ['layout'=> $layout, 'data' => $data]);
+		}
+
 }
