@@ -13,6 +13,7 @@ class DefaultController extends Controller
 
 	public function home(){
 
+
 		$data = array();
 		$data['options'] = $this->getOptions(); 
 		$data['actus'] = $this->getActus(); //Actus presse et news
