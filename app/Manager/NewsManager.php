@@ -77,6 +77,11 @@
 			return $stmt->fetchAll();
 		}
 
+
+		/**
+		* Récupère les données croisées de la table News et images dans un tableau 
+		* @param id: ID passé en URL  
+ 		*/
 		public function getNewsById($id) 
 		{	
 			$pdo = $this->dbh;

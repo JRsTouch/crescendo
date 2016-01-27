@@ -33,6 +33,12 @@
 			return $stmt->fetchAll();
 		}
 
+
+		/**
+		 * Récupérer les enregistrements BDD avec offset et limite dynamique 
+		 *@param premiereEntree: offset calculé dynamiquement, première entrée de la page à lire
+		 *@param articleParPage: limite imposée par le nombre d'articles display dans la partie actu
+		 */
 		public function getAllPressesPagination($premiereEntree, $articlesParPage) 
 		{	
 			$pdo = $this->dbh;
@@ -73,6 +79,12 @@
 			$stmt->execute();						
 		}
 
+
+		/**
+		* Récupère les données croisées de la table presses et images dans un tableau 
+		* @param id: ID passé en URL 
+		*@return tableau associatif avec tous les enregistrements  
+ 		*/
 		public function getPressesById($id) 
 		{	
 			$pdo = $this->dbh;

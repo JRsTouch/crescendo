@@ -3,8 +3,11 @@
 
 <?php $this->start('main_content'); ?>
 	<main>
-		<?php //echo "<pre>"; print_r($data);?>
+		
 		<?php 
+
+			/* Si le tableau renvoie un enregistrement de la table NEWS, mise en page du contenu */
+
 			if (!empty($data['news'])) {
 				foreach ($data['news'] as $news) {
 					echo "<h2>".$news['newstitre']."</h2>";
@@ -20,6 +23,9 @@
 					}
 				}
 			}
+
+
+			/* Si le tableau renvoie un enregistrement de la table PRESSE, mise en page du contenu */
 
 			if (!empty($data['presses'])) {
 				foreach ($data['presses'] as $news) {

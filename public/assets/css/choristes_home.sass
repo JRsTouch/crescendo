@@ -2,6 +2,14 @@
 	margin: 0
 	padding: 0
 
+=clear //Fonction d'ajout de pseudo élément vide qui sert de clearfix 
+	visibility: hidden
+	display: block
+	font-size: 0
+	content: " "
+	clear: both
+	height: 0
+
 // Partie pour animation Facebook
 .panel
 	margin: 0 auto
@@ -72,17 +80,74 @@ body
 		box-sizing: border-box
 		width: 20%
 		float: left
-		border: 1px solid black
+		background-color: #211540
 		/* Encadré en haut à gauche qui contient les information relative a l'utilisateur connecté */
 		#user
 			width: 100%
 			height: 500px
-			border: 1px solid black
+			border-bottom: 2px solid #422B7F
+			p 
+				font-family: 'PT Sans', sans-serif
+				text-transform: uppercase
+				color: white
+				font-weight: bold
+				text-align: center
+			a
+				text-decoration: none
+				color: #8455FF 
+				text-align: center
+				text-transform: uppercase
+				display: block
+				padding-top: 5px
+				padding-bottom: 5px
+				&:hover
+					background-color: #7C3CFF
+					color: #FFF
+			img 
+				display: block
+				margin: auto
+
+								
 		nav
 			width: 100%
 			height: 600px
-			border: 1px solid black
+			padding-top: 30px
+			padding-left: 30px
+			ul li 
+				text-transform: uppercase
+				font-family: "Montserrat", sans-serif
+				font-size: 14px
+				list-style-type: none
+				padding: 8px
+				&:hover
+					background-color: #7C3CFF
+					width: 200px
+					border-radius: 5px
+				a
+					text-decoration: none
+					color: white	
+					&::before 
+						content: "\266B   "
+		
 	main
+		padding: 30px
+		background-color: #6340BF
+		color: white 
+		&::after
+			+clear()
+
+		h2
+			font-size: 40px
+			font-family: 'PT Sans', sans-serif
+			text-transform: capitalize
+
+		nav 
+			font-size: 18px
+			margin: 10px
+			a 
+				color: white 
+				text-decoration: none
+
 		#player
 			display: none
 			position: absolute
@@ -96,7 +161,7 @@ body
 				margin-top: 5%
 		box-sizing: border-box
 		width: 80%
-		height: 900px
+		height: auto
 		float: right
 		border: 1px solid black
 		/* Formulaire d'ajout de chansons a la library des choristes */
@@ -115,8 +180,8 @@ body
 			content: " "
 			display: block
 			clear: both
-		width: 100%
-		border: 1px solid black
+			width: 100%
+			border-top: 2px solid #422B7F
 
 	/* Style et positionement des élements dans le popup qui display les evenement de la data concerné  */
 	#calendar
@@ -137,21 +202,62 @@ body
 
 form#news, form#document, form#youtube, form#image 
 	display: none
+	border: 1px solid white 
+	padding: 30px
+	label
+		display: block
+		margin: 10px
+	select
+		margin: 10px
+	input
+		background-color: #3E1E7F
+		border: 1px solid #3E1E7F
+		padding: 5px
+		border-radius: 5px
 
 .actus figure img
 	width: 200px
 	height: 200px
-	float: left
-
+	margin: auto
 .actus::after
-	visibility: hidden
-	display: block
-	font-size: 0
-	content: " "
-	clear: both
-	height: 0
+	+clear()
 
 
 article 
-	width: 500px
+	width: 25%
+	float: left
+	padding: 20px
+	text-align: justify
+	background-color: #3E1E7F
+	margin: 20px
+	border-radius: 10px
+	figure img 
+		display: block
+		margin: auto
+	figcaption 
+		text-transform: uppercase
+		padding: 10px
+		text-align: center
+	h3
+		text-transform: uppercase
+		padding-top: 10px
+		padding-bottom: 10px
+	a
+		text-transform: uppercase
+		text-decoration: none
+		float: right
+		color: #A07DFF
+		&:hover
+			font-weight: bold
+.actus p 
+	padding: 10px
+	float: left
+
+
+section::after
+	+clear()
+	
+form#image input:nth-of-type(3)
+	background-color: #6340BF
+	border: none 
 	

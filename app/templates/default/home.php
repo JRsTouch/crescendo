@@ -9,7 +9,7 @@
 
 			<?= $data['options'][0]['description'] ?>
 			<?= $data['options'][0]['description2'] ?>
-			<a href="<?= $this->url('presentation') ?>">En savoir plus</a>
+			<a href="<?= $this->url('presentation') ?>"> + En savoir plus</a>
 
 		</div>
 	</div>
@@ -48,7 +48,7 @@
 				</ul>
 			</div>
 			
-			<a href="<?= $this->url('presse') ?>">Plus d'articles</a>
+			<a href="<?= $this->url('presse') ?>">+ Plus d'articles</a>
 
 		</div>
 	</section>
@@ -73,7 +73,7 @@
 				<?php endforeach ?>
 				</ul>
 			</div>
-			<a href="<?= $this->url('videos') ?>">Toutes les vidéos</a>
+			<a href="<?= $this->url('videos') ?>">+ Toutes les vidéos</a>
 		</div>
 	</div><div class="clearfix"></div>
 
@@ -91,7 +91,7 @@
 				<?php endforeach ?>			
 				</ul>
 			</div>
-			<a href="<?= $this->url('images') ?>">Toutes les photos</a>
+			<a href="<?= $this->url('images') ?>"> + Toutes les photos</a>
 		</div>
 	</div>
 

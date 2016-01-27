@@ -17,18 +17,18 @@
 	} ?>
 
 	<form enctype="multipart/form-data" action="#" method="post" id="document">
- 		<label> Titre <input type="text" name="titre" value="" placeholder="Titre du document" required></label><br>
- 		Sélectionner le fichier : <input name="document" type="file" /><br>
-		<input type="text" name="description" value="" placeholder="description succinte du document"><br>
+ 		<label> Titre <input type="text" name="titre" value="" placeholder="Titre du document" required></label>
+ 		Sélectionner le fichier : <input name="document" type="file" />
+		<input type="text" name="description" value="" placeholder="description succinte du document">
 		
 		<button type="submit" name="documentsent">Envoyer</button>
 	</form>
 
 	
 	<form enctype="multipart/form-data" action="#" method="post" id="image">
-		<input type="text" name="alt" value="" placeholder="description succinte de l'image" required><br>
-		<input type="text" name="desc_img" value="" placeholder="description complète de l'image" required><br>
- 		Sélectionner le fichier : <input name="image" type="file" /><br>
+		<input type="text" name="alt" value="" placeholder="description succinte de l'image" required>
+		<input type="text" name="desc_img" value="" placeholder="description complète de l'image" required>
+ 		Sélectionner le fichier : <input name="image" type="file" />
 				
 		<button type="submit" name="imagesent">Envoyer</button>
 	</form>
@@ -47,13 +47,13 @@
  			<option value="News">News</option>
  		</select>
 
- 		<label> Titre <input type="text" name="titre" value="" placeholder="Titre de l'article" required></label><br>
- 		<label> Description </label><br>
+ 		<label> Titre <input type="text" name="titre" value="" placeholder="Titre de l'article" required></label>
+ 		<label> Description </label>
  		<textarea name="description" required></textarea><br>
-		Sélectionner le fichier : <input name="my-file" type="file" /><br>
+		Sélectionner le fichier : <input name="my-file" type="file" />
 
-		<input type="text" name="alt" value="" placeholder="description succinte de l'image"><br>
-		<input type="text" name="desc_img" value="" placeholder="description complète de l'image"><br>
+		<input type="text" name="alt" value="" placeholder="description succinte de l'image">
+		<input type="text" name="desc_img" value="" placeholder="description complète de l'image">
 		<div class="private">Cette information est-elle privée (vue uniquement par les choristes) ?
 			<select name="private"> <!-- A mettre en display none en JS si la value du select "table" vaut news -->
 	 			<option value="1">Oui</option>

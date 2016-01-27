@@ -1,6 +1,7 @@
 <?php $this->layout('choristes', ['title' => 'CrescendO : Téléchargement des documents officiels', 'layout' => $layout ]); ?>
 
 <?php $this->start('main_content'); ?>
+	<main>
 	
 	<h2>Téléchargement des documents officiels</h2>
 	
@@ -15,6 +16,7 @@
 		} ?>
 	</ul>
 
+	</main>
 
 
 <?php $this->stop('main_content'); ?>
