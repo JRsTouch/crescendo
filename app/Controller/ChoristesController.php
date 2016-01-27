@@ -8,7 +8,7 @@
 	{		
 
 		/**
-		* Page d'accueil du coin choriste
+		* Page d'accueil du coin choriste : private
 		**/
 
 
