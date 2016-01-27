@@ -19,8 +19,26 @@ class DefaultController extends Controller
 		$data['videos'] = $this->getVideos(); //Contenu du flexslider video
 		$data['images'] = $this->getImages(); //Contenu du flexslider image 
 		$layout = array(
-						'ismain'	=>	true,
-						'form'		=>	true,
+						'name'		=>	'home',
+						'opengraph' =>	array(
+												'title'			=>	'CrescendO Joeuf: Accueil',
+												'type'			=>	'website',
+												'image'			=>	'<?= $layout_data[0]["url_logo"] ?>',
+												'url'			=>	'http://www.crescendo.site',
+												'description'	=>	'Découvrez la chorale Pop-Rock CrescendO, de Joeuf(54), Actus, Concerts, Vidéos...',
+												'locale'		=>	'fr_FR',
+											),
+						'tags'		=>	array(
+												'link'		=> array(
+																			'css/flexslider.css',
+																			'css/home.css',
+																	),
+												'script'	=> array(
+																			'js/jquery.flexslider.js',
+																			'js/javascript.js',
+																	),
+												
+											),
 						);
 		$this->show('default/home' , ['data' => $data, 'layout'=> $layout ] );
 	}
@@ -123,8 +141,19 @@ class DefaultController extends Controller
 		$optionsmanager = new \Manager\OptionsManager();
 		$options = $optionsmanager->findAll();
 		$layout = array(
-						'ismain'	=>	false,
-						'form'		=>	true,
+						'name'		=>	'presentation',
+						'opengraph' =>	array(
+												'title'			=>	'CrescendO Joeuf: Présentation',
+												'type'			=>	'website',
+												'image'			=>	'<?= $layout_data[0][\'url_logo\'] ?>',
+												'url'			=>	'http://www.crescendo.site/presentation',
+												'description'	=>	'Présentation de la chorale Pop-Rock CrescendO, de Joeuf(54), Actus, Concerts, Vidéos...',
+												'locale'		=>	'fr_FR',
+												'site_name'		=>	'CrescendO',
+											),
+						'tags'		=>	array(
+												'<link rel="stylesheet" href="<?= $this->assetUrl(\'css/presentation.css\') ?>">',
+											),
 						);
 
 		$this->show('default/presentation', ['data' => $data, 'layout' => $layout]);
@@ -141,9 +170,21 @@ class DefaultController extends Controller
 		$presseManager = new \Manager\PressesManager();
 		$articles = $presseManager->getAllPresses();
 		$layout = array(
-						'ismain'	=>	false,
-						'form'		=>	false,
-						);
+				'name'		=>	'presse',
+				'opengraph' =>	array(
+										'title'			=>	'CrescendO Joeuf: Présentation',
+										'type'			=>	'article',
+										'image'			=>	'<?= $layout_data[0][\'url_logo\'] ?>',
+										'url'			=>	'http://www.crescendo.site/presse',
+										'description'	=>	'Revue de presse de la chorale Pop-Rock CrescendO, de Joeuf(54).',
+										'locale'		=>	'fr_FR',
+										'site_name'		=>	'CrescendO',
+									),
+				'tags'		=>	array(
+										'<script src="<?= $this->assetUrl(\'js/ajax.js\') ?>"></script>',
+										'<link rel="stylesheet" href="<?= $this->assetUrl(\'css/medias.css\') ?>">'
+									),
+				);
 		$this->show('default/presse', ['articles' => $articles, 'data' => $data, 'layout' => $layout]);
 	}
 
@@ -208,8 +249,20 @@ class DefaultController extends Controller
 		$data = array();
 		$data['options'] = $this->getOptions();
 		$layout = array(
-						'ismain'	=>	false,
-						'form'		=>	false,
+						'name'		=>	'videos',
+						'opengraph' =>	array(
+												'title'			=>	'CrescendO Joeuf: Vidéos',
+												'type'			=>	'article',
+												'image'			=>	'<?= $layout_data[0][\'url_logo\'] ?>',
+												'url'			=>	'http://www.crescendo.site',
+												'description'	=>	'Vidéos de concert de la chorale Pop-Rock CrescendO, de Joeuf(54).',
+												'locale'		=>	'fr_FR',
+												'site_name'		=>	'CrescendO',
+											),
+						'tags'		=>	array(
+										'<script src="<?= $this->assetUrl(\'js/ajax.js\') ?>"></script>',
+										'<link rel="stylesheet" href="<?= $this->assetUrl(\'css/medias.css\') ?>">'
+									),
 						);
 
 		$this->show('default/videos' , ['videos' => $videos, 'data' => $data, 'layout' => $layout ]);
@@ -224,12 +277,24 @@ class DefaultController extends Controller
 
 		$imagesManager = new \Manager\ImagesManager();
 
-		$images = $imagesManager->findAll();
+		$images = $imagesManager->findAll("id", "DESC");
 		$data = array();
 		$data['options'] = $this->getOptions();
 		$layout = array(
-						'ismain'	=>	false,
-						'form'		=>	false,
+						'name'		=>	'images',
+						'opengraph' =>	array(
+												'title'			=>	'CrescendO Joeuf: Galerie Photos',
+												'type'			=>	'article',
+												'image'			=>	'<?= $this->assetUrl($images[0][\'url\']) ?>',
+												'url'			=>	'http://www.crescendo.site/images',
+												'description'	=>	'Visitez la galerie de photos de la chorale Pop-Rock CrescendO, de Joeuf(54).',
+												'locale'		=>	'fr_FR',
+												'site_name'		=>	'CrescendO',
+											),
+						'tags'		=>	array(
+										'<script src="<?= $this->assetUrl(\'js/ajax.js\') ?>"></script>',
+										'<link rel="stylesheet" href="<?= $this->assetUrl(\'css/medias.css\') ?>">'
+									),
 						);
 
 		$this->show('default/images' , ['images' => $images, 'data' => $data, 'layout' => $layout ]);

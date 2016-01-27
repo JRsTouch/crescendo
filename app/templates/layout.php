@@ -1,41 +1,31 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="UTF-8">
-	<title><?= $this->e($title) ?></title>
-	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
-	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-	<?php
-		// Page d'accueil
-		if ($layout_display['ismain'] && $layout_display['form']) {
-			?>
-			<script src="<?= $this->assetUrl('js/jquery.flexslider.js') ?>"></script>
-			<link rel="stylesheet" href="<?= $this->assetUrl('css/flexslider.css') ?>">
-			<link rel="stylesheet" href="<?= $this->assetUrl('css/home.css') ?>">
-			<script src="<?= $this->assetUrl('js/javascript.js') ?>"></script>
-			<?php
-		// Page présentation
-		} else if (!$layout_display['ismain'] && $layout_display['form']) {
-			?>
-			<link rel="stylesheet" href="<?= $this->assetUrl('css/presentation.css') ?>">
-			<?php
-		// Pages Presse, Images, Videos
-		} else if (!$layout_display['ismain'] && !$layout_display['form']) {
-			?>
-			<script src="<?= $this->assetUrl('js/ajax.js') ?>"></script>
-			<link rel="stylesheet" href="<?= $this->assetUrl('css/medias.css') ?>">
-			<?php
-		}
-	 ?>
+<html lang="fr" xmlns:og="http://ogp.me/ns#">
+	<head>
+		<meta charset="UTF-8">
+		<title><?= $this->e($title) ?></title>
+		<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
+		<?php 
+			foreach ($layout_display['tags']['link'] as $link) {
+				echo '<link rel="stylesheet" href="'.$this->assetUrl($link).'">';
+			}
 
+			foreach ($layout_display['tags']['script'] as $script){
+				echo '<script src="'.$this->assetUrl($script).'"></script>';
+			}
 
-</head>
+			foreach ($layout_display['opengraph'] as $property	=>	$content) {
+				echo '<meta property="og:'.$property.'" content="'.$content.'" />';
+			}
+		 ?>
+		<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+	</head>
 <body>
 	
 	<?php 
 		// Header de la page principale
-		if ($layout_display['ismain']) {
+		if ($layout_display['name'] == 'home') {
 			?>
 			<header>
 				<img src="<?= $layout_data[0]['url_logo'] ?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
@@ -57,7 +47,7 @@
 			</header>
 			<?php
 		// Header des autres pages
-		} else if (!$layout_display['ismain']){
+		} else {
 			?>
 				<header>
 
@@ -68,6 +58,7 @@
 					</div>
 				</header>
 			<?php
+
 		}
 	 ?>
 
@@ -76,15 +67,15 @@
 
 	<?php
 		// Formulaire de contact sur : Page principale, Page présentation .
-		if($layout_display['form']){
+		if($layout_display['name'] == 'home' || $layout_display['name'] == 'presentation'){
 			?>
 
 			<div id="contact">
 					<div class="container">
 						<h2>Nous contacter</h2>
 						<form action="<?= $this->url('contact') ?>" method="POST" accept-charset="utf-8">
-							<label for="name">Votre Nom :<input type="text" name="name" placeholder="Doe John"></label>
-							<label for="email">Votre Email :<input type="email" name="email" placeholder="Doe.john@crescendo.fr"></label>
+							<label for="name">Votre Nom :<input type="text" name="name" placeholder=""></label>
+							<label for="email">Votre Email :<input type="email" name="email" placeholder="example@crescendo.site"></label>
 							<label for="message">Votre Message :<textarea name="message" placeholder="Bonjour.."></textarea></label>
 							<button type="submit" name="sent">Envoyer</button>
 						</form>
