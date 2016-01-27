@@ -65,23 +65,79 @@ body {
     box-sizing: border-box;
     width: 20%;
     float: left;
-    border: 1px solid black;
+    background-color: #211540;
     /* Encadr├® en haut ├á gauche qui contient les information relative a l'utilisateur connect├® */ }
     body #container #user {
       width: 100%;
       height: 500px;
-      border: 1px solid black; }
+      border-bottom: 2px solid #422B7F; }
+      body #container #user p {
+        font-family: "PT Sans", sans-serif;
+        text-transform: uppercase;
+        color: white;
+        font-weight: bold;
+        text-align: center; }
+      body #container #user a {
+        text-decoration: none;
+        color: #8455FF;
+        text-align: center;
+        text-transform: uppercase;
+        display: block;
+        padding-top: 5px;
+        padding-bottom: 5px; }
+        body #container #user a:hover {
+          background-color: #7C3CFF;
+          color: #FFF; }
+      body #container #user img {
+        display: block;
+        margin: auto; }
     body #container nav {
       width: 100%;
       height: 600px;
-      border: 1px solid black; }
+      padding-top: 30px;
+      padding-left: 30px; }
+      body #container nav ul li {
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        list-style-type: none;
+        padding: 8px; }
+        body #container nav ul li:hover {
+          background-color: #7C3CFF;
+          width: 200px;
+          border-radius: 5px; }
+        body #container nav ul li a {
+          text-decoration: none;
+          color: white; }
+          body #container nav ul li a::before {
+            content: "♫  "; }
   body main {
+    padding: 30px;
+    background-color: #6340BF;
+    color: white;
     box-sizing: border-box;
     width: 80%;
-    height: 900px;
+    height: auto;
     float: right;
     border: 1px solid black;
     /* Formulaire d'ajout de chansons a la library des choristes */ }
+    body main::after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0; }
+    body main h2 {
+      font-size: 40px;
+      font-family: "PT Sans", sans-serif;
+      text-transform: capitalize; }
+    body main nav {
+      font-size: 18px;
+      margin: 10px; }
+      body main nav a {
+        color: white;
+        text-decoration: none; }
     body main #player {
       display: none;
       position: absolute;
@@ -99,13 +155,12 @@ body {
       float: left; }
     body main #tutti_song {
       display: none; }
-  body footer {
+  body footer::before {
+    content: " ";
+    display: block;
+    clear: both;
     width: 100%;
-    border: 1px solid black; }
-    body footer::before {
-      content: " ";
-      display: block;
-      clear: both; }
+    border-top: 2px solid #422B7F; }
   body #calendar {
     position: fixed;
     top: 0;
@@ -122,12 +177,24 @@ body {
         text-align: center; }
 
 form#news, form#document, form#youtube, form#image {
-  display: none; }
+  display: none;
+  border: 1px solid white;
+  padding: 30px; }
+  form#news label, form#document label, form#youtube label, form#image label {
+    display: block;
+    margin: 10px; }
+  form#news select, form#document select, form#youtube select, form#image select {
+    margin: 10px; }
+  form#news input, form#document input, form#youtube input, form#image input {
+    background-color: #3E1E7F;
+    border: 1px solid #3E1E7F;
+    padding: 5px;
+    border-radius: 5px; }
 
 .actus figure img {
   width: 200px;
   height: 200px;
-  float: left; }
+  margin: auto; }
 
 .actus::after {
   visibility: hidden;
@@ -138,6 +205,46 @@ form#news, form#document, form#youtube, form#image {
   height: 0; }
 
 article {
-  width: 500px; }
+  width: 25%;
+  float: left;
+  padding: 20px;
+  text-align: justify;
+  background-color: #3E1E7F;
+  margin: 20px;
+  border-radius: 10px; }
+  article figure img {
+    display: block;
+    margin: auto; }
+  article figcaption {
+    text-transform: uppercase;
+    padding: 10px;
+    text-align: center; }
+  article h3 {
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  article a {
+    text-transform: uppercase;
+    text-decoration: none;
+    float: right;
+    color: #A07DFF; }
+    article a:hover {
+      font-weight: bold; }
+
+.actus p {
+  padding: 10px;
+  float: left; }
+
+section::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0; }
+
+form#image input:nth-of-type(3) {
+  background-color: #6340BF;
+  border: none; }
 
 /*# sourceMappingURL=choristes_home.css.map */

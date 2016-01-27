@@ -4,12 +4,12 @@
 <?php $this->start('main_content'); ?>
 	<main>
 
-		<?php //echo "<pre>"; print_r($layout); echo "</pre>";?>
+		
 		<h2>Actualité des news</h2>
 
 		<nav>
 			<?php
-			//echo "<pre>"; print_r($data['pages']); echo "</pre>";
+			
 			$articlesParPage = $data['articlesParPages'];
 			if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
 				{

@@ -23,7 +23,6 @@
 		['GET', '/event', 'Choristes#Event', 'choristes_event'],
 		['GET|POST', '/modify', 'Choristes#userAccount', 'users_modify'],
 
-		//['GET|POST', '/choristes/ajout_news', 'Choristes#addNewsActus', 'choristes_ajout_news'],
 
 		['GET|POST', '/choristes/chansons/ajout', 'Choristes#Chansons_Ajout', 'choristes_chansons_ajout'],
 		['GET|POST', '/choristes/chansons/update/[:id]/[:update]', 'Choristes#Chansons_Ajout', 'choristes_chansons_update'],

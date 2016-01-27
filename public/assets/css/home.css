@@ -101,12 +101,11 @@ nav {
       content: " + ";
       display: block;
       text-align: center;
-      float: right;
-      margin-top: 50px; }
+      float: right; }
 
 #photo {
   background-color: #393294;
-  height: 640px; }
+  height: 930px; }
 
 #contact {
   background-color: #201c54;
@@ -251,7 +250,8 @@ input[type="text"], input[type="email"] {
   border: 1px solid #1E1A4D;
   padding: 5px;
   margin-left: 10px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  color: white; }
 
 form {
   padding-left: 200px;

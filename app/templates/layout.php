@@ -83,8 +83,8 @@
 					<div class="container">
 						<h2>Nous contacter</h2>
 						<form action="<?= $this->url('contact') ?>" method="POST" accept-charset="utf-8">
-							<label for="name">Votre Nom :<input type="text" name="name" placeholder="Doe John"></label>
-							<label for="email">Votre Email :<input type="email" name="email" placeholder="Doe.john@crescendo.fr"></label>
+							<label for="name">Votre Nom :<input type="text" name="name" placeholder="..."></label>
+							<label for="email">Votre Email :<input type="email" name="email" placeholder="exemple@crescendo.site"></label>
 							<label for="message">Votre Message :<textarea name="message" placeholder="Bonjour.."></textarea></label>
 							<button type="submit" name="sent">Envoyer</button>
 						</form>
