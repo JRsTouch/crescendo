@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/facebook.js') ?>"></script>
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<?php
@@ -32,7 +33,6 @@
 
 </head>
 <body>
-	
 	<?php 
 		// Header de la page principale
 		if ($layout_display['ismain']) {
@@ -42,7 +42,7 @@
 				<div class="container">
 
 					<h1><?php echo $layout_data[0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
-					<nav>
+					<nav id="posfixed">
 						<ul>
 							<li><a href="#presentation">Présentation</a></li>
 							<li><a href="#actus">Actualités</a></li>
@@ -51,9 +51,15 @@
 							<li><a href="#contact">Contact</a></li>
 							<li><a href="<?= $this->url('users_login') ?>">Coin des Choristes</a></li> 
 						</ul>
+						<div
+						  class='fb-share-button'
+						  data-href='http://crescendo.site'
+						  data-type='button_count'>
+						</div>
 					</nav>
 
-				</div>
+				</div>						
+				
 			</header>
 			<?php
 		// Header des autres pages

@@ -857,7 +857,8 @@
 
 			$data = array(
 							'news'   => $news,
-							'presses'=> $Presses
+							'presses'=> $Presses,
+							'id'	 => $id
 				);
 
 			$this->show('choristes/news', ['layout'=> $layout, 'data' => $data]);

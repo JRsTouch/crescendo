@@ -8,6 +8,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<script src="<?= $this->assetUrl('js/jquery.flexslider.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/login.js') ?>"></script>
+	<script src="<?= $this->assetUrl('js/facebook.js') ?>"></script>
 	<link href='<?= $this->assetUrl('css/login.css') ?>' rel='stylesheet' type='text/css'>
 </head>
 <body>

@@ -51,6 +51,22 @@ nav {
     nav ul li:last-of-type::after {
       content: "*";
       color: #ff4e6e; }
+  nav .fb-share-button {
+    position: absolute;
+    float: right;
+    bottom: 10px;
+    right: 30px; }
+
+.fixed {
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%; }
+  .fixed ul {
+    margin: auto;
+    width: 1140px; }
 
 #presentation {
   background-color: #393294;
