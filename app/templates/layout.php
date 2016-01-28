@@ -5,14 +5,20 @@
 		<meta charset="UTF-8">
 		<title><?= $this->e($title) ?></title>
 		<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
+		<script src="<?= $this->assetUrl('js/facebook.js') ?>"></script>
+		<script src="<?= $this->assetUrl('js/footer.js') ?>" async defer></script>	
 		<?php 
-			foreach ($layout_display['tags']['link'] as $link) {
-				echo '<link rel="stylesheet" href="'.$this->assetUrl($link).'">';
+
+			if (isset($layout_display['tags']['link'])){
+				foreach ($layout_display['tags']['link'] as $link) {
+					echo '<link rel="stylesheet" href="'.$this->assetUrl($link).'">';
+				}
 			}
 
-
-			foreach ($layout_display['tags']['script'] as $script){
-				echo '<script src="'.$this->assetUrl($script).'"></script>';
+			if (isset($layout_display['tags']['script'])){
+				foreach ($layout_display['tags']['script'] as $script){
+					echo '<script src="'.$this->assetUrl($script).'"></script>';
+				}
 			}
 
 			foreach ($layout_display['opengraph'] as $property	=>	$content) {
@@ -107,6 +113,24 @@
 														?> </p>
 				
 
+			</div>
+
+			<div class="hover panel">
+  				<div class="front">
+        			<div class="pad">
+        				<a href="https://www.facebook.com/groups/140046179408954/">
+            				<img src="<?= $this->assetUrl('img/facebook_off.png') ?>" alt="logo facebook front" width="64" height="64"/>
+            			</a>
+       				</div>
+    			</div>
+
+    			<div class="back">
+        			<div class="pad">
+        				<a href="https://www.facebook.com/groups/140046179408954/">
+            				<img src="<?= $this->assetUrl('img/facebook_on.png') ?>" alt="logo facebook front" width="64" height="64"/>
+            			</a>
+        			</div>
+    			</div>
 			</div>
 		</footer>
 

@@ -70,7 +70,16 @@
 							'name' => 'chansons',
 							'user' => $user,
 							'options' => $options,
-							'chansons' => $chansons
+							'chansons' => $chansons,
+							'tags'		=>	array(
+												'link'		=> array(
+																			'css/chansons.css',
+																	),
+												'script'	=> array(
+																			'js/song.js',
+																	),
+												
+											),
 							);
 		
 
@@ -300,7 +309,12 @@
 							'name' => 'chansons_ajout',
 							'user' => $user,
 							'options' => $options,
-							'update_chansons' => $updatechansons
+							'update_chansons' => $updatechansons,
+							'tags'		=>	array(
+												'link'		=> array(
+																			'css/chansons_ajout.css',
+																	),												
+											),
 							);
 			$data = array(
 							'count' => $count,
@@ -389,7 +403,7 @@
 			$layout = array(
 							'name' => 'actus',
 							'user' => $user,
-							'options' => $options,
+							'options' => $options,														
 							);
 		 
 
@@ -456,6 +470,12 @@
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
+							'tags'		=>	array(												
+												'script'	=> array(
+																			'js/contenu.js',
+																	),
+												
+											),
 							);
 					$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
 
@@ -473,6 +493,12 @@
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
+							'tags'		=>	array(												
+												'script'	=> array(
+																			'js/contenu.js',
+																	),
+												
+											),
 							);
 
 				$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
@@ -522,6 +548,12 @@
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
+							'tags'		=>	array(												
+												'script'	=> array(
+																			'js/contenu.js',
+																	),
+												
+											),
 							);
 
 				$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
@@ -578,6 +610,12 @@
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
+							'tags'		=>	array(												
+												'script'	=> array(
+																			'js/contenu.js',
+																	),
+												
+											),
 							);
 
 					$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
@@ -603,6 +641,12 @@
 							'name' => 'actus',
 							'user' => $user,
 							'options' => $options,
+							'tags'		=>	array(												
+												'script'	=> array(
+																			'js/contenu.js',
+																	),
+												
+											),
 							);
 
 					$this->show('choristes/ajout_contenu', ['layout'=> $layout, 'upload'=>true]);
@@ -617,6 +661,12 @@
 							'name' => 'gestion_contenu',
 							'user' => $user,
 							'options' => $options,
+							'tags'		=>	array(												
+												'script'	=> array(
+																			'js/contenu.js',
+																	),
+												
+											),
 							);
 			
 			//Sinon on affiche la page de formulaire vierge avec le select
@@ -696,7 +746,16 @@
 			$layout = array(
 							'name'		=>	'membres',
 							'user'		=>	$user,
-							'options'	=> $options,
+							'options'	=> 	$options,
+							'tags'		=>	array(
+												'link'		=> array(
+																			'css/membres.css',
+																	),
+												'script'	=> array(
+																			'js/membres.js',
+																	),
+												
+											),
 							);
 
 
@@ -712,9 +771,13 @@
 		public function userAccount(){
 
 			$data = array();
-			$data['options'] = $this->getOptions();
-			$data['user'] = $this->getuser();
-			$layout = array();
+			$options = $this->getOptions();
+			$user = $this->getuser();
+			$layout = array(
+							'name'	=> 'useraccount',
+							'user'		=>	$user,
+							'options'	=> 	$options,
+						);
 
 			$usersManager = new \Manager\UsersManager();
 			$user = $this->getUser();
@@ -776,7 +839,13 @@
 			$layout = array(
 							'docs'		=>	$docs,
 							'user'		=>	$user,
-							'options'	=> $options,
+							'options'	=>	$options,
+							'tags'		=>	array(
+												'script'	=> array(
+																			'js/contenu.js',
+																	),
+												
+											),
 						);
 
 			$this->show('choristes/documents', ['layout'=> $layout ]);
@@ -802,7 +871,16 @@
 			$layout = array(
 							'name'		=>	'membres',
 							'user'		=>	$user,
-							'options'	=> $options,
+							'options'	=>	$options,
+							'tags'		=>	array(
+												'link'		=> array(
+																			'css/management.css',
+																	),
+												'script'	=> array(
+																			'js/management.js',
+																	),
+												
+											),
 							);
 
 			if(isset($_POST['sent'])){
@@ -852,7 +930,12 @@
 							'table'     =>  $table,
 							'id'		=>  $id,
 							'user'		=>	$user,
-							'options'	=>  $options
+							'options'	=>  $options,
+							'tags'		=>	array(
+												'script'	=> array(
+																			'js/facebook.js',
+																	),
+											),
 							);
 
 			$data = array(

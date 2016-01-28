@@ -24,7 +24,7 @@ class DefaultController extends Controller
 						'opengraph' =>	array(
 												'title'			=>	'CrescendO Joeuf: Accueil',
 												'type'			=>	'website',
-												'image'			=>	'<?= $layout_data[0]["url_logo"] ?>',
+												'image'			=>	$data['options'][0]["url_logo"],
 												'url'			=>	'http://www.crescendo.site',
 												'description'	=>	'Découvrez la chorale Pop-Rock CrescendO, de Joeuf(54), Actus, Concerts, Vidéos...',
 												'locale'		=>	'fr_FR',
@@ -146,14 +146,16 @@ class DefaultController extends Controller
 						'opengraph' =>	array(
 												'title'			=>	'CrescendO Joeuf: Présentation',
 												'type'			=>	'website',
-												'image'			=>	'<?= $layout_data[0][\'url_logo\'] ?>',
+												'image'			=>	$data['options'][0]["url_logo"],
 												'url'			=>	'http://www.crescendo.site/presentation',
 												'description'	=>	'Présentation de la chorale Pop-Rock CrescendO, de Joeuf(54), Actus, Concerts, Vidéos...',
 												'locale'		=>	'fr_FR',
 												'site_name'		=>	'CrescendO',
 											),
 						'tags'		=>	array(
-												'<link rel="stylesheet" href="<?= $this->assetUrl(\'css/presentation.css\') ?>">',
+												'link'		=> array(
+																			'css/presentation.css',
+																	),
 											),
 						);
 
@@ -175,15 +177,19 @@ class DefaultController extends Controller
 				'opengraph' =>	array(
 										'title'			=>	'CrescendO Joeuf: Présentation',
 										'type'			=>	'article',
-										'image'			=>	'<?= $layout_data[0][\'url_logo\'] ?>',
+										'image'			=>	$data['options'][0]["url_logo"],
 										'url'			=>	'http://www.crescendo.site/presse',
 										'description'	=>	'Revue de presse de la chorale Pop-Rock CrescendO, de Joeuf(54).',
 										'locale'		=>	'fr_FR',
 										'site_name'		=>	'CrescendO',
 									),
 				'tags'		=>	array(
-										'<script src="<?= $this->assetUrl(\'js/ajax.js\') ?>"></script>',
-										'<link rel="stylesheet" href="<?= $this->assetUrl(\'css/medias.css\') ?>">'
+										'link'		=> array(
+																			'css/medias.css',
+																	),
+										'script'	=> array(
+																			'js/ajax.js',
+																	),
 									),
 				);
 		$this->show('default/presse', ['articles' => $articles, 'data' => $data, 'layout' => $layout]);
@@ -254,15 +260,19 @@ class DefaultController extends Controller
 						'opengraph' =>	array(
 												'title'			=>	'CrescendO Joeuf: Vidéos',
 												'type'			=>	'article',
-												'image'			=>	'<?= $layout_data[0][\'url_logo\'] ?>',
+												'image'			=>	$data['options'][0]["url_logo"],
 												'url'			=>	'http://www.crescendo.site',
 												'description'	=>	'Vidéos de concert de la chorale Pop-Rock CrescendO, de Joeuf(54).',
 												'locale'		=>	'fr_FR',
 												'site_name'		=>	'CrescendO',
 											),
 						'tags'		=>	array(
-										'<script src="<?= $this->assetUrl(\'js/ajax.js\') ?>"></script>',
-										'<link rel="stylesheet" href="<?= $this->assetUrl(\'css/medias.css\') ?>">'
+										'link'		=> array(
+																			'css/medias.css',
+																	),
+										'script'	=> array(
+																			'js/ajax.js',
+																	),
 									),
 						);
 
@@ -286,15 +296,19 @@ class DefaultController extends Controller
 						'opengraph' =>	array(
 												'title'			=>	'CrescendO Joeuf: Galerie Photos',
 												'type'			=>	'article',
-												'image'			=>	'<?= $this->assetUrl($images[0][\'url\']) ?>',
+												'image'			=>	'assets/'.$images[0]['url'],
 												'url'			=>	'http://www.crescendo.site/images',
 												'description'	=>	'Visitez la galerie de photos de la chorale Pop-Rock CrescendO, de Joeuf(54).',
 												'locale'		=>	'fr_FR',
 												'site_name'		=>	'CrescendO',
 											),
 						'tags'		=>	array(
-										'<script src="<?= $this->assetUrl(\'js/ajax.js\') ?>"></script>',
-										'<link rel="stylesheet" href="<?= $this->assetUrl(\'css/medias.css\') ?>">'
+												'link'		=> array(
+																			'css/medias.css',
+																	),
+												'script'	=> array(
+																			'js/ajax.js',
+																	),
 									),
 						);
 
@@ -330,7 +344,25 @@ class DefaultController extends Controller
 							'table'     =>  $table,
 							'id'		=>  $id,
 							'user'		=>	$user,
-							'options'	=>  $options
+							'options'	=>  $options,
+							'name'		=>	'images',
+							'opengraph' =>	array(
+												'title'			=>	'CrescendO Joeuf: Galerie Photos',
+												'type'			=>	'article',
+												'image'			=>	$data['options'][0]["url_logo"],
+												'url'			=>	'http://www.crescendo.site/images',
+												'description'	=>	'Visitez la galerie de photos de la chorale Pop-Rock CrescendO, de Joeuf(54).',
+												'locale'		=>	'fr_FR',
+												'site_name'		=>	'CrescendO',
+											),
+							'tags'		=>	array(
+												'link'		=> array(
+																			'css/medias.css',
+																	),
+												'script'	=> array(
+																			'js/ajax.js',
+																	),
+									),
 							);
 
 			$data = array(
