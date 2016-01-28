@@ -6,20 +6,27 @@
 	<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/jquery-ui.js') ?>"></script>
 	<script src="<?= $this->assetUrl('js/calendar.js') ?>"></script>
-	<script src="<?= $this->assetUrl('js/contenu.js') ?>" type="text/javascript" charset="utf-8" async defer></script>
-	<script src="<?= $this->assetUrl('js/membres.js') ?>"></script>
-	<script src="<?= $this->assetUrl('js/management.js') ?>"></script>
-	
-	<script src="<?= $this->assetUrl('js/song.js') ?>"></script>
-	<script src="<?= $this->assetUrl('js/footer.js') ?>" async defer></script>
-	<script src="<?= $this->assetUrl('js/facebook.js') ?>"></script>
-	
+	<script src="<?= $this->assetUrl('js/footer.js') ?>" async defer></script>	
 	<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<link href="<?= $this->assetUrl('css/jquery-ui.css') ?>" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/choristes_home.css') ?>">
-	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/membres.css') ?>">
-	<link rel="stylesheet" type="text/css" href="<?= $this->assetUrl('css/management.css') ?>">
+	<?php 
+
+		if (isset($layout['tags']['link'])){
+			foreach ($layout['tags']['link'] as $link) {
+				echo '<link rel="stylesheet" href="'.$this->assetUrl($link).'">';
+			}
+		}
+
+		if (isset($layout['tags']['script'])){
+			foreach ($layout['tags']['script'] as $script){
+				echo '<script src="'.$this->assetUrl($script).'" type="text/javascript" charset="utf-8" async defer></script>';
+			}
+		}
+
+		
+	?>
 </head>
 
 <body>

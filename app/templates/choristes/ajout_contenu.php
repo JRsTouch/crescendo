@@ -1,4 +1,4 @@
-<?php $this->layout('choristes', ['title' => 'CrescendO : Ajout de fichiers', 'layout_data' => $data['options'][0]['copyrights'], 'layout' => $layout, 'user' => $data['user'] ]); ?>
+<?php $this->layout('choristes', ['title' => 'CrescendO : Ajout de fichiers', 'layout' => $layout]); ?>
 
 
 <?php $this->start('main_content');  ?>
