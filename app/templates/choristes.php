@@ -34,7 +34,6 @@
 	<div id="container">
 		
 		<div id="user">
-
 			<img src="<?= $this->assetUrl($layout['user']['avatar']) ?>" alt="avatar" width="100" height="100">
 			<p><?= $layout['user']['username'] ?></p>
 			<a href="<?= $this->url('users_modify') ?>">Modifier le profil</a>

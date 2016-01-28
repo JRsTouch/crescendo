@@ -520,8 +520,6 @@
 			        array(
 			            'jpg' => 'image/jpeg',
 			            'png' => 'image/png',
-			            'gif' => 'image/gif',
-			            'bmp' => 'image/bmp'
 			        )
 			    );
 
@@ -530,16 +528,39 @@
 			    	//die();
 			    }
 
-
+			    $timestamp = date('d-m-Y-h-i-s');
 			    //On renomme l'image et on l'envoie dans le bon dossier 
-			    $path = '../public/assets/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+			    $path = '../public/assets/img/' .$timestamp. '.' . $extFoundInArray;
 				$moved = move_uploaded_file($_FILES['image']['tmp_name'], $path);
 				if(!$moved) {
 					echo 'Erreur lors de l\'enregistrement';
 				}
+
+				// création de la thumbnail
+				$filename = '../public/assets/img/' .$timestamp. '-thumb.' . $extFoundInArray;
+				$newwidth = 150;
+
+				// Calcul des nouvelles dimensions
+				list($width, $height) = getimagesize($path);
+				$newheight = ($height * $newwidth) / $width;
+
+				// Chargement
+				$thumb = imagecreatetruecolor($newwidth, $newheight);
+
+				if($mimeType == 'image/jpeg'){
+					$source = imagecreatefromjpeg($path);
+					imagecopyresampled($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+					imagejpeg($thumb, $filename);
+				}
+
+				if($mimeType == 'image/png'){
+					$source = imagecreatefrompng($filename);
+					imagecopyresampled($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+					imagepng($thumb, $filename);
+				}
 				
 				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en FrontOffice
-			    $path = 'img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+			    $path = 'img/' .$timestamp. '.' . $extFoundInArray;
 				$imagesManager = new \Manager\ImagesManager();
 				$id_img = $imagesManager->insertImage($path, $alt_img, $desc_img);
 				
@@ -575,8 +596,6 @@
 			        array(
 			            'jpg' => 'image/jpeg',
 			            'png' => 'image/png',
-			            'gif' => 'image/gif',
-			            'bmp' => 'image/bmp'
 			        )
 			    );
 
@@ -585,16 +604,39 @@
 			    	//die();
 			    }
 
-
+			    $timestamp = date('d-m-Y-h-i-s');
 			    //On renomme l'image et on l'envoie dans le bon dossier 
-			    $path = '../public/assets/img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+			    $path = '../public/assets/img/' .$timestamp. '.' . $extFoundInArray;
 				$moved = move_uploaded_file($_FILES['my-file']['tmp_name'], $path);
 				if(!$moved) {
 					echo 'Erreur lors de l\'enregistrement';
 				}
+
+				// création de la thumbnail
+				$filename = '../public/assets/img/' .$timestamp. '-thumb.' . $extFoundInArray;
+				$newwidth = 150;
+
+				// Calcul des nouvelles dimensions
+				list($width, $height) = getimagesize($path);
+				$newheight = ($height * $newwidth) / $width;
+
+				// Chargement
+				$thumb = imagecreatetruecolor($newwidth, $newheight);
+
+				if($mimeType == 'image/jpeg'){
+					$source = imagecreatefromjpeg($path);
+					imagecopyresampled($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+					imagejpeg($thumb, $filename);
+				}
+
+				if($mimeType == 'image/png'){
+					$source = imagecreatefrompng($filename);
+					imagecopyresampled($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+					imagepng($thumb, $filename);
+				}
 				
 				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en FrontOffice
-			    $path = 'img/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+			    $path = 'img/' .$timestamp. '.' . $extFoundInArray;
 				$imagesManager = new \Manager\ImagesManager();
 				$id_img = $imagesManager->insertImage($path, $alt_img, $desc_img);
 
@@ -816,6 +858,46 @@
 
 					$usersManager->update($forUpdate, $id);
 				}
+			}
+
+			if(isset($_POST['sentimage'])) { //Si on soumet le formulaire #image
+				/* Upload images */
+
+				$finfo = new \finfo(FILEINFO_MIME_TYPE);
+				// Récupération du Mime
+				$mimeType = $finfo->file($_FILES['image']['tmp_name']);
+
+				$extFoundInArray = array_search(
+			        $mimeType,
+			        array(
+			            'jpg' => 'image/jpeg',
+			            'png' => 'image/png',
+			        )
+			    );
+
+			    if ($extFoundInArray === false) { //Si le fichier envoyé n'est pas une image 
+			    	echo 'Le fichier n\'est pas une image';
+			    	//die();
+			    }
+
+
+			    //On renomme l'image et on l'envoie dans le bon dossier 
+			    $path = '../public/assets/img/avatar/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+				$moved = move_uploaded_file($_FILES['image']['tmp_name'], $path);
+				if(!$moved) {
+					echo 'Erreur lors de l\'enregistrement';
+				}
+				
+				//Insertion en base de données avec le fichier renommé et le bon chemin pour l'appel en FrontOffice
+			    $path = '/img/avatar/' .date('d-m-Y-h-i-s'). '.' . $extFoundInArray;
+
+			    $forUpdate = array('avatar' => $path);
+
+				$usersManager->update($forUpdate, $id);	
+
+				$layout['user']['avatar'] = $path;
+				$_SESSION['user']['avatar']	= $path;
+				
 			}
 
 			$this->show('choristes/modify', ['data' => $data, 'layout'=> $layout]);

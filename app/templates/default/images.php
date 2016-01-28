@@ -12,13 +12,20 @@
 	</div>
 
 	<main>
-
 		<div class="container">
-
+			<div
+			  class='fb-share-button'
+			  data-href='/images'
+			  data-type='button_count'>
+			</div>
 			<ul class="slider"> <!-- Flexslider JS -->
 				<?php foreach($images as $key => $value): ?>
 
-					<li><a class="images" href="<?= $this->assetUrl($value['url']) ?>" data-description="<?= $value['description'] ?>" data-alt="<?= $value['description'] ?>" data-index="<?= $key ?>"><?= $value['alt'] ?></a></li>
+					<li><a class="images" href="<?= $this->assetUrl($value['url']) ?>" data-description="<?= $value['description'] ?>" data-alt="<?= $value['description'] ?>" data-index="<?= $key ?>">
+							<?= $value['alt'] ?>
+							<img src="<?= $this->assetUrl(preg_replace('/\./', '-thumb.', $value['url'])) ?>" alt="thumbnail">
+						</a>
+					</li>
 					
 				<?php endforeach ?>
 			</ul>

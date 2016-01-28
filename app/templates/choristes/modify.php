@@ -32,6 +32,14 @@
 			</fieldset>
 		</form>
 
+		<form action="#" enctype="multipart/form-data" id="sentimage" method="post" accept-charset="utf-8">
+			<fieldset>
+				<legend>Modification de l'avatar</legend>
+				<input type="file" name="image">
+				<button type="submit" name="sentimage" class="accmod">Valider</button>
+			</fieldset>
+		</form>
+
 
 
 <?php $this->stop('main_content'); ?>
