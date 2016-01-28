@@ -98,8 +98,10 @@ $(function(){
 	    
 	    if (scroll >= offset) {
 	        topFix.addClass("fixed");
+	        topFix.css('box-shadow', '0px 3px 20px #29237B');
 	    } else if (scroll < offset){
 	        topFix.removeClass("fixed");
+	        topFix.css('box-shadow', 'none');
 	    }
 	});
 

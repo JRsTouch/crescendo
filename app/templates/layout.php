@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="fr" xmlns:og="http://ogp.me/ns#">
 	<head>
 		<meta charset="UTF-8">
 		<title><?= $this->e($title) ?></title>
 		<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
+		<script src="<?= $this->assetUrl('js/facebook.js') ?>"></script>
 		<?php 
 			foreach ($layout_display['tags']['link'] as $link) {
 				echo '<link rel="stylesheet" href="'.$this->assetUrl($link).'">';
