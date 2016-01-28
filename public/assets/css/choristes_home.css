@@ -60,6 +60,7 @@
   -moz-transform: rotateX(0deg) rotateY(0deg); }
 
 body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* Style et positionement des ├®lements dans le popup qui display les evenement de la data concern├®  */ }
   body #container {
     box-sizing: border-box;
@@ -115,11 +116,10 @@ body {
     padding: 30px;
     background-color: #6340BF;
     color: white;
+    float: left;
     box-sizing: border-box;
     width: 80%;
     height: auto;
-    float: right;
-    border: 1px solid black;
     /* Formulaire d'ajout de chansons a la library des choristes */ }
     body main::after {
       visibility: hidden;
@@ -155,12 +155,6 @@ body {
       float: left; }
     body main #tutti_song {
       display: none; }
-  body footer::before {
-    content: " ";
-    display: block;
-    clear: both;
-    width: 100%;
-    border-top: 2px solid #422B7F; }
   body #calendar {
     position: fixed;
     top: 0;
@@ -178,8 +172,11 @@ body {
 
 form#news, form#document, form#youtube, form#image {
   display: none;
-  border: 1px solid white;
-  padding: 30px; }
+  border: 1px dotted white;
+  border-radius: 5px;
+  padding: 30px;
+  margin-top: 20px;
+  width: 50%; }
   form#news label, form#document label, form#youtube label, form#image label {
     display: block;
     margin: 10px; }
@@ -190,6 +187,32 @@ form#news, form#document, form#youtube, form#image {
     border: 1px solid #3E1E7F;
     padding: 5px;
     border-radius: 5px; }
+  form#news button[type=submit], form#document button[type=submit], form#youtube button[type=submit], form#image button[type=submit] {
+    background-color: #564ce1;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 1px solid #3E1E7F; }
+  form#news .selectimg input, form#document .selectimg input, form#youtube .selectimg input, form#image .selectimg input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 1px solid #3E1E7F; }
+  form#news textarea, form#document textarea, form#youtube textarea, form#image textarea {
+    background-color: #3E1E7F;
+    border-radius: 5px;
+    border: 1px solid #8455FF; }
+  form#news select, form#document select, form#youtube select, form#image select {
+    background-color: #7451e9;
+    padding: 5px;
+    color: white; }
 
 .actus figure img {
   width: 200px;
@@ -246,5 +269,24 @@ section::after {
 form#image input:nth-of-type(3) {
   background-color: #6340BF;
   border: none; }
+
+.hasdatepicker {
+  margin: auto; }
+
+.clearfix {
+  clear: both;
+  height: 0px;
+  width: 0px; }
+
+footer {
+  background-color: #422B7F;
+  color: white;
+  font-family: "PT Sans", sans-serif; }
+  footer::before {
+    content: " ";
+    display: block;
+    clear: both;
+    width: 100%;
+    border-top: 2px solid #422B7F; }
 
 /*# sourceMappingURL=choristes_home.css.map */

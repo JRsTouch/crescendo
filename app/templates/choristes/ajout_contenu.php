@@ -28,7 +28,7 @@
 	<form enctype="multipart/form-data" action="#" method="post" id="image">
 		<input type="text" name="alt" value="" placeholder="description succinte de l'image" required>
 		<input type="text" name="desc_img" value="" placeholder="description complète de l'image" required>
- 		Sélectionner le fichier : <input name="image" type="file" />
+ 		Sélectionner le fichier : <div class="selectimg"><input name="image" type="file" /></div>
 				
 		<button type="submit" name="imagesent">Envoyer</button>
 	</form>
