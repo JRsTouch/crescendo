@@ -24,7 +24,7 @@ class DefaultController extends Controller
 						'opengraph' =>	array(
 												'title'			=>	'CrescendO Joeuf: Accueil',
 												'type'			=>	'website',
-												'image'			=>	'<?= $layout_data[0]["url_logo"] ?>',
+												'image'			=>	$data['options'][0]["url_logo"],
 												'url'			=>	'http://www.crescendo.site',
 												'description'	=>	'Découvrez la chorale Pop-Rock CrescendO, de Joeuf(54), Actus, Concerts, Vidéos...',
 												'locale'		=>	'fr_FR',
