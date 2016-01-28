@@ -24,7 +24,7 @@
 				
 		/**
 		 * Acces en BDD, Table Options
-		 * @return Array : Contenu Table Options
+		 * @return array : Contenu Table Options
 		**/
 		public function getOptions(){
 
@@ -40,7 +40,7 @@
 
 		/**
 		 * Rendu d'une chanson en fonction des données user 
-		 * @return Array : Contenu chanson à display. Envoi à view.
+		 * @return array : Contenu chanson à display. Envoi à view.
 		**/
 		public function chansons($id=0){
 			$options = $this->getOptions();
@@ -100,7 +100,7 @@
 		 * 3-7	: Récupération mp3,ogg,pdf des différents pupitres ( UPDATE musiques + pdfs )
 		 * 8	: Fin du formulaire
 		 * @param id, celle de la chanson, update, verifie si on a faitr la mise a jour ou pas .
-		 * @return envoi à view.
+		 * renvoie envoi à view.
 		**/
 		public function chansons_Ajout($id=0, $update=false){
 			// initialisation de variables 
@@ -350,13 +350,13 @@
 
 			$articlesParPage = 5;
 			$total=$Nb[0]['nombre_articles'] + $NbN[0]['nombre_news'];
-			$nombreDePages=ceil($total/$articlesParPage);		
-			
+			$nombreDePages=ceil($total/$articlesParPage);
+
 
 			if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
 			{
 			     $pageActuelle=intval($_GET['page']);
-			 
+
 			     if($pageActuelle>$nombreDePages) // Si la valeur de $pageActuelle (le numéro de la page) est plus grande que $nombreDePages...
 			     {
 			          $pageActuelle=$nombreDePages;
@@ -364,19 +364,19 @@
 			}
 			else // Sinon
 			{
-			     $pageActuelle=1; // La page actuelle est la n°1    
+			     $pageActuelle=1; // La page actuelle est la n°1
 			}
-			 
+
 			$premiereEntree=($pageActuelle-1)*$articlesParPage; // On calcule la première entrée à lire
 
-			
+
 			$pagination = new \Manager\PressesManager;
 			$pages = $pagination->getAllPressesPagination($premiereEntree, $articlesParPage);
-					
+
 
 			$options = $this->getOptions();
 			$user = $this->getuser();
-	
+
 
 			$data = array(
 							'Nb'			  => $Nb,
@@ -391,7 +391,7 @@
 							'user' => $user,
 							'options' => $options,
 							);
-		 
+
 
 			$this->show('choristes/actus', [ 'data' => $data, 'layout' => $layout ]);
 
@@ -627,7 +627,7 @@
 		/**
 		 * Ajout d'un evenement dans le calendrier, en fonction d'une date
 		 * @param $_POSt, contiens les information de l'evenement
-		 * @return envoi à view.
+		 * renvoie à view.
 		**/
 		public function repetitions(){
 
@@ -675,7 +675,7 @@
 
 		/**
 		 * Recupere les users, ordonnés par pupitre ( tenor, alto , etc ... )
-		 * @return envoi à view.
+		 * Renvoi à view.
 		**/
 		public function membres(){
 

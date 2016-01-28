@@ -76,6 +76,7 @@
 
 
 body
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 	#container
 		box-sizing: border-box
 		width: 20%
@@ -113,7 +114,7 @@ body
 			height: 600px
 			padding-top: 30px
 			padding-left: 30px
-			ul li 
+			ul li
 				text-transform: uppercase
 				font-family: "Montserrat", sans-serif
 				font-size: 14px
@@ -132,7 +133,8 @@ body
 	main
 		padding: 30px
 		background-color: #6340BF
-		color: white 
+		color: white
+		float: left
 		&::after
 			+clear()
 
@@ -162,8 +164,7 @@ body
 		box-sizing: border-box
 		width: 80%
 		height: auto
-		float: right
-		border: 1px solid black
+
 		/* Formulaire d'ajout de chansons a la library des choristes */
 		#ajout_chanson
 			fieldset
@@ -175,13 +176,8 @@ body
 		#tutti_song
 			display: none
 
-	footer
-		&::before
-			content: " "
-			display: block
-			clear: both
-			width: 100%
-			border-top: 2px solid #422B7F
+
+
 
 	/* Style et positionement des élements dans le popup qui display les evenement de la data concerné  */
 	#calendar
@@ -202,8 +198,11 @@ body
 
 form#news, form#document, form#youtube, form#image 
 	display: none
-	border: 1px solid white 
+	border: 1px dotted white
+	border-radius: 5px
 	padding: 30px
+	margin-top: 20px
+	width: 50%
 	label
 		display: block
 		margin: 10px
@@ -214,6 +213,32 @@ form#news, form#document, form#youtube, form#image
 		border: 1px solid #3E1E7F
 		padding: 5px
 		border-radius: 5px
+	button[type=submit]
+		background-color: #564ce1
+		padding: 10px
+		color: #fff
+		font-weight: bold
+		border-radius: 5px
+		text-transform: uppercase
+		font-size: 12px
+		border: 1px solid #3E1E7F
+	.selectimg input
+		margin-top: 10px
+		margin-bottom: 10px
+		color: #fff
+		font-weight: bold
+		border-radius: 5px
+		text-transform: uppercase
+		font-size: 12px
+		border: 1px solid #3E1E7F
+	textarea
+		background-color: #3E1E7F
+		border-radius: 5px
+		border: 1px solid #8455FF
+	select
+		background-color: #7451e9
+		padding: 5px
+		color: white
 
 .actus figure img
 	width: 200px
@@ -260,4 +285,22 @@ section::after
 form#image input:nth-of-type(3)
 	background-color: #6340BF
 	border: none 
-	
+
+.hasdatepicker
+	margin: auto
+
+.clearfix
+	clear: both
+	height: 0px
+	width: 0px
+
+footer
+	background-color: #422B7F
+	color: white
+	font-family: "PT Sans", sans-serif
+	&::before
+		content: " "
+		display: block
+		clear: both
+		width: 100%
+		border-top: 2px solid #422B7F
