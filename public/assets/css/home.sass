@@ -4,6 +4,16 @@ $containerWidth: 1140px
 	margin: 0
 	padding: 0
 
+/* ATTENTION LES LIGNES SUIVANTES APPARAISSENT COMME UN CONFLIT GIT EN RUBY */
+
+=clear //Fonction d'ajout de pseudo élément vide qui sert de clearfix
+	visibility: hidden
+	display: block
+	font-size: 0
+	content: " "
+	clear: both
+	height: 0
+
 body
 	color: white 
 	font-family: 'PT Sans', sans-serif
@@ -27,9 +37,10 @@ header
 	
 
 header img
-	margin-left: auto
-	margin-right: auto
+	min-width: 100%
+	min-height: 100%
 	display: block
+	margin: auto
 
 nav
 	background-color: #564ce1
@@ -133,7 +144,11 @@ nav
 //Flexslider avec les images de la BDD
 #photo 
 	background-color: #393294
-	height: 930px
+	height: 530px
+	a
+		float: right
+		&::after
+			+clear()
 
 
 //Formulaire de contact
@@ -314,7 +329,7 @@ form button
 	color: #DFBAFF
 ::-moz-placeholder 
 	color: #DFBAFF
-:-ms-input-placeholder
+::-ms-input-placeholder
 	color: #DFBAFF
 
 input:-moz-placeholder

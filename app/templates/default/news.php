@@ -1,9 +1,8 @@
-<?php $this->layout('medias', ['title' => 'CrescendO : News', 'layout' => $layout ]); ?>
+<?php $this->layout('layout', ['title' => 'CrescendO : News', 'layout_display' => $layout, 'layout_data' => $layout['options'] ]); ?>
 
 
 <?php $this->start('main_content'); ?>
 	<main>
-		<?php //echo "<pre>"; print_r($data);?>
 		<?php 
 			if (!empty($data['news'])) {
 				foreach ($data['news'] as $news) {

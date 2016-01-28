@@ -10,7 +10,7 @@
 		public function getLastNews()
 		{
 			$news = $this->table;
-			$sql = "SELECT * FROM news LEFT JOIN images ON news.id_image = images.id WHERE is_private = 0 ORDER BY date DESC LIMIT 9";
+			$sql = "SELECT news.id as type_id , images.id as id_img, titre, news.description, news.extrait, id_image, images.url, images.alt, date, 'news' as type FROM news LEFT JOIN images on news.id_image = images.id ORDER by date LIMIT 9 ";
 			//Ne renvoie que les news publiques (les privées sont indiquées en is_private = 1 )
 			$sth = $this->dbh->prepare($sql);
 			$sth->execute();

@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0; }
 
+/* ATTENTION LES LIGNES SUIVANTES APPARAISSENT COMME UN CONFLIT GIT EN RUBY */
 .panel {
   margin: 0 auto;
   width: 64px;
@@ -65,6 +66,7 @@ body {
   body #container {
     box-sizing: border-box;
     width: 20%;
+    height: 80%;
     float: left;
     background-color: #211540;
     /* Encadr├® en haut ├á gauche qui contient les information relative a l'utilisateur connect├® */ }
@@ -117,9 +119,9 @@ body {
     background-color: #6340BF;
     color: white;
     float: left;
+    height: 80%;
     box-sizing: border-box;
     width: 80%;
-    height: auto;
     /* Formulaire d'ajout de chansons a la library des choristes */ }
     body main::after {
       visibility: hidden;
@@ -131,7 +133,8 @@ body {
     body main h2 {
       font-size: 40px;
       font-family: "PT Sans", sans-serif;
-      text-transform: capitalize; }
+      text-transform: capitalize;
+      margin: 15px; }
     body main nav {
       font-size: 18px;
       margin: 10px; }
@@ -186,19 +189,11 @@ form#news, form#document, form#youtube, form#image {
     background-color: #3E1E7F;
     border: 1px solid #3E1E7F;
     padding: 5px;
-    border-radius: 5px; }
+    border-radius: 5px;
+    margin-bottom: 10px; }
   form#news button[type=submit], form#document button[type=submit], form#youtube button[type=submit], form#image button[type=submit] {
     background-color: #564ce1;
     padding: 10px;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-size: 12px;
-    border: 1px solid #3E1E7F; }
-  form#news .selectimg input, form#document .selectimg input, form#youtube .selectimg input, form#image .selectimg input {
-    margin-top: 10px;
-    margin-bottom: 10px;
     color: #fff;
     font-weight: bold;
     border-radius: 5px;
@@ -234,7 +229,8 @@ article {
   text-align: justify;
   background-color: #3E1E7F;
   margin: 20px;
-  border-radius: 10px; }
+  border-radius: 10px;
+  overflow: hidden; }
   article figure img {
     display: block;
     margin: auto; }
@@ -273,20 +269,37 @@ form#image input:nth-of-type(3) {
 .hasdatepicker {
   margin: auto; }
 
-.clearfix {
-  clear: both;
-  height: 0px;
-  width: 0px; }
+ul {
+  margin-top: 15px; }
+  ul li {
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    list-style-type: none;
+    padding: 8px; }
+    ul li:hover {
+      background-color: #422B7F;
+      width: 250px;
+      border-radius: 5px; }
+    ul li a {
+      text-decoration: none;
+      color: white; }
+      ul li a::before {
+        content: "♫  "; }
 
 footer {
   background-color: #422B7F;
   color: white;
-  font-family: "PT Sans", sans-serif; }
+  font-family: "PT Sans", sans-serif;
+  text-align: center;
+  height: 20%; }
   footer::before {
     content: " ";
     display: block;
     clear: both;
     width: 100%;
     border-top: 2px solid #422B7F; }
+  footer li {
+    display: inline; }
 
 /*# sourceMappingURL=choristes_home.css.map */
