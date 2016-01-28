@@ -11,7 +11,7 @@
 		public function getLastPresses()
 			{
 				$presses = $this->table;
-				$sql = "SELECT * FROM $presses LEFT JOIN images ON $presses.id_image = images.id ORDER BY date DESC LIMIT 9";
+				$sql = "SELECT presses.id as type_id , images.id as id_img, titre, presses.description, presses.extrait, id_image, images.url, images.alt, date, 'presses' as type FROM presses LEFT JOIN images on presses.id_image = images.id ORDER by date LIMIT 9 ";
 				$sth = $this->dbh->prepare($sql);
 				$sth->execute();
 
@@ -88,7 +88,7 @@
 		public function getPressesById($id) 
 		{	
 			$pdo = $this->dbh;
-			$sql = "SELECT presses.titre as newstitre, presses.description as newsdesc, id_image, images.url as img_url, date FROM presses LEFT JOIN images ON presses.id_image = images.id WHERE presses.id =:id";
+			$sql = "SELECT presses.titre as newstitre, presses.description as newsdesc, id_image, images.url as img_url, date, 'presses' as type FROM presses LEFT JOIN images ON presses.id_image = images.id WHERE presses.id =:id";
 			$stmt = $pdo->prepare($sql);
 			$stmt->bindValue(':id', $id);
 			$stmt->execute();

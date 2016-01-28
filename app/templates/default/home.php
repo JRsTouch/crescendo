@@ -34,7 +34,7 @@
 											"<div class='infoactu'>".
 												"<h3>".$i['titre']."</h3>".
 												"<p>".$i['extrait']."</p>".
-												"<a href=\""."lien de l'article"."\">Voir l'article</a>".
+												"<a href='".$i['type']."/".$i['type_id']."'>Voir l'article</a>".
 											"</div>".
 										"</div>".
 									"</article>";

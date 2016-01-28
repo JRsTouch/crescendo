@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0; }
 
+/* ATTENTION LES LIGNES SUIVANTES APPARAISSENT COMME UN CONFLIT GIT EN RUBY */
 body {
   color: white;
   font-family: "PT Sans", sans-serif; }
@@ -24,9 +25,10 @@ header {
   position: relative; }
 
 header img {
-  margin-left: auto;
-  margin-right: auto;
-  display: block; }
+  min-width: 100%;
+  min-height: 100%;
+  display: block;
+  margin: auto; }
 
 nav {
   background-color: #564ce1;
@@ -121,7 +123,16 @@ nav {
 
 #photo {
   background-color: #393294;
-  height: 930px; }
+  height: 530px; }
+  #photo a {
+    float: right; }
+    #photo a::after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0; }
 
 #contact {
   background-color: #201c54;
@@ -282,6 +293,18 @@ form button {
   margin-top: 8px;
   margin-left: 620px;
   text-transform: uppercase; }
+
+::-webkit-input-placeholder {
+  color: #DFBAFF; }
+
+::-moz-placeholder {
+  color: #DFBAFF; }
+
+::-ms-input-placeholder {
+  color: #DFBAFF; }
+
+input:-moz-placeholder {
+  Color: #DFBAFF; }
 
 footer {
   text-align: center;

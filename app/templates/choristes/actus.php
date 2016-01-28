@@ -4,7 +4,7 @@
 <?php $this->start('main_content'); ?>
 	<main>
 
-		
+
 		<h2>Actualité des news</h2>
 
 		<nav>
