@@ -158,3 +158,18 @@ footer li, footer p{
 	text-align: center;
 	line-height: 40px;
 }
+
+.news h2 {
+	margin: 30px;
+	font-family: "Montserrat", sans-serif;
+}
+
+.news p {
+	padding: 8px;
+	text-align: center;
+}
+
+.news img {
+	display: block;
+	margin: auto;
+}

@@ -353,7 +353,7 @@
 
 		/**
 		 * récuperation des articles et news dans leur ordre d'ajout, et paginé
-		 * @return contenu paginé
+		 * Renvoie contenu paginé
 		**/
 		public function getActus(){
 
