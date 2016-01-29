@@ -96,7 +96,10 @@ body {
         display: block;
         margin: auto;
         border-radius: 50%;
-        border: 2px solid #7F36F9; }
+        border: 2px solid #7F36F9;
+        box-shadow: 1px 1px 10px #7F36F9, inset 1px 1px 10px #7F36F9;
+        margin-bottom: 10px;
+        margin-top: 10px; }
     body #container nav {
       width: 100%;
       height: 600px;
@@ -108,10 +111,6 @@ body {
         font-size: 14px;
         list-style-type: none;
         padding: 8px; }
-        body #container nav ul li:hover {
-          background-color: #7C3CFF;
-          width: 200px;
-          border-radius: 5px; }
         body #container nav ul li a {
           text-decoration: none;
           color: white; }
@@ -123,7 +122,8 @@ body {
     color: white;
     float: left;
     min-height: 1100px;
-    padding-bottom: 90px;
+    padding-bottom: 100px;
+    box-shadow: -10px 0px 20px #190734, inset 10px 0 20px #4A2F98;
     box-sizing: border-box;
     width: 80%;
     /* Formulaire d'ajout de chansons a la library des choristes */ }
@@ -138,7 +138,8 @@ body {
       font-size: 40px;
       font-family: "PT Sans", sans-serif;
       text-transform: capitalize;
-      margin: 15px; }
+      margin: 15px;
+      text-shadow: 1px 3px 5px #2E2257; }
     body main nav {
       font-size: 18px;
       margin: 10px; }
@@ -238,7 +239,8 @@ article {
   background-color: #3E1E7F;
   margin: 20px;
   border-radius: 10px;
-  overflow: hidden; }
+  overflow: hidden;
+  box-shadow: 0px 10px 20px #443078; }
   article figure img {
     display: block;
     margin: auto; }
@@ -291,11 +293,16 @@ ul {
       background-color: #422B7F;
       width: 250px;
       border-radius: 5px; }
-    ul li a {
-      text-decoration: none;
-      color: white; }
-      ul li a::before {
-        content: "♫  "; }
+
+.enable_hover:hover {
+  background-color: #7C3CFF;
+  width: 250px;
+  border-radius: 5px; }
+  .enable_hover:hover a {
+    text-decoration: none;
+    color: white; }
+    .enable_hover:hover a::before {
+      content: "♫  "; }
 
 footer {
   background-color: #422B7F;
@@ -306,9 +313,10 @@ footer {
   color: white;
   font-family: "PT Sans", sans-serif;
   text-align: center;
-  height: 20%;
+  height: 90px;
   padding-top: 5px;
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+  box-shadow: 0px -5px 20px #382261; }
   footer::before {
     content: " ";
     display: block;
@@ -322,7 +330,23 @@ footer {
     color: #A069E5; }
     footer #credits ul {
       padding-left: 20px; }
-    footer #credits ul li::before {
-      content: "♫  "; }
+      footer #credits ul li:hover {
+        background-color: #422B7F;
+        width: 250px;
+        border-radius: 5px; }
+      footer #credits ul li a {
+        color: white;
+        text-decoration: none; }
+    footer #credits ul li {
+      padding-top: 0;
+      padding-bottom: 0; }
+      footer #credits ul li::before {
+        content: "♫  "; }
+
+#liste_chansons {
+  margin-left: 20px; }
+
+.disable_hover:hover {
+  background-color: inherit; }
 
 /*# sourceMappingURL=choristes_home.css.map */

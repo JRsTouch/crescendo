@@ -28,10 +28,11 @@
 				}
 			}
 
+
 			foreach ($layout_display['opengraph'] as $property	=>	$content) {
 				echo '<meta property="og:'.$property.'" content="'.$content.'" />';
 			}
-		 ?>
+		?>
 		<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
@@ -108,38 +109,44 @@
 			?>
 
 		<footer>
-			<div class="container">
-				<p>©2016 - CrescendO Joeuf® . Credits : <?php
+				<div id="credits">©2016 - CrescendO Joeuf® . Credits : <?php
 															echo "<ul>";
-																												
-															foreach ($layout_data[0]['copyrights'] as $value) {
-																echo "<li>".$value."</li>";
+															foreach ( $layout_data[0]['copyrights'] as $value) {
+																if ( $value == 'Lapointe David') {
+																	echo "<li class=\"enable_hover\"><a href=\"http://gameparadise.fr\" target=\"_blank\">".$value."</a></li>";
+																}
+																if ( $value == 'Marcon Mélanie') {
+																	echo "<li class=\"enable_hover\"><a href=\"https://fr.linkedin.com/in/mélanie-marcon-07268210b\" target=\"_blank\">".$value."</a></li>";
+																}
+																if ( $value == 'Raletz Julien') {
+																	echo "<li class=\"enable_hover\"><a href=\"https://fr.linkedin.com/in/julien-raletz-74a5a7109\" target=\"_blank\">".$value."</a></li>";
+																}
 															}
 															
 															echo "</ul>";
-														?> </p>
+
+														?> </div>
 
     			<a href="#" id="goup">Retour en haut</a>		
 
-			</div>
+			
+				<div class="hover panel">
+	  				<div class="front">
+	        			<div class="pad">
+	        				<a href="https://www.facebook.com/CrescendOJoeuf/" target="_blank">
+	            				<img src="<?= $this->assetUrl('img/facebook_off.png') ?>" alt="logo facebook front" width="64" height="64"/>
+	            			</a>
+	       				</div>
+	    			</div>
 
-			<div class="hover panel">
-  				<div class="front">
-        			<div class="pad">
-        				<a href="https://www.facebook.com/CrescendOJoeuf/" target="_blank">
-            				<img src="<?= $this->assetUrl('img/facebook_off.png') ?>" alt="logo facebook front" width="64" height="64"/>
-            			</a>
-       				</div>
-    			</div>
-
-    			<div class="back">
-        			<div class="pad">
-        				<a href="https://www.facebook.com/CrescendOJoeuf/" target="_blank">
-            				<img src="<?= $this->assetUrl('img/facebook_on.png') ?>" alt="logo facebook front" width="64" height="64"/>
-            			</a>
-        			</div>
-    			</div>
-			</div>
+	    			<div class="back">
+	        			<div class="pad">
+	        				<a href="https://www.facebook.com/CrescendOJoeuf/" target="_blank">
+	            				<img src="<?= $this->assetUrl('img/facebook_on.png') ?>" alt="logo facebook front" width="64" height="64"/>
+	            			</a>
+	        			</div>
+	    			</div>
+				</div>
 		</footer>
 
 </body>

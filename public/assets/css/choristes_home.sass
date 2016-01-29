@@ -112,7 +112,10 @@ body
 				display: block
 				margin: auto
 				border-radius: 50%
-				border: 2px solid #7F36F9
+				border: 2px solid #7F36F9				
+				box-shadow: 1px 1px 10px #7F36F9, inset 1px 1px 10px #7F36F9
+				margin-bottom: 10px
+				margin-top: 10px 
 
 
 		nav
@@ -126,10 +129,7 @@ body
 				font-size: 14px
 				list-style-type: none
 				padding: 8px
-				&:hover
-					background-color: #7C3CFF
-					width: 200px
-					border-radius: 5px
+				
 				a
 					text-decoration: none
 					color: white
@@ -142,7 +142,8 @@ body
 		color: white
 		float: left
 		min-height: 1100px
-		padding-bottom: 90px
+		padding-bottom: 100px
+		box-shadow: -10px 0px 20px #190734, inset 10px 0 20px #4A2F98
 		&::after
 			+clear()
 
@@ -151,6 +152,7 @@ body
 			font-family: 'PT Sans', sans-serif
 			text-transform: capitalize
 			margin: 15px
+			text-shadow: 1px 3px 5px #2E2257
 
 		nav
 			font-size: 18px
@@ -263,7 +265,8 @@ article
 	margin: 20px
 	border-radius: 10px
 	overflow: hidden
-	figure img
+	box-shadow: 0px 10px 20px #443078
+	figure img 
 		display: block
 		margin: auto
 	figcaption
@@ -311,6 +314,11 @@ ul
 			background-color: #422B7F
 			width: 250px
 			border-radius: 5px
+.enable_hover
+	&:hover
+		background-color: #7C3CFF
+		width: 250px
+		border-radius: 5px
 		a
 			text-decoration: none
 			color: white
@@ -327,9 +335,10 @@ footer
 	color: white
 	font-family: "PT Sans", sans-serif
 	text-align: center
-	height: 20%
+	height: 90px
 	padding-top: 5px
 	padding-bottom: 5px
+	box-shadow: 0px -5px 20px #382261
 	&::before
 		content: " "
 		display: block
@@ -343,9 +352,24 @@ footer
 		color: #A069E5
 		ul
 			padding-left: 20px
+			li
+				&:hover
+					background-color: #422B7F
+					width: 250px
+					border-radius: 5px
+				a
+					color: white
+					text-decoration: none
 		ul li
 			&::before
 				content: "\266B   "
+			padding-top: 0
+			padding-bottom: 0
+			
 
+#liste_chansons
+	margin-left: 20px
 
-
+.disable_hover
+	&:hover
+		background-color: inherit
