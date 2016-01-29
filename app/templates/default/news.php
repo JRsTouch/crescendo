@@ -3,7 +3,8 @@
 
 <?php $this->start('main_content'); ?>
 	<main>
-		<?php 
+		<div class="news">
+		<?php
 			if (!empty($data['news'])) {
 				foreach ($data['news'] as $news) {
 				echo "<h2>".$news['newstitre']."</h2>";
@@ -21,9 +22,10 @@
 					echo "<p> Parue le ".$news['date']."</p>";
 				}
 			} ?>
+		</div>
 
 
-		
+
 	</main>
 
 <?php $this->stop('main_content'); ?>

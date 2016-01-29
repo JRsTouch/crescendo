@@ -121,7 +121,7 @@ body {
     background-color: #6340BF;
     color: white;
     float: left;
-    height: 80%;
+    min-height: 1100px;
     box-sizing: border-box;
     width: 80%;
     /* Formulaire d'ajout de chansons a la library des choristes */ }
@@ -226,6 +226,7 @@ form#news, form#document, form#youtube, form#image {
 
 article {
   width: 25%;
+  min-height: 400px;
   float: left;
   padding: 20px;
   text-align: justify;
@@ -303,7 +304,9 @@ footer {
     clear: both;
     width: 100%;
     border-top: 2px solid #422B7F; }
-  footer li {
+  footer ul li {
     display: inline; }
+    footer ul li::before {
+      content: "♫  "; }
 
 /*# sourceMappingURL=choristes_home.css.map */
