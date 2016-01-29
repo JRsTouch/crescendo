@@ -61,6 +61,7 @@
   -moz-transform: rotateX(0deg) rotateY(0deg); }
 
 body {
+  background-color: #211540;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* Style et positionement des ├®lements dans le popup qui display les evenement de la data concern├®  */ }
   body #container {
@@ -122,6 +123,7 @@ body {
     color: white;
     float: left;
     min-height: 1100px;
+    padding-bottom: 90px;
     box-sizing: border-box;
     width: 80%;
     /* Formulaire d'ajout de chansons a la library des choristes */ }
@@ -294,19 +296,30 @@ ul {
 
 footer {
   background-color: #422B7F;
+  width: 80%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   color: white;
   font-family: "PT Sans", sans-serif;
   text-align: center;
-  height: 20%; }
+  height: 20%;
+  padding-top: 5px;
+  padding-bottom: 5px; }
   footer::before {
     content: " ";
     display: block;
     clear: both;
     width: 100%;
     border-top: 2px solid #422B7F; }
-  footer ul li {
-    display: inline; }
-    footer ul li::before {
+  footer #credits {
+    width: 20%;
+    float: right;
+    font-size: 12px;
+    color: #A069E5; }
+    footer #credits ul {
+      padding-left: 20px; }
+    footer #credits ul li::before {
       content: "♫  "; }
 
 /*# sourceMappingURL=choristes_home.css.map */
