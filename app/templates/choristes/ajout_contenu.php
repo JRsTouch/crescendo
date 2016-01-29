@@ -33,10 +33,13 @@
 		<button type="submit" name="imagesent">Envoyer</button>
 	</form>
 
+
 	<form action="#" method="post" accept-charset="utf-8" id="youtube">
+		<fieldset ><legend>Enregistrement d'une vidéo YouTube</legend>
 		<label><input type="text" name="url" value="" placeholder="url de la video YouTube"></label>
 		<label><input type="text" name="description" value="" placeholder="description de la vidéo"></label>
 		<button type="submit" name="youtubesent">Envoyer</button>
+		</fieldset>
 	</form>
 
 	<form enctype="multipart/form-data" action="#" method="post" id="news">
