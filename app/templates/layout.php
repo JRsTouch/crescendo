@@ -2,6 +2,12 @@
 <html lang="fr" xmlns:og="http://ogp.me/ns#">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="description" content="L'actualité de la chorale pop-rock CrescendO de Joeuf, concerts, vidéos, photos: Cinquante choristes et sept musiciens sur scène revisitent les plus grand titres de la variété française et internationale" />
+		<meta name="keywords" content="CrescendO, chorale, pop-rock, joeuf, chant, vertige de l'amour" />
+		<meta name="author" content="Julien Raletz, David Lapoint, Mélanie Marcon">
+		<meta name="robots" content="index, follow">
+		<meta name="revisit-after" content="3 months">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><?= $this->e($title) ?></title>
 		<link rel="shortcut icon" href="<?= $this->assetUrl('img/favicon.ico') ?>" />
 		<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
@@ -47,7 +53,7 @@
 							<li><a href="#video">Vidéos</a></li>
 							<li><a href="#photo">Photos</a></li>
 							<li><a href="#contact">Contact</a></li>
-							<li><a href="<?= $this->url('users_login') ?>">Coin des Choristes</a></li> 
+							<li><a href="<?= $this->url('users_login') ?>" rel="nofollow">Coin des Choristes</a></li> <!-- No follow de Googlebot et autres sur la partie privée -->
 						</ul>
 						<div
 						  class='fb-share-button'

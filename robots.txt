@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: http://www.crescendo.site/choristes*
+
+Sitemap: http://www.crescendo.site/sitemap.xml

@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => 'CrescendO : Accueil !','layout_data' => $data['options'] , 'layout_display' => $layout ]) ?>
+<?php $this->layout('layout', ['title' => 'CrescendO : site de la Chorale Pop-Rock de Joeuf','layout_data' => $data['options'] , 'layout_display' => $layout ]) ?>
 
 <?php $this->start('main_content') ?>
 
@@ -9,7 +9,7 @@
 
 			<?= $data['options'][0]['description'] ?>
 			<?= $data['options'][0]['description2'] ?>
-			<a href="<?= $this->url('presentation') ?>"> + En savoir plus</a>
+			<a href="<?= $this->url('presentation') ?>"> En savoir plus</a>
 
 		</div>
 	</div>

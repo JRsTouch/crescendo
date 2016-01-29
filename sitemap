@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+        xmlns="http://crescendo.site/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+           http://crescendo.site/">
+    <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+    <url>
+        <loc>http://crescendo.site/</loc>
+    </url>
+    <url>
+        <loc>http://crescendo.site/login</loc>
+    </url>
+    <url>
+        <loc>http://crescendo.site/presentation</loc>
+    </url>
+    <url>
+        <loc>http://crescendo.site/presse</loc>
+    </url>
+    <url>
+        <loc>http://crescendo.site/videos</loc>
+    </url>
+    <url>
+        <loc>http://crescendo.site/images</loc>
+    </url>
+    <url>
+        <loc>http://crescendo.site/resetpass</loc>
+    </url>
+</urlset>
