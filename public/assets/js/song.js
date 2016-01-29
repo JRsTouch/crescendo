@@ -1,11 +1,15 @@
 $(function(){
 	$('#section_button').on('click', function(){
+		$(this).prop("disabled",true).removeClass('off').addClass('on');
+		$('#tutti_button').prop("disabled",false).removeClass('on').addClass('off');
 		$('#section_song').css('display','block');
 		$('#tutti_song').css('display','none');
 
 	});
 
 	$('#tutti_button').on('click', function(){
+		$(this).prop("disabled",true).removeClass('off').addClass('on');
+		$('#section_button').prop("disabled",false).removeClass('on').addClass('off');
 		$('#section_song').css('display','none');
 		$('#tutti_song').css('display','block');
 	});

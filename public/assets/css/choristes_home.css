@@ -60,6 +60,7 @@
   -moz-transform: rotateX(0deg) rotateY(0deg); }
 
 body {
+  background-color: #211540;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   /* Style et positionement des ├®lements dans le popup qui display les evenement de la data concern├®  */ }
   body #container {
@@ -117,6 +118,7 @@ body {
     background-color: #6340BF;
     color: white;
     float: left;
+    padding-bottom: 90px;
     box-sizing: border-box;
     width: 80%;
     height: auto;
@@ -280,13 +282,20 @@ form#image input:nth-of-type(3) {
 
 footer {
   background-color: #422B7F;
+  width: 80%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
   color: white;
-  font-family: "PT Sans", sans-serif; }
-  footer::before {
-    content: " ";
-    display: block;
-    clear: both;
-    width: 100%;
-    border-top: 2px solid #422B7F; }
+  font-family: "PT Sans", sans-serif;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+  footer #credits {
+    width: 20%;
+    float: right;
+    font-size: 12px;
+    color: #A069E5; }
+    footer #credits ul {
+      padding-left: 20px; }
 
 /*# sourceMappingURL=choristes_home.css.map */

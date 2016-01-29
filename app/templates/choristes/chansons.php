@@ -13,8 +13,19 @@
 				
 		?>
 		<h2><?=$data['chanson']['titre']?></h2>
-		<button type="button" id="section_button">Documents de la voix : <?=$data['pupitre']?></button>
-		<button type="button" id="tutti_button">Documents du Tutti de la chanson</button>
+
+		<div id="song_switch1">			
+			<button type="button" id="section_button" class="on"disabled></button>
+			<em>Documents de la voix : <?=$data['pupitre']?></em>
+		</div>
+
+		<div id="song_switch2">			
+			<button type="button" id="tutti_button" class="off"></button>
+			<em>Documents du Tutti de la chanson</em>
+		</div>
+		
+		<div class="clearfix"></div>
+
 		<div id="section_song">
 			<audio id="audioPlayer" controls="controls" volume>
 	    		<source src='<?php echo $data['chanson']["mp3_$pupitre"]?>'>
@@ -27,7 +38,12 @@
 					echo "<a href=".$data['chanson']['choregraphie']." class='choregraphy' data-embed=\"".preg_replace('/watch\?v=/','v/',$data['chanson']['choregraphie'])."\">Regarder la chorégraphie</a>";
 				}
 			?>
-			<p><?= $data['chanson']['informations'] ?></p>
+			<div class="clearfix"></div>
+
+			<fieldset>
+				<legend>Informations importantes concernant le morceau :</legend>
+				<p><?= $data['chanson']['informations'] ?></p>
+			</fieldset>
 
 			<object width="1024" height="616">
 				<param name="allowFullScreen" value="false" />
@@ -50,7 +66,12 @@
 					echo "<a href=".$data['chanson']['choregraphie']." class='choregraphy' data-embed=\"".preg_replace('/watch\?v=/','v/',$data['chanson']['choregraphie'])."\">Regarder la chorégraphie</a>";
 				}
 			?>
-			<p><?= $data['chanson']['informations'] ?></p>
+			<div class="clearfix"></div>
+
+			<fieldset>
+				<legend>Informations importantes concernant le morceau :</legend>
+				<p><?= $data['chanson']['informations'] ?></p>
+			</fieldset>
 
 			<object width="1024" height="616">
 				<param name="allowFullScreen" value="false" />

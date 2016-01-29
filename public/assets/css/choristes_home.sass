@@ -76,6 +76,7 @@
 
 
 body
+	background-color: #211540
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 	#container
 		box-sizing: border-box
@@ -135,6 +136,7 @@ body
 		background-color: #6340BF
 		color: white
 		float: left
+		padding-bottom: 90px
 		&::after
 			+clear()
 
@@ -296,11 +298,19 @@ form#image input:nth-of-type(3)
 
 footer
 	background-color: #422B7F
+	width: 80%
+	position: fixed
+	bottom: 0
+	right: 0
 	color: white
 	font-family: "PT Sans", sans-serif
-	&::before
-		content: " "
-		display: block
-		clear: both
-		width: 100%
-		border-top: 2px solid #422B7F
+	padding-top: 5px
+	padding-bottom: 5px
+	#credits
+		width: 20%
+		float: right
+		font-size: 12px
+		color: #A069E5
+		ul
+			padding-left: 20px
+

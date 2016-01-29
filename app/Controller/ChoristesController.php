@@ -378,7 +378,7 @@
 			}
 			else // Sinon
 			{
-			     $pageActuelle=1; // La page actuelle est la n°1
+			     $pageActuelle=$nombreDePages; // La page actuelle est la n°1
 			}
 
 			$premiereEntree=($pageActuelle-1)*$articlesParPage; // On calcule la première entrée à lire
@@ -387,7 +387,25 @@
 			$pagination = new \Manager\PressesManager;
 			$pages = $pagination->getAllPressesPagination($premiereEntree, $articlesParPage);
 
+			function array_sort($array, $key)
+			{
+  			for ($i = 0; $i < sizeof($array); $i++) {
+      			$sort_values[$i] = $array[$i][$key];
+  			}
 
+  			asort  ($sort_values);
+  			reset ($sort_values);
+ 
+  			while (list ($arr_key, $arr_val) = each ($sort_values)) {
+      			$sorted_arr[] = $array[$arr_key];
+ 			}
+ 			unset($array);
+  			return $sorted_arr;
+			}
+
+
+			$pages = array_sort($pages,'date');
+			$pages = array_reverse ( $pages );
 			$options = $this->getOptions();
 			$user = $this->getuser();
 
