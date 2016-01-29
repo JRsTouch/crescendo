@@ -140,7 +140,7 @@ body
 		background-color: #6340BF
 		color: white
 		float: left
-		height: 80%
+		min-height: 1100px
 		&::after
 			+clear()
 
@@ -247,6 +247,7 @@ form#news, form#document, form#youtube, form#image
 
 article 
 	width: 25%
+	min-height: 400px
 	float: left
 	padding: 20px
 	text-align: justify
@@ -308,6 +309,7 @@ ul
 			&::before
 				content: "\266B   "
 
+
 footer
 	background-color: #422B7F
 	color: white
@@ -321,5 +323,7 @@ footer
 		clear: both
 		width: 100%
 		border-top: 2px solid #422B7F
-	li
+	ul li
 		display: inline
+		&::before
+			content: "\266B   "
