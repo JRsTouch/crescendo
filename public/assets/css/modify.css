@@ -1,0 +1,44 @@
+* {
+  font-family: Montserrat, sans-serif;
+  color: black; }
+
+h3 {
+  color: white;
+  margin: 20px;
+  text-align: center; }
+
+#form {
+  background: white;
+  display: block;
+  margin: auto;
+  padding: 30px;
+  border-radius: 20px;
+  width: 30%;
+  min-width: 200px; }
+  #form form fieldset {
+    padding: 10px; }
+    #form form fieldset label {
+      text-align: center;
+      margin: auto;
+      display: block;
+      margin-top: 5px;
+      margin-bottom: 5px; }
+    #form form fieldset input {
+      width: 98%;
+      min-width: 200px;
+      display: block;
+      margin: auto; }
+    #form form fieldset button {
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+      margin: auto;
+      margin-top: 10px;
+      display: block;
+      width: 50%;
+      background-color: #393294;
+      color: white;
+      border: none;
+      padding: 5px; }
+
+/*# sourceMappingURL=modify.css.map */
