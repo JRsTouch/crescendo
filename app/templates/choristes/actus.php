@@ -4,7 +4,6 @@
 <?php $this->start('main_content'); ?>
 	<main>
 
-
 		<h2>Actualité des news</h2>
 
 		<nav>
@@ -22,23 +21,26 @@
 				}
 				else // Sinon
 				{
-				     $pageActuelle=1; // La page actuelle est la n°1    
+				     $pageActuelle=intval($data['nombreDePages']); // La page actuelle est la n°1    
 				}
 				 
-				$premiereEntree=($pageActuelle-1)*$articlesParPage; // On calcul la première entrée à lire
+				$premiereEntree=$data['nombreDePages']*$articlesParPage; // On calcul la première entrée à lire
 
 			echo "Page: ";
-			for($i=1; $i<=$data['nombreDePages']; $i++) //On fait notre boucle
+			$display_page=1;
+			for($i=$data['nombreDePages']; $i>=1; $i--) //On fait notre boucle
+
 			{
 			     //On va faire notre condition
 			     if($i==$pageActuelle) //Si il s'agit de la page actuelle...
 			     {
-			         echo ' [ '.$i.' ] '; 
+			         echo ' [ '.$display_page.' ] '; 
 			     }	
 			     else //Sinon...
 			     {
-			          echo ' <a href="actus?page='.$i.'">'.$i.'</a> ';
+			          echo ' <a href="actus?page='.$i.'">'.$display_page.'</a> ';
 			     }
+			     $display_page ++;
 			}
 
 			?>
@@ -61,7 +63,7 @@
 
 		<nav>
 			<?php
-			//echo "<pre>"; print_r($data['pages']); echo "</pre>";
+			
 			$articlesParPage = $data['articlesParPages'];
 			if(isset($_GET['page'])) // Si la variable $_GET['page'] existe...
 				{
@@ -74,23 +76,26 @@
 				}
 				else // Sinon
 				{
-				     $pageActuelle=1; // La page actuelle est la n°1    
+				     $pageActuelle=$data['nombreDePages']; // La page actuelle est la n°1    
 				}
 				 
-				$premiereEntree=($pageActuelle-1)*$articlesParPage; // On calcul la première entrée à lire
+				$premiereEntree=$data['nombreDePages']*$articlesParPage; // On calcul la première entrée à lire
 
 			echo "Page: ";
-			for($i=1; $i<=$data['nombreDePages']; $i++) //On fait notre boucle
+			$display_page=1;
+			for($i=$data['nombreDePages']; $i>=1; $i--) //On fait notre boucle
+
 			{
 			     //On va faire notre condition
 			     if($i==$pageActuelle) //Si il s'agit de la page actuelle...
 			     {
-			         echo ' [ '.$i.' ] '; 
+			         echo ' [ '.$display_page.' ] '; 
 			     }	
 			     else //Sinon...
 			     {
-			          echo ' <a href="actus?page='.$i.'">'.$i.'</a> ';
+			          echo ' <a href="actus?page='.$i.'">'.$display_page.'</a> ';
 			     }
+			     $display_page ++;
 			}
 
 			?>

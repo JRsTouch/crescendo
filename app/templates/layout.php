@@ -119,7 +119,7 @@
 			<div class="hover panel">
   				<div class="front">
         			<div class="pad">
-        				<a href="https://www.facebook.com/groups/140046179408954/">
+        				<a href="https://www.facebook.com/CrescendOJoeuf/" target="_blank">
             				<img src="<?= $this->assetUrl('img/facebook_off.png') ?>" alt="logo facebook front" width="64" height="64"/>
             			</a>
        				</div>
@@ -127,7 +127,7 @@
 
     			<div class="back">
         			<div class="pad">
-        				<a href="https://www.facebook.com/groups/140046179408954/">
+        				<a href="https://www.facebook.com/CrescendOJoeuf/" target="_blank">
             				<img src="<?= $this->assetUrl('img/facebook_on.png') ?>" alt="logo facebook front" width="64" height="64"/>
             			</a>
         			</div>

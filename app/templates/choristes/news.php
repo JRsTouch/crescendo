@@ -1,4 +1,4 @@
-<?php $this->layout('choristes', ['title' => 'CrescendO : News', 'layout' => $layout ]); ?>
+<?php $this->layout('layout', ['title' => 'CrescendO : News', 'layout_display' => $layout ]); ?>
 
 
 <?php $this->start('main_content'); ?>
