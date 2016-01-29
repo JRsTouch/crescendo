@@ -82,9 +82,13 @@ $containerWidth: 1140px
 body
 	color: white 
 	font-family: 'PT Sans', sans-serif
+	background-color: #201c54
 
 footer 
 	background-color: #201c54
+	box-shadow: inset 0px 3px 20px #0E0B2E, 0px 3px 20px #0E0B2E
+	padding-top: 10px
+	padding-bottom: 10px
 
 .container
 	width: $containerWidth
@@ -154,7 +158,7 @@ nav
 	margin-top: 0
 	margin-bottom: 0
 	padding: 50px
-	box-shadow: inset 0px 3px 20px #29237B
+	box-shadow: inset 0px 3px 20px #29237B, 0px 3px 20px #29237B
 	img
 		width: 40%
 		padding: 5%
@@ -189,12 +193,14 @@ nav
 //Div des actus (presses et news) de la chorale
 #actus 
 	background-color: #4e45cc
+	box-shadow: inset 0px 3px 20px #2E2792, 0px 3px 20px #2E2792
 	height: 500px
 
 //flexslider avec intégration de liens YouTubes en BDD
 #video 
 	background-color: #584ee6
-	height: 550px
+	box-shadow: inset 0px 3px 20px #3C34AA, 0px 3px 20px #3C34AA
+	height: 600px
 	a 
 		text-decoration: none
 		color: white
@@ -209,6 +215,7 @@ nav
 //Flexslider avec les images de la BDD
 #photo 
 	background-color: #393294
+	box-shadow: inset 0px 3px 20px #1F1A63, 0px 3px 20px #1F1A63
 	height: 530px
 	a
 		float: right
@@ -219,6 +226,7 @@ nav
 //Formulaire de contact
 #contact 
 	background-color: #201c54
+	box-shadow: inset 0px 3px 20px #0A0825, 0px 3px 20px #0A0825
 	height: 540px
 
 article 
@@ -402,7 +410,20 @@ input:-moz-placeholder
 footer
 	text-align: center
 	color: #6156FF
+	#credits
+		margin: 0
+		width: 20%
+		float: right
 	ul
 		li 
 			list-style: none
+			&::before
+				content: "\266B   "
+			a
+				color: white
+				text-decoration: none
+				&:hover
+					background-color: #584ee6
+					width: 250px
+					border-radius: 5px
 	text-transform: uppercase

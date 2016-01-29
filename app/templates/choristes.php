@@ -46,16 +46,16 @@
 			<ul>
 				<!-- Certaines Partie du menu sont visibles par défaut, d'autres réservées à certains rangs -->
 
-				<li><a href="<?= $this->url('choristes_actus') ?>">Actus</a></li>
+				<li class="enable_hover"><a href="<?= $this->url('choristes_actus') ?>">Actus</a></li>
 				
 				
-				<li><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a>
+				<li <?php if (isset($layout['chansons'])) { echo "class=\"disable_hover\"" ;} else { echo "class=\"enable_hover\"" ;} ?>><a href="<?= $this->url('choristes_chansons') ?>">Chansons</a>
 					<?php
 						if (isset($layout['chansons'])) {
 							echo'<ul id="liste_chansons">';
 							foreach ($layout['chansons'] as $chanson) {
 								?>
-								<li><a href="<?= $this->url('choristes_chanson', [ 'id' => $chanson['id'] ])?>"><?= ucwords(preg_replace('/[_]/',' ',$chanson['titre']))?></a></li>
+								<li class="enable_hover"><a href="<?= $this->url('choristes_chanson', [ 'id' => $chanson['id'] ])?>"><?= ucwords(preg_replace('/[_]/',' ',$chanson['titre']))?></a></li>
 								<?php
 								
 							}
@@ -63,7 +63,7 @@
 						}
 					?>
 				</li>
-				<li><a href="<?= $this->url('choristes_membres') ?>">Membres</a></li>
+				<li class="enable_hover"><a href="<?= $this->url('choristes_membres') ?>">Membres</a></li>
 
 				
 
@@ -71,13 +71,13 @@
 				
 				<!-- Partie accessible à partir du membre du CA  -->
 				<?php if( $layout['user']['role'] == 'bureau' || $layout['user']['role'] == 'gestion' || $layout['user']['role'] == 'chef' || $layout['user']['role'] == 'admin'): ?>
-					<li><a href="<?= $this->url('choristes_documents_officiels') ?>">Documents Bureau</a></li>				
-					<li><a href="https://ssl0.ovh.net/roundcube/?_user=chorale@crescendo.site" target="_blank">Accès messagerie</a></li>
+					<li class="enable_hover"><a href="<?= $this->url('choristes_documents_officiels') ?>">Documents Bureau</a></li>				
+					<li class="enable_hover"><a href="https://ssl0.ovh.net/roundcube/?_user=chorale@crescendo.site" target="_blank">Accès messagerie</a></li>
 				<?php endif ?>
 				
 				<!-- Partie reservée aux chefs de choeur -->
 				<?php if($layout['user']['role'] == 'chef' || $layout['user']['role'] == 'admin'): ?>
-					<li><a href="<?= $this->url('choristes_chansons_ajout',[ 'update' => false ]) ?>">Gestion Chanson</a>
+					<li class="enable_hover"><a href="<?= $this->url('choristes_chansons_ajout',[ 'update' => false ]) ?>">Gestion Chanson</a>
 						<?php 
 							if ( isset($layout['update_chansons']) ) {
 								echo'<ul id="liste_chansons">';
@@ -92,19 +92,19 @@
 					</li>
 
 
-					<li><a href="<?= $this->url('choristes_repetitions') ?>">Gestion Répetition</a></li>
+					<li class="enable_hover"><a href="<?= $this->url('choristes_repetitions') ?>">Gestion Répetition</a></li>
 				<?php endif ?>
 				
 				<!-- Partie reservée au gestionnaire de contenu -->
 				<?php if($layout['user']['role'] == 'gestion' ||$layout['user']['role'] == 'bureau' || $layout['user']['role'] == 'chef' || $layout['user']['role'] == 'admin'): ?>
-					<li><a href="<?= $this->url('choristes_ajout_contenu') ?>">Gestion Contenu</a></li>
+					<li class="enable_hover"><a href="<?= $this->url('choristes_ajout_contenu') ?>">Gestion Contenu</a></li>
 				<?php endif ?>
 
 				<!-- Partie reservée à L'administrateur -->
 				<?php if($layout['user']['role'] == 'admin'): ?>
-					<li><a href="<?= $this->url('choristes_management') ?>">Gestion Profils</a></li>
+					<li class="enable_hover"><a href="<?= $this->url('choristes_management') ?>">Gestion Profils</a></li>
 				<?php endif ?>
-					<li><a href="<?php echo $this->url('home');?>">Retour à l'Accueil</a></li>
+					<li class="enable_hover"><a href="<?php echo $this->url('home');?>">Retour à l'Accueil</a></li>
 			</ul>
 		</nav>
 
@@ -116,8 +116,15 @@
 			<div id="credits">©2016 - CrescendO Joeuf® . Credits : <?php
 															echo "<ul>";
 															foreach ( $layout['options'] as $value) {
-																echo "<li>".$value."</li>";
-
+																if ( $value == 'Lapointe David') {
+																	echo "<li class=\"enable_hover\"><a href=\"http://gameparadise.fr\" target=\"_blank\">".$value."</a></li>";
+																}
+																if ( $value == 'Marcon Mélanie') {
+																	echo "<li class=\"enable_hover\"><a href=\"https://fr.linkedin.com/in/mélanie-marcon-07268210b\" target=\"_blank\">".$value."</a></li>";
+																}
+																if ( $value == 'Raletz Julien') {
+																	echo "<li class=\"enable_hover\"><a href=\"https://fr.linkedin.com/in/julien-raletz-74a5a7109\" target=\"_blank\">".$value."</a></li>";
+																}
 															}
 															
 															echo "</ul>";

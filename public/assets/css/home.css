@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0; }
@@ -61,10 +62,14 @@
 
 body {
   color: white;
-  font-family: "PT Sans", sans-serif; }
+  font-family: "PT Sans", sans-serif;
+  background-color: #201c54; }
 
 footer {
-  background-color: #201c54; }
+  background-color: #201c54;
+  box-shadow: inset 0px 3px 20px #0E0B2E, 0px 3px 20px #0E0B2E;
+  padding-top: 10px;
+  padding-bottom: 10px; }
 
 .container {
   width: 1140px;
@@ -131,7 +136,7 @@ nav {
   margin-top: 0;
   margin-bottom: 0;
   padding: 50px;
-  box-shadow: inset 0px 3px 20px #29237B; }
+  box-shadow: inset 0px 3px 20px #29237B, 0px 3px 20px #29237B; }
   #presentation img {
     width: 40%;
     padding: 5%;
@@ -163,11 +168,13 @@ nav {
 
 #actus {
   background-color: #4e45cc;
+  box-shadow: inset 0px 3px 20px #2E2792, 0px 3px 20px #2E2792;
   height: 500px; }
 
 #video {
   background-color: #584ee6;
-  height: 550px; }
+  box-shadow: inset 0px 3px 20px #3C34AA, 0px 3px 20px #3C34AA;
+  height: 600px; }
   #video a {
     text-decoration: none;
     color: white; }
@@ -179,6 +186,7 @@ nav {
 
 #photo {
   background-color: #393294;
+  box-shadow: inset 0px 3px 20px #1F1A63, 0px 3px 20px #1F1A63;
   height: 530px; }
   #photo a {
     float: right; }
@@ -192,6 +200,7 @@ nav {
 
 #contact {
   background-color: #201c54;
+  box-shadow: inset 0px 3px 20px #0A0825, 0px 3px 20px #0A0825;
   height: 540px; }
 
 article {
@@ -363,7 +372,20 @@ footer {
   text-align: center;
   color: #6156FF;
   text-transform: uppercase; }
+  footer #credits {
+    margin: 0;
+    width: 20%;
+    float: right; }
   footer ul li {
     list-style: none; }
+    footer ul li::before {
+      content: "♫  "; }
+    footer ul li a {
+      color: white;
+      text-decoration: none; }
+      footer ul li a:hover {
+        background-color: #584ee6;
+        width: 250px;
+        border-radius: 5px; }
 
 /*# sourceMappingURL=home.css.map */

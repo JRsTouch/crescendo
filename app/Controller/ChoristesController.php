@@ -1027,6 +1027,7 @@
 			}
 
 			$layout = array(
+							'name'		=>	'article',
 							'table'     =>  $table,
 							'id'		=>  $id,
 							'user'		=>	$user,

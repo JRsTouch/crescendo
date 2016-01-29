@@ -155,6 +155,10 @@ class DefaultController extends Controller
 						'tags'		=>	array(
 												'link'		=> array(
 																			'css/presentation.css',
+																			'css/home.css',
+																	),
+												'script'	=> array(
+																			
 																	),
 											),
 						);
@@ -172,6 +176,39 @@ class DefaultController extends Controller
 		$data['options'] = $this->getOptions();
 		$presseManager = new \Manager\PressesManager();
 		$articles = $presseManager->getAllPresses();
+		$newsManager = new \Manager\NewsManager();
+		$news = $newsManager->getAllNews();
+		$actus = array();
+
+			foreach ($news as $index => $content) {
+				array_push($actus,$content);
+			}
+
+			foreach ($articles as $index => $content) {
+				array_push($actus,$content);
+			}
+
+		function array_sort($array, $key)
+		{
+  			for ($i = 0; $i < sizeof($array); $i++) {
+      			$sort_values[$i] = $array[$i][$key];
+  			}
+
+  			asort  ($sort_values);
+  			reset ($sort_values);
+ 
+  			while (list ($arr_key, $arr_val) = each ($sort_values)) {
+      			$sorted_arr[] = $array[$arr_key];
+ 			}
+ 			unset($array);
+  			return $sorted_arr;
+		}
+
+
+		$actus = array_sort($actus,'date');
+
+		$actus = array_reverse ($actus);
+
 		$layout = array(
 				'name'		=>	'presse',
 				'opengraph' =>	array(
@@ -192,7 +229,7 @@ class DefaultController extends Controller
 																	),
 									),
 				);
-		$this->show('default/presse', ['articles' => $articles, 'data' => $data, 'layout' => $layout]);
+		$this->show('default/presse', ['articles' => $actus, 'data' => $data, 'layout' => $layout]);
 	}
 
 

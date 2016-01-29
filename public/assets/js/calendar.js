@@ -15,7 +15,7 @@ $(function(){
 		  		if(day.substr(0, 1) == '0'){
 		  			var day = day.substr(1, 1);
 		  		}
-		  		$('[data-day='+day+'][data-month='+month+'][data-year='+myData[i].year+']>a').css('background', '#FF5E5E');
+		  		$('[data-day='+day+'][data-month='+month+'][data-year='+myData[i].year+']>a').css('background', '#4F00FF').css('color', 'white');
 		  	});
 
 		  	$('[data-handler=prev]').on('click', function(){
