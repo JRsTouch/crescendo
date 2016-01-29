@@ -178,12 +178,15 @@ body {
         text-align: center; }
 
 form#news, form#document, form#youtube, form#image {
-  display: none;
-  border: 1px dotted white;
-  border-radius: 5px;
-  padding: 30px;
-  margin-top: 20px;
-  width: 50%; }
+  display: none; }
+  form#news fieldset, form#document fieldset, form#youtube fieldset, form#image fieldset {
+    border: 1px dotted white;
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 20px;
+    width: 50%; }
+  form#news legend, form#document legend, form#youtube legend, form#image legend {
+    font-family: "Montserrat", sans-serif; }
   form#news label, form#document label, form#youtube label, form#image label {
     display: block;
     margin: 10px; }
