@@ -4,6 +4,7 @@ $containerWidth: 1140px
 	margin: 0
 	padding: 0
 
+
 /* ATTENTION LES LIGNES SUIVANTES APPARAISSENT COMME UN CONFLIT GIT EN RUBY */
 
 =clear //Fonction d'ajout de pseudo élément vide qui sert de clearfix
@@ -13,6 +14,70 @@ $containerWidth: 1140px
 	content: " "
 	clear: both
 	height: 0
+
+// Partie pour animation Facebook
+.panel
+	margin: 0 auto
+	width: 64px
+	height: 64px
+	position: relative
+	font-size: .8em
+	-webkit-perspective: 600px
+	-moz-perspective: 600px
+
+.panel .front
+	position: absolute
+	top: 0
+	z-index: 900
+	width: inherit
+	height: inherit
+	text-align: center
+	-webkit-transform: rotateX(0deg) rotateY(0deg)
+	-webkit-transform-style: preserve-3d
+	-webkit-backface-visibility: hidden
+	-moz-transform: rotateX(0deg) rotateY(0deg)
+	-moz-transform-style: preserve-3d
+	-moz-backface-visibility: hidden
+
+	-o-transition: all .4s ease-in-out
+	-ms-transition: all .4s ease-in-out
+	-moz-transition: all .4s ease-in-out
+	-webkit-transition: all .4s ease-in-out
+	transition: all .4s ease-in-out
+
+.panel.flip .front
+	z-index: 900
+	-webkit-transform: rotateY(180deg)
+	-moz-transform: rotateY(180deg)
+
+.panel .back 
+	position: absolute
+	top: 0
+	z-index: 800
+	width: inherit
+	height: inherit
+	-webkit-transform: rotateY(-180deg)
+	-webkit-transform-style: preserve-3d
+	-webkit-backface-visibility: hidden
+
+	-moz-transform: rotateY(-180deg)
+	-moz-transform-style: preserve-3d
+	-moz-backface-visibility: hidden
+
+
+	-o-transition: all .4s ease-in-out
+	-ms-transition: all .4s ease-in-out
+	-moz-transition: all .4s ease-in-out
+	-webkit-transition: all .4s ease-in-out
+	transition: all .4s ease-in-out
+
+.panel.flip .back
+	z-index: 1000
+	-webkit-transform: rotateX(0deg) rotateY(0deg)
+	-moz-transform: rotateX(0deg) rotateY(0deg)
+
+
+//fin de partie animation 
 
 body
 	color: white 
@@ -323,14 +388,12 @@ form button
 	margin-top: 8px
 	margin-left: 620px
 	text-transform: uppercase
-
-
-::-webkit-input-placeholder 
-	color: #DFBAFF
-::-moz-placeholder 
-	color: #DFBAFF
-:-ms-input-placeholder
-	color: #DFBAFF
+	&::-webkit-input-placeholder 
+		color: #DFBAFF
+	&::-moz-placeholder 
+		color: #DFBAFF
+	&:-ms-input-placeholder
+		color: #DFBAFF
 
 input:-moz-placeholder
 	color: #DFBAFF

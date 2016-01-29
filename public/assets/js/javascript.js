@@ -93,6 +93,14 @@ $(function(){
 	var topFix = $('#posfixed');
 	var offset = topFix.offset().top;
 
+
+	window.setTimeout(function(){	
+		$('html, body').animate({
+			scrollTop: topFix.offset().top
+		}, 2000)
+	}, 3000);
+
+
 	$(window).scroll(function() {    
 	    var scroll = $(window).scrollTop();
 	    
@@ -104,5 +112,8 @@ $(function(){
 	        topFix.css('box-shadow', 'none');
 	    }
 	});
+
+	
+
 
 });

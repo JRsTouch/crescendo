@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?= $this->e($title) ?></title>
+	<link rel="shortcut icon" href="<?= $this->assetUrl('img/favicon.ico') ?>" />
 </head>
 <body>
 

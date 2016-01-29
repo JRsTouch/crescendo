@@ -1,3 +1,93 @@
+<<<<<<< HEAD
 
+=======
+button.on {
+  width: 64px;
+  height: 64px;
+  border: none;
+  background: url("/assets/img/decor/button_on.png"); }
+
+button.off {
+  width: 64px;
+  height: 64px;
+  border: none;
+  background: url("/assets/img/decor/button_off.png"); }
+
+.clearfix {
+  clear: both;
+  height: 30px; }
+
+main h2 {
+  width: 30%;
+  margin: auto;
+  border: 1px solid #6947B6;
+  text-align: center;
+  margin-bottom: 30px;
+  box-shadow: 0px 3px 35px #350551;
+  color: #E6D9EE; }
+main #song_switch1 {
+  margin-left: 30%;
+  width: 20%;
+  float: left; }
+  main #song_switch1 button {
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    margin-bottom: 20px; }
+  main #song_switch1 em {
+    display: block;
+    text-align: center;
+    font-style: normal; }
+main #song_switch2 {
+  width: 20%;
+  margin-right: 30%;
+  float: left; }
+  main #song_switch2 button {
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    margin-bottom: 20px; }
+  main #song_switch2 em {
+    display: block;
+    text-align: center;
+    font-style: normal; }
+main #section_song audio, main #tutti_song audio {
+  display: inline;
+  box-sizing: border-box;
+  margin-left: 29%;
+  width: 20%;
+  float: left; }
+main #section_song p, main #tutti_song p {
+  display: inline;
+  box-sizing: border-box;
+  width: 20%;
+  margin-right: 30%;
+  margin-bottom: 20px;
+  margin-left: 50px; }
+main #section_song a, main #tutti_song a {
+  box-sizing: border-box;
+  width: 20%;
+  margin-right: 30%;
+  color: #FBFF92;
+  margin-left: 40px;
+  line-height: 30px; }
+main #section_song fieldset, main #tutti_song fieldset {
+  box-sizing: border-box;
+  width: 47%;
+  height: 850px;
+  margin-left: 2%;
+  margin-right: 1%;
+  float: left; }
+  main #section_song fieldset p, main #tutti_song fieldset p {
+    display: block;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px; }
+main #section_song object, main #tutti_song object {
+  width: 47%;
+  height: 850px;
+  margin-left: 1%;
+  margin-right: 2%;
+  float: right; }
 
 /*# sourceMappingURL=chansons.css.map */
