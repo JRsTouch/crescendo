@@ -1,34 +1,45 @@
+*
+	font-family: Montserrat, sans-serif
+
 body
-	.pupitre
-		.membre
-			figure
-				position: relative
-				float: left
-				width: 10%
-				img
-					display: block
-					margin: auto
-				.infos
-					width: 150px
-					height: 150px
-					position: absolute
-					top: 0
+	main 
+		&>p
+			font-size: 20px
+			margin-top: 20px
+			margin-bottom: 10px
+			text-decoration: underline
+		.pupitre
+			.membre
+				figure
+					position: relative
+					float: left
+					width: 10%
 					margin-left: 20px
-					overflow: hidden
-					div
-						width: 100%
-						height: 100%
-						top: 150px
+					img
+						display: block
+						margin: auto
+					.infos
+						width: 150px
+						height: 150px
 						position: absolute
-						background-color: rgba(0, 68, 255, 0.5)
-						p
-							margin-top: 10%
-							text-align: center
-				figcaption
-					text-align: center
-	.clearfix
-		&::before
-			content: " "
-			display: block
-			clear: both
-		height: 200px
+						top: 0
+						overflow: hidden
+						div
+							width: 100%
+							height: 100%
+							top: 150px
+							position: absolute
+							background-color: rgba(251, 255, 147, 0.5)
+							p
+								text-shadow: 0 0 5px rgb(251, 255, 147)
+								color: #5D007F
+								margin-top: 10%
+								text-align: center
+					figcaption
+						text-align: center
+		.clearfix
+			&::before
+				content: " "
+				display: block
+				clear: both
+			height: 200px

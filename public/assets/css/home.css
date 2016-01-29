@@ -365,5 +365,9 @@ footer {
   text-transform: uppercase; }
   footer ul li {
     list-style: none; }
+  footer div a {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; }
 
 /*# sourceMappingURL=home.css.map */

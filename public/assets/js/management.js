@@ -25,7 +25,7 @@ $(function(){
 		$('#manageform').slideDown();
 	});
 
-	$('#manageform>a').on('click', function(){
+	$('#manageform a').on('click', function(){
 
 		$('#manageform').slideUp();
 	});

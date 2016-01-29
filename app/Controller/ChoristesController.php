@@ -765,6 +765,11 @@
 							'name' => 'repetition',
 							'user' => $user,
 							'options' => $options,
+							'tags'		=>	array(
+												'link'		=> array(
+																			'css/repetitions.css',
+																	)
+												)
 							);
 
 			$this->show('choristes/repetitions', ['data' => $data, 'layout'=> $layout ]);
@@ -837,6 +842,11 @@
 							'name'	=> 'useraccount',
 							'user'		=>	$user,
 							'options'	=> 	$options,
+							'tags'		=>	array(
+												'link'		=> array(
+																			'css/modify.css',
+																	),
+											)
 						);
 
 			$usersManager = new \Manager\UsersManager();
