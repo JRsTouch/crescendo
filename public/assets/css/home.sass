@@ -1,19 +1,12 @@
-$containerWidth: 1140px
-
+.container
+	width: 1140px
+	margin: auto
 *
 	margin: 0
 	padding: 0
-
-
-/* ATTENTION LES LIGNES SUIVANTES APPARAISSENT COMME UN CONFLIT GIT EN RUBY */ 
-
-=clear //Fonction d'ajout de pseudo élément vide qui sert de clearfix
-	visibility: hidden
-	display: block
-	font-size: 0
-	content: " "
-	clear: both
-	height: 0
+@font-face
+	font-family: 'AnabelleScript'
+	src: url('../font/AnabelleScriptLight.ttf') format('truetype')
 
 // Partie pour animation Facebook
 .panel
@@ -83,385 +76,320 @@ body
 	color: white 
 	font-family: 'PT Sans', sans-serif
 	background-color: #201c54
-
-footer 
-	background-color: #201c54
-	box-shadow: inset 0px 3px 20px #0E0B2E, 0px 3px 20px #0E0B2E
-	padding-top: 10px
-	padding-bottom: 10px
-
-.container
-	width: $containerWidth
-	height: auto
-	margin-left: auto
-	margin-right: auto
-	a
-		text-decoration: none
-		color: white
-	
-header 
-	margin-bottom: 0
-	background-color: #564ce1
-	position: relative
-	
-
-header img
-	min-width: 100%
-	min-height: 100%
-	display: block
-	margin: auto
-
-nav
-	background-color: #564ce1
-	padding: 10px
-	margin-top: 0
-	margin-bottom: 0
-	ul
-		li
-			list-style: none
-			display: inline
-			font-family: 'Montserrat', sans-serif
-			text-transform: uppercase
-			padding-left: 25px
-			padding-right: 25px
-			a
-				text-decoration: none
-				color: white
-				padding: 8px
-				padding: 10px
-				&:hover
-					background-color: #181540
-					border-radius: 5px
-			&:last-of-type::after //Etoile qui signifie que le "coin choriste" est à part dans la navigation (requiert une connexion)
-				content: "*"
-				color: #ff4e6e
-	.fb-share-button
-		position: absolute
-		float: right
-		bottom: 10px
-		right: 30px
-.fixed
-	z-index: 99
-	position: fixed
-	top: 0
-	left: 0
-	box-sizing: border-box
-	width: 100%
-	ul
-		margin: auto
-		width: $containerWidth
-
-
-//Div de présentation de la chorale 
-#presentation 
-	background-color: #393294
-	margin-top: 0
-	margin-bottom: 0
-	padding: 50px
-	box-shadow: inset 0px 3px 20px #29237B, 0px 3px 20px #29237B
-	img
-		width: 40%
-		padding: 5%
-		float: left
-	&::after
-		visibility: hidden
-		display: block
-		font-size: 0
-		content: " "
-		clear: both
-		height: 0
-	a
-		text-decoration: none
-		color: white
-		margin-left: 1000px
-		display: block
-		padding: 8px
-		margin-top: 10px
-		text-align: center
-		&::before 
-			content: " + " 
-		&:hover 
-			background-color: #201c54
-			border-radius: 5px
-	p
-		padding: 8px
-	ul
-		li 
-			margin-left: 20px
-
-			
-//Div des actus (presses et news) de la chorale
-#actus 
-	background-color: #4e45cc
-	box-shadow: inset 0px 3px 20px #2E2792, 0px 3px 20px #2E2792
-	height: 500px
-
-//flexslider avec intégration de liens YouTubes en BDD
-#video 
-	background-color: #584ee6
-	box-shadow: inset 0px 3px 20px #3C34AA, 0px 3px 20px #3C34AA
-	height: 600px
-	a 
-		text-decoration: none
-		color: white
-		&:last-of-type
-			content: " + "
-			display: block
-			text-align: center
-			float: right 
-			
-
-
-//Flexslider avec les images de la BDD
-#photo 
-	background-color: #393294
-	box-shadow: inset 0px 3px 20px #1F1A63, 0px 3px 20px #1F1A63
-	height: 530px
-	a
-		float: right
-		&::after
-			+clear()
-
-
-//Formulaire de contact
-#contact 
-	background-color: #201c54
-	box-shadow: inset 0px 3px 20px #0A0825, 0px 3px 20px #0A0825
-	height: 540px
-
-article 
-	width: 320px
-	height: 240px
-	overflow: hidden
-	background-color: black
-	float: left
-	position: relative
-	margin: 30px	
-	img
-		width: 320px
-		height: 320px
-	h3 
-		position: absolute
-		height: 50px
-		width: 300px
-		background-color: rgba(102, 88, 206, 0.7) 
-		top: 255px
-		padding-left: 20px
-		padding-top: 15px
-	a
-		text-decoration: none
-		color: white
-		margin-bottom: 0
-	div
+	&>header
+		background-color: #564ce1
+		position: relative
 		width: 100%
-		height: 240px
-		position: absolute
-		top: 0
-		overflow: hidden
-		div
-			background-color: rgba(102, 88, 206, 0.7)
-			height: 240px
-			position: absolute
-			top: 195px
-			h3 
-				width: 300px
-				padding-left: 20px
-				padding-top: 15px
-			a
-				text-decoration: none
+		&>img
+			display: block
+			width: 100%
+			height: auto
+			margin: 0
+		&>.container
+			&>h1
+				display: block
+				width: 50%
+				margin-left: 25%
+				margin-right: 25%
 				position: absolute
-				bottom: 10px
-				right: 10px
+				font-size: 150px
+				color: white
+				text-shadow: 5px 5px 20px #7E00FF, -5px -5px 20px #250959
+				top: 30px
+				font-family: 'AnabelleScript'
+			&>nav
+				padding: 10px
+				min-height: 20px
+				margin-top: 0
+				margin-bottom: 0
+				#menumobile
+					display: none
+				&>ul
+					&>li
+						list-style: none
+						display: block
+						box-sizing: border-box
+						float: left
+						font-family: 'Montserrat', sans-serif
+						text-transform: uppercase
+						text-align: center
+						padding-left: 25px
+						padding-right: 25px
+						&>a
+							margin: 0px
+							text-decoration: none
+							color: white
+							padding: 8px
+							padding: 10px
+							&:hover
+								background-color: #181540
+								border-radius: 5px
+						&:last-of-type
+							padding: 0
+						&:last-of-type::after //Etoile qui signifie que le "coin choriste" est à part dans la navigation (requiert une connexion)
+							content: "*"
+							color: #ff4e6e
+				&>.fb-share-button
+					position: absolute
+					float: right
+					bottom: 10px
+					right: 5px
+	&>#presentation
+		background-color: #393294
+		margin-top: 0
+		padding: 50px
+		padding-bottom: 70px
+		box-shadow: inset 0px 3px 20px #29237B, 0px 3px 20px #29237B
+		&>.container
+			&>h2
+				padding: 20px
+				font-size: 20px
+				text-transform: uppercase
+			&>img
+				width: 40%
+				padding: 5%
+				float: left
+			&>p
+				color: white
+				strong
+					font-weight: normal
+				em
+					font-style: normal
+			ul
+				margin-top: 20px
+				&>li
+					padding-right: -30px
+					color: white
+					list-style-type: circle
+			a
+				margin: 0px
+				text-decoration: none
 				color: white
 				display: block
+				padding: 8px
+				margin-top: 10px
 				text-align: right
-				&::before
-					content: " + "
-					color: white
-
-
-
-section>.container>a
-	text-decoration: none
-	color: white
-	margin-left: 1000px
-	&::after
-		visibility: hidden
-		display: block
-		font-size: 0
-		content: " "
-		clear: both
-		height: 0
-
-h2 
-	padding: 20px
-	font-size: 20px
-	text-transform: uppercase
-
-.flexslider 
-	background: none
-	text-align: center
-	border: none
-	margin-bottom: 0
-
-	li 
-		p 
-			padding-top: 15px
-			font-size: 20px
-
-
-//Installation de police en local
-@font-face 
-	font-family: 'AnabelleScript'
-	src: url('../font/AnabelleScriptLight.ttf')  format('truetype')
-
-
-
-//Logo du header
-h1 
-	font-family: 'AnabelleScript'
-	font-size: 150px
-	position: absolute
-	top: 20px
-	display: block
-	margin-left: 420px
-	margin-right: 420px
-	text-shadow: 3px 2px 20px #765eba, 2px 2px #181540
-
-.retour 
-	background-color: #201c54
-	width: 142px
-	height: 52px
-	border: none
-	border-radius: 4px
-	color: #6257FF
-	font-size: 18px
-	font-weight: 400
-	position: fixed
-	right: 30px
-	bottom: 50px
-	border: 1px solid white 
-	cursor: pointer
-	&:hover 
-		background-color: #393294
-		color: white
-		border: 1px solid #282367
-
-.flex-viewport
-	text-align: center
-
-//flexslider des photos
-#carousel 
-	width: 640px
-	height: 385px
-	margin: auto
-	overflow: hidden
-
-label 
-	text-transform: uppercase
-	padding-right: 10px
-
-textarea
-	width: 680px
-	height: 250px
-	margin-top: 50px
-	background-color: #393294
-	color: white 
-	resize: none
-	font-family: 'PT Sans', sans-serif
-	font-size: 14px 
-	padding: 5px
-	border: none
-	border-radius: 5px
-
-
-input[type="text"], input[type="email"] 
-	background-color: #393294
-	border: 1px solid #1E1A4D
-	padding: 5px
-	margin-left: 10px
-	border-radius: 5px
-	color: white
-
-form
-	padding-left: 200px
-	padding-top: 30px
-
-form button
-	border: none
-	padding: 8px
-	background-color: #393294
-	color: white 
-	display: block
-	margin-top: 8px
-	margin-left: 620px
-	text-transform: uppercase
-	&::-webkit-input-placeholder 
-		color: #DFBAFF
-	&::-moz-placeholder 
-		color: #DFBAFF
-	&:-ms-input-placeholder
-		color: #DFBAFF
-
-input:-moz-placeholder
-	color: #DFBAFF
-
-
-footer
-	text-align: center
-	color: #6156FF
-	#credits
-		margin: 0
-		width: 20%
-		float: right
-	ul
-		li 
-			list-style: none
-			text-transform: uppercase
-			&::before
-				content: "\266B   "
-			a
-				color: white
-				text-decoration: none
+				&::before 
+					content: " + " 
 				&:hover
-					background-color: #584ee6
-					width: 250px
-					border-radius: 5px
-	text-transform: uppercase
+					text-shadow: 5px 5px 30px #1E0453
 
-	#goup
-		background: #BC9BFE
-		text-decoration: none
-		padding: 10px
-		font-weight: 700
-		box-shadow: 0 5px 5px #210075
-		border-radius: 5px
-		color: #34007B
-		position: fixed
-		bottom: 20px
-		left: 20px
-
-/* -------------- Smartphones (LandScape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
-	.container
-		width: 100%
-
-
-/* -------------- Smartphones (portrait) ----------- */
-
-@media screen and (max-width : 380px)
-	.container
-		width: 100%
-
-	nav
-		display: none
-		ul
-			li
-				list-style: none
-				display: inline
-				font-family: 'Montserrat', sans-serif
-				font-size: 10px
+	&>#actus
+		background-color: #4e45cc
+		box-shadow: inset 0px 3px 20px #2E2792, 0px 3px 20px #2E2792
+		padding: 50px
+		padding-bottom: 70px
+		&>.container
+			&>h2
+				padding: 20px
+				font-size: 20px
 				text-transform: uppercase
-				padding-left: 5px
-				padding-right: 5px
+			&>.flexslider
+				background: none
+				text-align: center
+				border: none
+				margin-bottom: 0
+				ul
+					li
+						article
+							width: 320px
+							height: 240px
+							overflow: hidden
+							background-color: black
+							float: left
+							position: relative
+							margin: 30px	
+							div
+								width: 100%
+								height: 240px
+								position: absolute
+								top: 0
+								overflow: hidden
+								div
+									background-color: rgba(102, 88, 206, 0.7)
+									height: 240px
+									position: absolute
+									top: 195px
+								img
+									width: 320px
+									height: 320px
+								.infoactu
+									h3
+										position: absolute
+										height: 50px
+										width: 300px
+										background-color: rgba(102, 88, 206, 0.7) 
+										top: 250px
+										padding-left: 20px
+										padding-top: 15px
+									p
+										padding: 5px
+									a
+										text-decoration: none
+										position: absolute
+										bottom: 10px
+										right: 10px
+										color: white
+										display: block
+										text-align: right
+										&::before
+											content: " + "
+											color: white
+			&>a
+				margin: 0px
+				text-decoration: none
+				color: white
+				&:last-of-type
+					content: " + "
+					display: block
+					text-align: center
+					float: right
+	&>#video
+		background-color: #584ee6
+		box-shadow: inset 0px 3px 20px #3C34AA, 0px 3px 20px #3C34AA
+		padding: 50px
+		padding-bottom: 70px
+		
 
+		&>.container
+			&>h2
+				padding: 20px
+				font-size: 20px
+				text-transform: uppercase
+			&>.flexslider
+				background: none
+				text-align: center
+				border: none
+				margin-bottom: 0
+				ul
+					li
+						width: 1140px
+						margin-right: 0
+						float: left
+						display: block
+
+
+			&>a
+				margin: 0px
+				text-decoration: none
+				color: white
+				&:last-of-type
+					content: " + "
+					display: block
+					text-align: center
+					float: right
+	&>#photo
+		background-color: #393294
+		padding: 50px
+		padding-bottom: 70px
+		box-shadow: inset 0px 3px 20px #1F1A63, 0px 3px 20px #1F1A63
+		&>.container
+			&>h2
+				padding: 20px
+				font-size: 20px
+				text-transform: uppercase
+			&>.flexslider
+				background: none
+				text-align: center
+				border: none
+				margin-bottom: 0
+			&>#carousel
+				width: 640px
+				height: 385px
+				margin: auto
+				overflow: hidden
+			&>a
+				margin: 0px
+				text-decoration: none
+				color: white
+				&:last-of-type
+					content: " + "
+					display: block
+					text-align: center
+					float: right
+	&>#contact
+		background-color: #201c54
+		box-shadow: inset 0px 3px 20px #0A0825, 0px 3px 20px #0A0825
+		padding: 50px
+		padding-bottom: 70px
+
+		&>.container
+			&>h2
+				padding: 20px
+				font-size: 20px
+				text-transform: uppercase
+			&>form
+				padding-left: 200px
+				padding-top: 30px
+				&>label
+					text-transform: uppercase
+					padding-right: 10px
+					&>input
+						background-color: #393294
+						border: 1px solid #1E1A4D
+						padding: 5px
+						margin-left: 10px
+						border-radius: 5px
+						color: white
+					&>textarea
+						width: 680px
+						height: 250px
+						margin-top: 50px
+						background-color: #393294
+						color: white 
+						resize: none
+						font-family: 'PT Sans', sans-serif
+						font-size: 14px 
+						padding: 5px
+						border: none
+						border-radius: 5px
+				&>button
+					border: none
+					padding: 8px
+					background-color: #393294
+					color: white 
+					display: block
+					margin-top: 8px
+					margin-left: 620px
+					text-transform: uppercase
+					&::-webkit-input-placeholder 
+						color: #DFBAFF
+					&::-moz-placeholder 
+						color: #DFBAFF
+					&:-ms-input-placeholder
+						color: #DFBAFF
+	&>footer
+		background-color: #201c54
+		box-shadow: inset 0px 3px 20px #0E0B2E, 0px 3px 20px #0E0B2E
+		padding-top: 10px
+		padding-bottom: 10px
+		text-align: center
+		color: #6156FF	
+		&>#credits
+			margin: 0
+			width: 20%
+			float: right
+			&>ul
+				&>li
+					list-style: none
+					text-transform: uppercase
+					&::before
+						content: "\266B   "
+					&>a
+						color: white
+						text-decoration: none
+						&:hover
+							background-color: #584ee6
+							width: 250px
+							border-radius: 5px
+		&>#goup
+			background: #BC9BFE
+			text-decoration: none
+			padding: 10px
+			font-weight: 700
+			box-shadow: 0 5px 5px #210075
+			border-radius: 5px
+			color: #34007B
+			position: fixed
+			bottom: 20px
+			left: 20px
