@@ -36,6 +36,7 @@
 				echo '<meta property="og:'.$property.'" content="'.$content.'" />';
 			}
 		?>
+		<link rel="stylesheet" href="<?= $this->assetUrl('css/responsive_short_screen.css') ?>">
 		<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
@@ -48,8 +49,7 @@
 			<header>
 				<img src="<?= $layout_data[0]['url_logo'] ?>" alt="logo"> <!-- Récupération de l'url dans le tableau data -->
 				<div class="container">
-
-					<h1><?php echo $layout_data[0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
+						<h1><?php echo $layout_data[0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
 					<nav id="posfixed">
 						<ul>
 							<li><a href="#presentation">Présentation</a></li>
@@ -76,8 +76,6 @@
 				<header>
 
 					<div class="container">
-
-						<h1><?php echo $layout_data[0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
 						<a href="<?php echo $this->url('home');?>">Retour à l'accueil</a>
 					</div>
 				</header>
@@ -130,7 +128,9 @@
 
 														?> </div>
 
-    			<a href="#" id="goup">Retour en haut</a>		
+				<?php if ($layout_display['name'] == 'home'): ?>					
+    				<a href="#" id="goup">Retour en haut</a>		
+				<?php endif ?>
 
 			
 				<div class="hover panel">

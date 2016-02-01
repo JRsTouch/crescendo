@@ -80,6 +80,10 @@ footer li, footer p{
 
 		/*ACTUS*/
 
+#presse{
+	z-index: 5000
+}
+
 #presse>h3{
 	color: white;
 	text-align: center;

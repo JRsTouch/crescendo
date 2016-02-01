@@ -110,7 +110,8 @@ body {
         font-family: "Montserrat", sans-serif;
         font-size: 14px;
         list-style-type: none;
-        padding: 8px; }
+        padding: 8px;
+        width: 90%; }
         body #container nav ul li a {
           text-decoration: none;
           color: white; }
@@ -314,7 +315,7 @@ ul {
 
 .enable_hover:hover {
   background-color: #7C3CFF;
-  width: 250px;
+  width: 90%;
   border-radius: 5px; }
   .enable_hover:hover a {
     text-decoration: none;

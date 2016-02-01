@@ -77,13 +77,13 @@
 				
 				<!-- Partie reservée aux chefs de choeur -->
 				<?php if($layout['user']['role'] == 'chef' || $layout['user']['role'] == 'admin'): ?>
-					<li class="enable_hover"><a href="<?= $this->url('choristes_chansons_ajout',[ 'update' => false ]) ?>">Gestion Chanson</a>
+					<li <?php if (isset($layout['update_chansons'])) { echo "class=\"disable_hover\"" ;} else { echo "class=\"enable_hover\"" ;} ?>><a href="<?= $this->url('choristes_chansons_ajout',[ 'update' => false ]) ?>">Gestion Chanson</a>
 						<?php 
 							if ( isset($layout['update_chansons']) ) {
 								echo'<ul id="liste_chansons">';
 								foreach ($layout['update_chansons'] as $chanson) {
 									?>
-										<li><a href="<?= $this->url('choristes_chansons_update', [ 'id' => $chanson['id'], 'update' => true ])?>"><?= $chanson['titre']?></a></li>
+										<li><a href="<?= $this->url('choristes_chansons_update', [ 'id' => $chanson['id'], 'update' => true ])?>"><?= ucwords(preg_replace('/[_]/',' ',$chanson['titre']))?></a></li>
 									<?php
 								}
 								echo '</ul>';
