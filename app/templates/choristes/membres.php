@@ -2,8 +2,8 @@
 
 
 <?php $this->start('main_content');  ?>
-
 	<main>
+
 		<p>Basses :</p>
 		<div class="pupitre">
 		<?php foreach($data['membres'] as $key => $value): ?>
@@ -14,7 +14,11 @@
 						<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 						<div class="infos">
 							<div>
-								<p><?= $value['email'] ?></p>
+								<?php 
+									$email = explode('@', $value['email']);
+									echo '<p class="email">'.$email[0].'</p>';
+									echo '<p class="email">@'.$email[1].'</p>';
+								 ?>
 								<?php if(isset($value['tel'])): ?>
 									<p><?= $value['tel'] ?></p>
 								<?php endif ?>								
@@ -38,7 +42,11 @@
 						<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 						<div class="infos">
 							<div>
-								<p><?= $value['email'] ?></p>
+								<?php 
+									$email = explode('@', $value['email']);
+									echo '<p class="email">'.$email[0].'</p>';
+									echo '<p class="email">@'.$email[1].'</p>';
+								 ?>
 								<?php if(isset($value['tel'])): ?>
 									<p><?= $value['tel'] ?></p>
 								<?php endif ?>									
@@ -61,8 +69,12 @@
 					<figure class="figure">
 						<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 						<div class="infos">
-							<div>
-								<p><?= $value['email'] ?></p>	
+							<div>	
+								<?php 
+									$email = explode('@', $value['email']);
+									echo '<p class="email">'.$email[0].'</p>';
+									echo '<p class="email">@'.$email[1].'</p>';
+								 ?>
 								<?php if(isset($value['tel'])): ?>
 									<p><?= $value['tel'] ?></p>
 								<?php endif ?>								
@@ -86,7 +98,11 @@
 						<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 						<div class="infos">
 							<div>
-								<p><?= $value['email'] ?></p>
+								<?php 
+									$email = explode('@', $value['email']);
+									echo '<p class="email">'.$email[0].'</p>';
+									echo '<p class="email">@'.$email[1].'</p>';
+								 ?>
 								<?php if(isset($value['tel'])): ?>
 									<p><?= $value['tel'] ?></p>
 								<?php endif ?>									
@@ -110,7 +126,11 @@
 						<img src="<?= $this->assetUrl($value['avatar']) ?>" alt="avatar" width="150" height="150">
 						<div class="infos">
 							<div>
-								<p><?= $value['email'] ?></p>
+								<?php 
+									$email = explode('@', $value['email']);
+									echo '<p class="email">'.$email[0].'</p>';
+									echo '<p class="email">@'.$email[1].'</p>';
+								 ?>
 								<?php if(isset($value['tel'])): ?>
 									<p><?= $value['tel'] ?></p>
 								<?php endif ?>									
