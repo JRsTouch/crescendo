@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,qCAAqC;EACpC,GAAG;IACF,OAAO,EAAE,IAAI",
+"sources": ["responsive_short_screen.sass"],
+"names": [],
+"file": "responsive_short_screen.css"
+}

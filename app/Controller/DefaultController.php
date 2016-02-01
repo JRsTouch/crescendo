@@ -155,7 +155,7 @@ class DefaultController extends Controller
 						'tags'		=>	array(
 												'link'		=> array(
 																			'css/home.css',
-																			'css/presentation.css'
+																			'css/presentation.css',
 																	),
 												'script'	=> array(
 																			
@@ -222,6 +222,7 @@ class DefaultController extends Controller
 									),
 				'tags'		=>	array(
 										'link'		=> array(
+																			'css/home.css',
 																			'css/medias.css',
 																	),
 										'script'	=> array(
@@ -305,6 +306,8 @@ class DefaultController extends Controller
 											),
 						'tags'		=>	array(
 										'link'		=> array(
+
+																			'css/home.css',
 																			'css/medias.css',
 																	),
 										'script'	=> array(
@@ -341,6 +344,8 @@ class DefaultController extends Controller
 											),
 						'tags'		=>	array(
 												'link'		=> array(
+																			
+																			'css/home.css',
 																			'css/medias.css',
 																	),
 												'script'	=> array(
