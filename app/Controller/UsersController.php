@@ -59,21 +59,51 @@
 
 			if(isset($_POST['sent'])){ // a la soumission du formulaire on insert les nouvelles données en BDD table user
 
-				$newUser = array(
-					'username' => $_POST['fname'].' '.$_POST['lname'],
-					'email' => $_POST['email'],
-					'password' => password_hash($_POST['password'], PASSWORD_DEFAULT),
-					'pupitre' => $_POST['pupitre'],
+				$errors = array();
 
-				);
-
-				if($_POST['tel'] != ''){
-					$newUser['tel'] = $_POST['tel'];
+				if(strlen($_POST['fname']) != 0 && strlen($_POST['lname']) != 0){
+					$username = $_POST['fname'].' '.$_POST['lname'];
+				}else{
+					$errors[] = '<p>Les champs nom et prénom doivent être renseigné.</p>';
 				}
 
-				$newusersManager->insert($newUser);
+				if(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+					$email = $_POST['email'];
+				}else{
+					$errors[] = '<p>L\'email doit être renseigné et au format "exemple@email.fr".</p>';
+				}
 
-				$this->show('default/tobevalidate');
+				if(strlen($_POST['email']) >= 5){
+					$password = $_POST['password'];
+				}else{
+					$errors[] = '<p>Le mot de passe doit contenir minimum 5 caractères.</p>';
+				}
+
+				if(empty($errors)){
+
+					$newUser = array(
+						'username' => $username,
+						'email' => $email,
+						'password' => password_hash($password, PASSWORD_DEFAULT),
+						'pupitre' => $_POST['pupitre'],
+					);
+
+					if($_POST['tel'] != ''){
+						$newUser['tel'] = $_POST['tel'];
+					}
+
+					$newusersManager->insert($newUser);
+
+					$this->show('default/tobevalidate');
+				}else{
+					
+					foreach ($errors as $key => $value) {
+						echo $value;
+					}
+
+				}
+
+				
 			}
 
 			$this->show('default/inscription');

@@ -190,10 +190,13 @@ form#news, form#document, form#youtube, form#image {
     font-family: "Montserrat", sans-serif; }
   form#news label, form#document label, form#youtube label, form#image label {
     display: block;
-    margin: 10px; }
+    margin: 10px;
+    margin-left: 0; }
   form#news select, form#document select, form#youtube select, form#image select {
     margin: 10px; }
   form#news input, form#document input, form#youtube input, form#image input {
+    display: block;
+    width: 605px;
     background-color: #3E1E7F;
     border: 1px solid #3E1E7F;
     padding: 5px;
@@ -209,6 +212,9 @@ form#news, form#document, form#youtube, form#image {
     font-size: 12px;
     border: 1px solid #3E1E7F; }
   form#news textarea, form#document textarea, form#youtube textarea, form#image textarea {
+    resize: none;
+    width: 615px;
+    height: 200px;
     background-color: #3E1E7F;
     border-radius: 5px;
     border: 1px solid #8455FF; }
