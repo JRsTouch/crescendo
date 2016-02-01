@@ -33,6 +33,8 @@ class DefaultController extends Controller
 												'link'		=> array(
 																			'css/flexslider.css',
 																			'css/home.css',
+																			'css/mobile_landscape.css',
+																			'css/mobile_portrait.css',
 																	),
 												'script'	=> array(
 																			'js/jquery.flexslider.js',

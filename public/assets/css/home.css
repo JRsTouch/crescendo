@@ -79,53 +79,60 @@ body {
       width: 100%;
       height: auto;
       margin: 0; }
-    body > header > .container > h1 {
-      display: block;
-      width: 50%;
-      margin-left: 25%;
-      margin-right: 25%;
-      position: absolute;
-      font-size: 150px;
-      color: white;
-      text-shadow: 5px 5px 20px #7E00FF, -5px -5px 20px #250959;
-      top: 30px;
-      font-family: "AnabelleScript"; }
-    body > header > .container > nav {
-      padding: 10px;
-      min-height: 20px;
-      margin-top: 0;
-      margin-bottom: 0; }
-      body > header > .container > nav #menumobile {
-        display: none; }
-      body > header > .container > nav > ul > li {
-        list-style: none;
-        display: block;
-        box-sizing: border-box;
-        float: left;
-        font-family: "Montserrat", sans-serif;
-        text-transform: uppercase;
+    body > header > .container {
+      width: 100%; }
+      body > header > .container > h1 {
         text-align: center;
-        padding-left: 25px;
-        padding-right: 25px; }
-        body > header > .container > nav > ul > li > a {
-          margin: 0px;
-          text-decoration: none;
-          color: white;
-          padding: 8px;
-          padding: 10px; }
-          body > header > .container > nav > ul > li > a:hover {
-            background-color: #181540;
-            border-radius: 5px; }
-        body > header > .container > nav > ul > li:last-of-type {
-          padding: 0; }
-        body > header > .container > nav > ul > li:last-of-type::after {
-          content: "*";
-          color: #ff4e6e; }
-      body > header > .container > nav > .fb-share-button {
+        display: block;
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
         position: absolute;
-        float: right;
-        bottom: 10px;
-        right: 5px; }
+        font-size: 150px;
+        color: white;
+        text-shadow: 5px 5px 20px #7E00FF, -5px -5px 20px #250959;
+        top: 30px;
+        font-family: "AnabelleScript"; }
+      body > header > .container > nav {
+        padding: 10px;
+        min-height: 20px;
+        margin-top: 0;
+        margin-bottom: 0; }
+        body > header > .container > nav #menumobile {
+          display: none; }
+        body > header > .container > nav > ul {
+          width: 1140px;
+          display: block;
+          margin: auto; }
+          body > header > .container > nav > ul > li {
+            box-sizing: border-box;
+            list-style: none;
+            display: block;
+            float: left;
+            font-family: "Montserrat", sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            padding-left: 25px;
+            padding-right: 25px; }
+            body > header > .container > nav > ul > li > a {
+              margin: 0px;
+              text-decoration: none;
+              color: white;
+              padding: 8px;
+              padding: 10px; }
+              body > header > .container > nav > ul > li > a:hover {
+                background-color: #181540;
+                border-radius: 5px; }
+            body > header > .container > nav > ul > li:last-of-type {
+              padding: 0; }
+            body > header > .container > nav > ul > li:last-of-type::after {
+              content: "*";
+              color: #ff4e6e; }
+        body > header > .container > nav > .fb-share-button {
+          position: absolute;
+          float: right;
+          bottom: 10px;
+          right: 5px; }
   body > #presentation {
     background-color: #393294;
     margin-top: 0;
@@ -369,5 +376,11 @@ body {
       position: fixed;
       bottom: 20px;
       left: 20px; }
+
+.fixed {
+  position: fixed;
+  top: 0px;
+  background: #393294;
+  width: 99%; }
 
 /*# sourceMappingURL=home.css.map */

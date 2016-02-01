@@ -35,9 +35,12 @@
         top: 169px;
         box-shadow: inset 0 -5px #2F0064; }
         body > header > .container > nav > ul > li {
-          display: block;
-          margin: 12px;
-          font-size: 20px; }
+          margin: 15px;
+          font-size: 20px;
+          float: none;
+          text-align: left; }
+          body > header > .container > nav > ul > li:last-of-type {
+            padding-left: 25px; }
   body > #presentation {
     padding: 0; }
     body > #presentation > .container > img {
@@ -62,10 +65,11 @@
       display: block;
       font-size: 25px;
       text-align: center;
-      margin-top: 50px;
       padding-bottom: 20px; }
   body > #video {
     padding: 0;
+    padding-bottom: 75px;
+    padding-top: 50px;
     height: auto; }
     body > #video > .container > .flexslider {
       height: auto;
@@ -76,21 +80,20 @@
       display: block;
       font-size: 25px;
       text-align: center;
-      margin-top: 50px;
       padding-bottom: 20px; }
   body > #photo {
     padding: 0;
-    height: auto; }
-    body > #photo > .container > .flexslider {
-      height: auto; }
+    height: auto;
+    padding-bottom: 75px; }
+    body > #photo > .container > #carousel {
+      width: 100%; }
     body > #photo > .container > a {
       float: none;
       margin: 0;
       display: block;
       font-size: 25px;
       text-align: center;
-      margin-top: 50px;
-      padding-bottom: 20px; }
+      margin-top: 25px; }
   body > #contact {
     padding: 0; }
     body > #contact > .container > form {
