@@ -24,14 +24,15 @@ header
 			text-align: center
 			text-shadow: 3px 2px 20px #765eba, 2px 2px #181540
 			color: white
+			position: static
 		a
 			display: block
 			text-align: center
 			color: white
 			text-decoration: none
-			&:hover
-				position: relative
-				top: -5px
+			text-transform: uppercase
+			padding-bottom: 15px
+			margin: auto
 
 #presentation 
 	width: 100%
@@ -42,6 +43,7 @@ header
 	.container
 		img
 			display: block
+			float: none
 			&:nth-of-type(1)
 				margin: auto
 				width: 80%
@@ -51,7 +53,7 @@ header
 				float: right
 				width: 50%
 				height: auto
-				margin-top: 40px
+				margin-top: -40px
 				margin-right: 50px
 		h2
 			font-family: 'Montserrat', sans-serif
@@ -61,10 +63,10 @@ header
 			padding-bottom: 40px
 		p
 			text-align: justify
-			&:not:last-of-type
-				margin-bottom: 40px
+			/*&:not:last-of-type
+				margin-bottom: 40px*/
 			&:last-of-type
-				padding-bottom: 80px
+				padding-bottom: 50px
 			strong
 				text-shadow: 1px 1px 1px #29237B 
 			em
@@ -132,4 +134,4 @@ footer
 	ul
 		li 
 			list-style: none
-	text-transform: uppercase
+			text-transform: uppercase

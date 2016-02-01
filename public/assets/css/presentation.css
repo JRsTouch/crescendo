@@ -18,15 +18,16 @@ header {
     font-size: 150px;
     text-align: center;
     text-shadow: 3px 2px 20px #765eba, 2px 2px #181540;
-    color: white; }
+    color: white;
+    position: static; }
   header .container a {
     display: block;
     text-align: center;
     color: white;
-    text-decoration: none; }
-    header .container a:hover {
-      position: relative;
-      top: -5px; }
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    margin: auto; }
 
 #presentation {
   width: 100%;
@@ -35,7 +36,8 @@ header {
   font-family: "PT Sans", sans-serif;
   color: white; }
   #presentation .container img {
-    display: block; }
+    display: block;
+    float: none; }
     #presentation .container img:nth-of-type(1) {
       margin: auto;
       width: 80%;
@@ -45,7 +47,7 @@ header {
       float: right;
       width: 50%;
       height: auto;
-      margin-top: 40px;
+      margin-top: -40px;
       margin-right: 50px; }
   #presentation .container h2 {
     font-family: "Montserrat", sans-serif;
@@ -54,11 +56,11 @@ header {
     padding-top: 40px;
     padding-bottom: 40px; }
   #presentation .container p {
-    text-align: justify; }
-    #presentation .container p:not:last-of-type {
-      margin-bottom: 40px; }
+    text-align: justify;
+    /*&:not:last-of-type
+     * margin-bottom: 40px */ }
     #presentation .container p:last-of-type {
-      padding-bottom: 80px; }
+      padding-bottom: 50px; }
     #presentation .container p strong {
       text-shadow: 1px 1px 1px #29237B; }
     #presentation .container p em {
@@ -117,9 +119,9 @@ header {
 
 footer {
   text-align: center;
-  color: #6156FF;
-  text-transform: uppercase; }
+  color: #6156FF; }
   footer ul li {
-    list-style: none; }
+    list-style: none;
+    text-transform: uppercase; }
 
 /*# sourceMappingURL=presentation.css.map */

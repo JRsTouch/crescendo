@@ -1,0 +1,1294 @@
+/*
+* KNACCS Ã©purÃ© by shaoz
+* D'aprÃ¨s www.KNACSS.com V2.6 de Raphael Goetter
+* Licence CC-BY http://creativecommons.org/licenses/by/3.0/fr/
+*/
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* RESET MEYER */
+
+*/
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+:focus {
+    outline: 0;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+html {
+
+}
+
+body {
+    background-color: #21a68d;
+    color: #333;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 100%; /* equivaut Ã  16px selon les navs */
+}
+
+/* TYPO */
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre,
+td,
+th,
+label,
+textarea,
+caption,
+details,
+figure,
+hgroup {
+    font-size: 0.875em; /* equiv 14px */
+    line-height: 1.5;
+    margin: .25em 0 0;
+}
+h1, .h1-like {
+    font-size: 1.5em; /* equiv 24px */
+    font-weight: normal;
+    line-height: 1.6154em;
+    margin: .8077em 0 0 0;
+}
+h2, .h2-like {
+    font-size: 1.7143em; /* equiv 24px */
+    font-weight: normal;
+    line-height: 1.75em;
+    margin: .875em 0 0 0;
+}
+h3, .h3-like {
+    font-size: 1.5714em; /* equiv 22px */
+    font-weight: normal;
+    line-height: 1.909em;
+    margin: .9545em 0 0 0;
+}
+h4, .h4-like {
+    font-size: 1.4286em; /* equiv 20px */
+    font-weight: normal;
+    line-height: 1.05em;
+    margin:  1.05em 0 0 0;
+}
+h5, .h5-like {
+    font-size: 1.2857em; /* equiv 18px */
+    font-weight: normal;
+    line-height: 1.1667em;
+    margin:  1.1667em 0 0 0;
+}
+h6, .h6-like {
+    font-size: 1.1429em; /* equiv 16px */
+    font-weight: normal;
+    line-height: 1.3125em;
+    margin:  1.3125em 0 0 0;
+}
+
+/* TYPO ALTERNATIVE */
+.smaller {
+    font-size: .75em; /* equiv 12px */
+}
+.small {
+    font-size: .875em; /* equiv 14px */
+}
+.big {
+    font-size: 1.125em; /* equiv 18px */
+}
+.bigger {
+    font-size: 1.25em; /* equiv 20px */
+}
+.biggest {
+    font-size: 1.5em; /* equiv 24px */
+}
+.giant {
+    font-size: 3.75em; /* equiv 60px */
+}
+
+@font-face {
+    font-family: 'allerregular';
+    src: url('../fonts/aller_rg-webfont.eot');
+    src: url('../fonts/aller_rg-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/aller_rg-webfont.woff') format('woff'),
+    url('../fonts/aller_rg-webfont.ttf') format('truetype'),
+    url('../fonts/aller_rg-webfont.svg#allerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* On Ã©vite les marges hautes impactant celles de leur parent (fusion de marges) afin d'obtenir des alignements verticaux parfaits (exemple).
+Et on supprime Ã©galement la marge de certains Ã©lÃ©ments imbriquÃ©s tels que listes et paragraphes. */
+p:first-child,
+ul:first-child,
+ol:first-child,
+dl:first-child,
+blockquote:first-child,
+pre:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+    margin-top: 0;
+}
+
+/* Ã‰viter les marges sur les Ã©lÃ©ments imbriquÃ©s */
+li p,
+li ul,
+li ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* max-width: 100% impose une largeur maximale de celle du parent. IdÃ©al pour empÃªcher les blocs et images de dÃ©border. */
+img, table, td, blockquote, code, pre, textarea, input, video {
+    max-width: 100%;
+}
+
+/* IMAGES */
+/* On traite l'alignement particulier des images ainsi que les bordures non souhaitÃ©es dans les liens */
+img {
+    height: auto;
+    vertical-align: middle;
+}
+a img {
+    border: 0;
+}
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* SCRIPTS */
+/* SÃ©curitÃ© pour Ãªtre sÃ»r que les script JS ne s'affichent pas */
+body > script {display: none !important;}
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+
+/* Blocs Ã  placer sous un Ã©lÃ©ment "float" */
+.clear,
+.line,
+.row {
+    clear: both;
+}
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* ALIGNEMENTS */
+/* Les alignements horizontaux sont gÃ©rÃ©s ainsi : .left et .right sont flottants, .center est un bloc centrÃ© avec marges auto et les contenus inline sont alignÃ©s via .txtleft, .txtright et .txtcenter */
+/* ------------------------------ */
+
+/* Left */
+.left {
+    float: left;
+}
+img.left {
+    margin-right: 1em;
+}
+
+/* Right */
+.right {
+    float: right;
+}
+img.right {
+    margin-left: 1em;
+}
+
+img.left, img.right {
+    margin-bottom: 5px;
+}
+
+.center    { margin-left: auto; margin-right: auto; }
+.txtleft   { text-align: left; }
+.txtright  { text-align: right; }
+.txtcenter { text-align: center; }
+
+/* INLINE-BLOCK */
+.inbl {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: -.25em;
+}
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* CONTENUS CACHÃ‰S */
+.visually-hidden {
+    position: absolute;
+    left: -7000px;
+    overflow: hidden;
+}
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* ALIGNEMENT FORMULAIRE */
+/* Quelques particularitÃ©s concernant les alignements des formulaires. */
+form,
+fieldset {
+    border: none;
+}
+input,
+button,
+select,
+label,
+.btn {
+    vertical-align: middle; /* @bugfix alignment */
+    font-family: inherit;
+}
+textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------- */
+/* IE FIX */
+/* ----------------------------- */
+
+/* haslayout for IE6/IE7 */
+/* Quelques bidouilles pour assurer la compatibilitÃ© d'IE6 et IE7 pour les inline-block et pour les dÃ©bordements de flottants.
+La syntaxe nÃ©cessite que votre fichier HTML dispose de classes conditionnelles et de cibler IE via .ie6, .ie7, .ie67, etc. */
+.ie67 .clearfix,
+.ie67 .line,
+.ie67 .mod,
+.ie67 .row,
+.ie67 .col {
+    zoom: 1;
+}
+
+/* inline-block and table-cell for IE6/IE7 */
+/* warning: .col needs width on IE6/IE7 */
+.ie67 .btn,
+.ie67 .col,
+.ie67 .inbl {
+    display: inline;
+    zoom: 1;
+}
+.ie8 img {
+    width: auto; /* @bugfix for IE8 */
+}
+
+/* Active box-sizing for IE6/IE7 */
+/* On passe en box-sizing: border-box sur IE6/IE7 grÃ¢ce Ã  un fichier complÃ©mentaire (polyfill). */
+/* @source https://github.com/Schepp/box-sizing-polyfill */
+/*
+.ie67 * {
+	behavior: url(/js/boxsizing.htc);
+}
+*/
+
+
+/* -------------------------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------------------------- CONTENT ------------------------------------------- */
+
+#global {
+    width: 100%;
+    /*min-height: 750px;*/
+    background: url(../img/bkg/global.png) no-repeat top center #f9f9f9;
+}
+
+.container {
+    max-width:1000px;
+}
+
+.w95p {
+    width: 95%;
+    padding: 20px 0;
+}
+
+.titles {
+    line-height:10px;
+}
+
+.title {
+    width: 95%;
+    height: 12px;
+    text-align: center;
+    padding-top: 12px;
+    background: url(../img/bkg/line.png) repeat-x center 14px;
+}
+
+.title_content {
+    padding: 0 10px;
+    background: #f9f9f9;
+}
+
+.subtitle {
+    width: 125px;
+}
+
+.subtitle p {
+    line-height: 2em;
+}
+
+/* ---------------------------------------------- HEADER -------------------------------------------- */
+
+header {
+    height: 102px;
+    padding-top: 20px;
+    margin-bottom: 40px;
+    background: url(../img/bkg/line.png) repeat-x bottom;
+}
+
+#header_fix {
+    z-index: 1000;
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 65px;
+    padding-top: 5px;
+    background: url(../img/bkg/header_fix.png);
+}
+
+#logo {
+    display: inline-block;
+    width: 350px;
+    height: 75px;
+    margin: 0 0 10px 25px;
+}
+
+#lil_logo{
+    display: none;
+    width: 178px;
+    height: 75px;
+    margin: 0 0 10px 25px;
+}
+
+#logo2 {
+    display: inline-block;
+    width: 117px;
+    height: 57px;
+    margin: 0 0 10px 25px;
+}
+
+/* ---------------------------------------------- NAV ----------------------------------------------- */
+
+.page-template-about-php .about {
+    color: #1db5a6;
+}
+.page-template-artwork-php .artwork {
+    color: #1db5a6;
+}
+.page-template-blog-php .blog {
+    color: #1db5a6;
+}
+.page-template-contact-php .contact {
+    color: #1db5a6;
+}
+.single-post .blog {
+    color: #1db5a6;
+}
+.archive .blog {
+    color: #1db5a6;
+}
+.single-travaux .artwork {
+    color: #1db5a6;
+}
+
+.active {
+    color: #1db5a6;
+}
+
+nav.normal_nav {
+    float: right;
+    width: 370px;
+    padding-top: 35px;
+    text-transform: uppercase;
+    font-size: 0.875em;
+}
+
+#header_fix nav.normal_nav {
+    padding-top: 25px;
+}
+
+nav.normal_nav a {
+    color: #333;
+    margin-left: 30px;
+}
+
+nav.normal_nav a:hover {
+    color: #21a68d;
+}
+
+#header_fix nav.normal_nav a {
+    color: #fff;
+}
+
+#header_fix nav.normal_nav a:hover {
+    color: #333;
+}
+
+nav.mini_nav {
+    display: none;
+    float: right;
+    width: 32px;
+    height: 24px;
+    padding-top: 20px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.subnav {
+    z-index: 999;
+    position: fixed;
+    top: 100px;
+    display: none;
+    width: 100%;
+    padding: 10px 0;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 0.75em;
+    background: #21a68d;
+}
+
+.subnav a {
+    display: block;
+    width: 90%;
+    color: #fff;
+    margin: 20px auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #85cec0;
+}
+
+.subnav a:hover {
+    color: #333;
+}
+
+.subnav a:last-child {
+    border: none;
+}
+
+/* ---------------------------------------------- HOME ---------------------------------------------- */
+
+#wido {
+    width: 96%;
+    min-height: 250px;
+    padding-top: 30px;
+}
+
+.wido {
+    float: left;
+    width: 33%;
+}
+
+.home .textwidget p.small.grey 	{
+
+    text-align: center;
+
+}
+
+/* ---------------------------------------------- ABOUT --------------------------------------------- */
+
+#bio {
+    display: inline-block;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+#cv {
+    display: inline-block;
+    width: 10%;
+    margin-left: 8%;
+}
+
+#cv a {
+    display: block;
+    width: 55px;
+    height: 61px;
+    overflow: hidden;
+}
+
+#cv a img {
+    position: relative;
+    top: 0;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+
+#cv a:hover img {
+    top: -61px;
+}
+
+#skills {
+    display: inline-block;
+    width: 59%;
+    margin-bottom: 20px;
+}
+
+#skills_contact {
+    display: inline-block;
+    width: 39%;
+    padding-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------------- ARTWORKS ------------------------------------------ */
+
+#work_menu {
+    width: 320px;
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+#work_menu > a {
+    float: right;
+    display: block;
+    width: 17px;
+    height: 17px;
+    background: url(../img/icons/work_menu.png) no-repeat top center;
+    background-size: 100%;
+}
+
+#choix_work {
+    display: none;
+}
+
+#choix_work a {
+    float: left;
+    margin-right: 25px;
+    color: #333;
+    cursor: pointer;
+}
+
+#choix_work a:hover {
+    float: left;
+    margin-right: 25px;
+    color: #21a68d;
+}
+
+#works {
+    width: 100%;
+    min-height: 300px;
+    padding-top: 20px;
+}
+
+.work {
+    display: inline-block;
+    position: relative;
+    width: 20%;
+    height: 265px;
+    margin: 0 2% 30px 2%;
+}
+
+.masque {
+    position: absolute;
+    z-index: 100;
+    width: 220px;
+    height: 235px;
+    background: url(../img/bkg/masque.png) no-repeat;
+}
+
+.vignette_bw {
+    position: absolute;
+    z-index: 98;
+    width: 205px;
+    height: 235px;
+    padding: 0 8px;
+    margin: 0 auto;
+}
+
+.vignette_color {
+    position: absolute;
+    z-index: 99;
+    width: 205px;
+    height: 235px;
+    padding: 0 8px;
+    margin: 0 auto;
+    opacity: 0;
+    transition: 0.7s all ease-in-out;
+    -moz-transition: 0.7s all ease-in-out;
+    -webkit-transition: 0.7s all ease-in-out;
+}
+
+.work a:hover ~ .vignette_color {
+    opacity: 1;
+}
+
+.work_title {
+    display: block;
+    width: 220px;
+    height: 30px;
+    padding-top: 235px;
+    overflow: hidden;
+}
+
+.work_title p{
+    position: relative;
+    top: 0;
+    z-index: 2;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+
+.work a:hover ~ .work_title p{
+    top: -30px;
+}
+
+.gallery {
+    padding-top: 30px;
+}
+
+.gallery img {
+    padding: 30px 0 20px 0;
+}
+
+.gallery a {
+    display: block;
+    padding: 30px 0;
+    color: #21a68d;
+}
+
+.gallery a:hover {
+    color: #333;
+}
+
+/**** Isotope Filtering ****/
+
+.work {
+    z-index: 2;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+#works,
+#works .work {
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+
+#works {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    -ms-transition-property: height, width;
+    -o-transition-property: height, width;
+    transition-property: height, width;
+}
+
+#works .work {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property:    -moz-transform, opacity;
+    -ms-transition-property:     -ms-transform, opacity;
+    -o-transition-property:      -o-transform, opacity;
+    transition-property:         transform, opacity;
+}
+
+/* ---------------------------------------------- BLOG ---------------------------------------------- */
+
+#blog {
+    display: inline-block;
+    margin-right: 2%;
+    width: 68%;
+    vertical-align: top;
+}
+
+.blog_article {
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+}
+
+#article {
+    position: relative;
+    display: inline-block;
+    margin: 0 2% 20px 0;
+    width: 68%;
+    vertical-align: top;
+}
+
+#blog_nav {
+    display: inline-block;
+    width: 29%;
+}
+
+#blog_nav > ul > li > ul > li > a {
+    color: #333;
+    text-decoration: none;
+}
+
+#blog_nav > ul > li > ul > li > a:hover {
+    color: #21a68d;
+}
+
+.title_blog_nav {
+    margin-top: 0;
+    color: #333;
+}
+
+.post-date {
+    color: #a5a5a5;
+}
+
+.post-date:before {
+    content: " // ";
+}
+
+.article_vignette {
+    position: relative;
+}
+
+.date {
+    position: absolute;
+    top: -25px;
+    left: -3%;
+    width: 12%;
+    height: 37%;
+    padding-top: 3.2%;
+    background: url(../img/bkg/date.png) no-repeat top center;
+    background-size: 100%;
+}
+
+.date p {
+    font-size: 1.35em;
+    line-height: 20px;
+}
+
+.post-content {
+    margin-bottom: 30px;
+}
+
+#last_posts a p {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+#last_posts a:hover {
+    color: #21a68d;
+}
+
+#commentform input, #commentform textarea {
+    border: 1px solid #e6e6e6;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 10px;
+    padding: 5px 2%;
+    width: 70%;
+}
+
+#commentform input[type="submit"] {
+    float: right;
+    margin-right: 26%;
+    display: block;
+    max-width: 100px;
+    padding: 10px 30px 10px 30px;
+    color: #ffffff;
+    background: #21a68d;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 1.125em;
+    text-transform: uppercase;
+    transition: 0.6s all ease-in-out;
+    -moz-transition: 0.6s all ease-in-out;
+    -webkit-transition: 0.6s all ease-in-out;
+}
+
+.commentlist {
+    color: #a5a5a5;
+}
+
+.commentmetadata a {
+    color: #333;
+    text-decoration: none;
+}
+
+.commentmetadata a:hover {
+    color: #21a68d;
+}
+
+.alt {
+    margin-bottom: 15px;
+}
+
+/* ---------------------------------------------- CONTACT ------------------------------------------- */
+
+#contact {
+    display: inline-block;
+    width: 35%;
+}
+
+#contact_form {
+    display: inline-block;
+    width: 55%;
+    margin: 0 0 35px 5%;
+    vertical-align: top;
+}
+
+#contact_form input[type="submit"] {
+    float: right;
+    display: block;
+    max-width: 100px;
+    padding: 10px 30px 10px 30px;
+    color: #ffffff;
+    background: #21a68d;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 1.125em;
+    text-transform: uppercase;
+    transition: 0.6s all ease-in-out;
+    -moz-transition: 0.6s all ease-in-out;
+    -webkit-transition: 0.6s all ease-in-out;
+}
+
+#contact_form input[type="submit"]:hover {
+    background: #17816d;
+}
+
+#contact_form input,#contact_form textarea  {
+    width: 96%;
+    padding: 5px 2%;
+    margin-bottom:10px;
+    border: 1px solid #e6e6e6;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/* ---------------------------------------------- 404 ----------------------------------------------- */
+
+#error {
+    min-height: 300px;
+    padding-top: 20px;
+}
+
+#error img {
+    float: left;
+    margin: 0 40px 0 0;
+}
+
+/* ---------------------------------------------- FOOTER -------------------------------------------- */
+
+footer {
+    min-height: 105px;
+    padding-top: 45px;
+    color: #fff;
+    background: url(../img/bkg/footer.png) no-repeat top center #21a68d;
+}
+
+#social {
+    float: right;
+    width: 210px;
+    height: 24px;
+}
+
+#social a {
+    display: block;
+    float: left;
+    height: 24px;
+    margin-right: 15px;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+
+#social a:hover {
+    background-position: 0 -24px;
+}
+
+.tw {
+    width: 29px;
+    background: url(../img/footer/tw.png) no-repeat 0 0;
+    background-size: 100%;
+}
+.db {
+    width: 25px;
+    background: url(../img/footer/db.png) no-repeat 0 0;
+    background-size: 100%;
+}
+.lk {
+    width: 25px;
+    background: url(../img/footer/lk.png) no-repeat 0 0;
+    background-size: 100%;
+}
+.be {
+    width: 29px;
+    background: url(../img/footer/be.png) no-repeat 0 0;
+    background-size: 100%;
+}
+.fo {
+    width: 21px;
+    background: url(../img/footer/fo.png) no-repeat 0 0;
+    background-size: 100%;
+}
+.in {
+    width: 23px;
+    background: url(../img/footer/in.png) no-repeat 0 0;
+    background-size: 100%;
+}
+
+/* ---------------------------------------------- CLASSES ------------------------------------------- */
+
+.active {
+    color: #21a68d!important;
+}
+
+.aller {
+    font-family: 'allerregular';
+}
+
+.any {
+    float: right;
+    display: block;
+    width: 28px;
+    height: 32px;
+    margin-left: 5px;
+    vertical-align: middle;
+    background: url(../img/icons/any.png) no-repeat 0 0;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+
+.any:hover {
+    background: url(../img/icons/any.png) no-repeat 0 -32px;
+}
+
+.back {
+    display: inline-block;
+    width: 15px;
+    height: 17px;
+    margin-left: 5px;
+    vertical-align: middle;
+    background: url(../img/icons/back.png) no-repeat 0 0;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+
+.back:hover {
+    background: url(../img/icons/back.png) no-repeat 0 -17px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.green {
+    color: #21a68d;
+}
+
+.green_btn {
+    display: block;
+    max-width: 100px;
+    height: 20px;
+    padding: 10px 30px 15px 30px;
+    color: #ffffff;
+    background: #21a68d;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: 0.6s all ease-in-out;
+    -moz-transition: 0.6s all ease-in-out;
+    -webkit-transition: 0.6s all ease-in-out;
+}
+
+.green_btn:hover {
+    background: #17816d;
+}
+
+.grey {
+    color: #a5a5a5;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.more {
+    display: inline-block;
+    width: 15px;
+    height: 17px;
+    margin-left: 5px;
+    vertical-align: middle;
+    background: url(../img/icons/more.png) no-repeat 0 0;
+    transition: 0.3s all ease-in-out;
+    -moz-transition: 0.3s all ease-in-out;
+    -webkit-transition: 0.3s all ease-in-out;
+}
+
+.more:hover {
+    background: url(../img/icons/more.png) no-repeat 0 -17px;
+}
+
+.no_deco {
+    text-decoration: none;
+}
+
+.upper {
+    text-transform: uppercase;
+}
+
+.white {
+    color: #fff;
+}
+
+/* ---------------------------------------------- MEDIA QUERIES ------------------------------------- */
+
+@media only screen and (max-width: 900px) {
+    .fourth {
+        display: none;
+    }
+    .work {
+        width: 28%;
+        height: 265px;
+        margin: 0 2%;
+    }
+}
+
+@media only screen and (max-width: 962px) {
+    .vignette_bw {
+        display: none;
+    }
+
+    .vignette_color {
+        opacity: 1;
+    }
+}
+@media only screen and (max-width: 800px) {
+    #article {
+        display: block;
+        width: 88%;
+        margin: 0 auto 20px auto;
+    }
+    #blog {
+        display: block;
+        width: 88%;
+        margin: 0 auto;
+    }
+    #blog_nav {
+        display: block;
+        width: 88%;
+        margin: 0 auto;
+    }
+    .date {
+        width: 80px;
+        height: 91px;
+    }
+    #commentform input, #commentform textarea {
+        width: 90%;
+        margin: auto;
+    }
+    #commentform input[type="submit"] {
+        margin-right: 10%;
+    }
+    footer {
+        height: 50px;
+        background: url(../img/bkg/footer.png) no-repeat top left #21a68d;
+    }
+    #social a {
+        display: block;
+        float: left;
+        width: 25px;
+        height: 24px;
+        margin-right: 15px;
+        border: 1px solid #21a68d;
+        background-color: #fff;
+    }
+    #social a:hover {
+        background-color: #333;
+        background-position: 0 0;
+        transition: 0.3s all ease-in-out;
+        -moz-transition: 0.3s all ease-in-out;
+        -webkit-transition: 0.3s all ease-in-out;
+    }
+    .tw {
+        background: url(../img/footer/tw2.png) no-repeat;
+        background-size: 100%;
+    }
+    .db {
+        background: url(../img/footer/db2.png) no-repeat;
+        background-size: 100%;
+    }
+    .lk {
+        background: url(../img/footer/lk2.png) no-repeat;
+        background-size: 100%;
+    }
+    .be {
+        background: url(../img/footer/be2.png) no-repeat;
+        background-size: 100%;
+    }
+    .fo {
+        background: url(../img/footer/fo2.png) no-repeat;
+        background-size: 100%;
+    }
+    .in {
+        background: url(../img/footer/in2.png) no-repeat;
+        background-size: 100%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    nav.normal_nav {
+        display: none;
+    }
+    nav.mini_nav {
+        display: block;
+    }
+    #skills {
+        display: block;
+        width: 100%;
+    }
+    #skills_contact {
+        display: block;
+        width: 90%;
+        padding-top: 60px;
+    }
+    #contact {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    #contact_form {
+        display: block;
+        width: 90%;
+        padding-top: 60px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .tirth {
+        display: none;
+    }
+    .work {
+        width: 37%;
+        height: 265px;
+        margin: 0 6%;
+    }
+    #social {
+        float: none;
+        width: 196px;
+        margin: auto;
+    }
+    #social a:last-child {
+        margin: 0;
+    }
+    footer p {
+        padding-top: 10px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 615px) {
+    .fourth {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #wido {
+        padding: 20px 0;
+    }
+    .wido {
+        float: none;
+        width: 75%;
+        margin: 20px auto;
+    }
+    #bio {
+        display: block;
+        width: 90%;
+        margin: 0 auto 40px auto;
+    }
+    #cv {
+        display: block;
+        width: 55px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #logo {
+        display: none;
+    }
+    #lil_logo {
+        display: block;
+    }
+    #works {
+        min-height: 930px;
+    }
+    .work {
+        display: block;
+        width: 220px;
+        height: 265px;
+        margin: 25px auto;
+    }
+    .date {
+        display: none;
+    }
+}

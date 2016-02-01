@@ -1,0 +1,47 @@
+﻿Merge branch 'master' of https://github.com/JRsTouch/crescendo
+
+# Conflicts:
+#	public/assets/css/chansons.css
+#	public/assets/css/chansons.css.map
+#	public/assets/css/choristes_home.sass
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 3 and 5 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   app/Controller/ChoristesController.php
+#	modified:   app/templates/choristes.php
+#	modified:   app/templates/choristes/actus.php
+#	modified:   app/templates/choristes/chansons.php
+#	modified:   app/templates/choristes/news.php
+#	modified:   app/templates/error.php
+#	modified:   app/templates/layout.php
+#	modified:   app/templates/login.php
+#	modified:   app/templates/medias.php
+#	modified:   public/assets/css/chansons.css
+#	modified:   public/assets/css/chansons.css.map
+#	modified:   public/assets/css/chansons.sass
+#	modified:   public/assets/css/choristes_home.sass
+#	modified:   public/assets/css/home.css
+#	modified:   public/assets/css/home.css.map
+#	modified:   public/assets/css/home.sass
+#	new file:   public/assets/img/decor/button.png
+#	new file:   public/assets/img/decor/button_off.png
+#	new file:   public/assets/img/decor/button_on.png
+#	new file:   public/assets/img/favicon.ico
+#	modified:   public/assets/js/javascript.js
+#	modified:   public/assets/js/song.js
+#
+

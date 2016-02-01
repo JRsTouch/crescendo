@@ -113,7 +113,7 @@ body {
         content: " ";
         clear: both;
         height: 0; }
-  body main #reset {
+  body main #resetpass {
     background: white;
     margin: auto;
     margin-top: 15%;
@@ -122,13 +122,13 @@ body {
     border-radius: 20px;
     width: 15%;
     min-width: 200px; }
-    body main #reset input {
+    body main #resetpass input {
       padding: 2px;
       border-radius: 5px;
       border: 1px solid #393294; }
-      body main #reset input:focus {
+      body main #resetpass input:focus {
         outline: none; }
-    body main #reset button {
+    body main #resetpass button {
       background-color: #393294;
       color: white;
       border-radius: 5px;
@@ -140,7 +140,6 @@ body {
       margin-top: 10px;
       float: left;
       text-decoration: none;
-      color: black;
       width: 100%;
       text-align: center; }
   body main #resetpass {
@@ -174,7 +173,6 @@ body {
     body main #resetpass a {
       display: block;
       margin-top: 10px;
-      float: left;
       text-decoration: none;
       color: black;
       width: 100%;
