@@ -227,6 +227,9 @@ form#news, form#document, form#youtube, form#image
 		padding: 5px
 		border-radius: 5px
 		margin-bottom: 10px
+		&:focus
+			outline: none
+			border: 1px dotted white
 	button[type=submit]
 		background-color: #564ce1
 		padding: 10px
@@ -242,10 +245,22 @@ form#news, form#document, form#youtube, form#image
 		background-color: #3E1E7F
 		border-radius: 5px
 		border: 1px solid #8455FF
+		&:focus
+			outline: none
+			border: 1px dotted white
 	select
 		background-color: #7451e9
 		padding: 5px
 		color: white
+
+form#youtube
+	input[name=description]
+		width: 600px
+
+
+form#image
+	input[name=desc_img]
+		width: 600px
 
 .actus figure img
 	width: 200px
@@ -353,6 +368,8 @@ footer
 		ul
 			padding-left: 20px
 			li
+				&::before
+				content: "\266B   "
 				&:hover
 					background-color: #422B7F
 					width: 250px
@@ -361,8 +378,6 @@ footer
 					color: white
 					text-decoration: none
 		ul li
-			&::before
-				content: "\266B   "
 			padding-top: 0
 			padding-bottom: 0
 			

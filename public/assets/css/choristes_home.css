@@ -199,6 +199,9 @@ form#news, form#document, form#youtube, form#image {
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 10px; }
+    form#news input:focus, form#document input:focus, form#youtube input:focus, form#image input:focus {
+      outline: none;
+      border: 1px dotted white; }
   form#news button[type=submit], form#document button[type=submit], form#youtube button[type=submit], form#image button[type=submit] {
     background-color: #564ce1;
     padding: 10px;
@@ -212,10 +215,19 @@ form#news, form#document, form#youtube, form#image {
     background-color: #3E1E7F;
     border-radius: 5px;
     border: 1px solid #8455FF; }
+    form#news textarea:focus, form#document textarea:focus, form#youtube textarea:focus, form#image textarea:focus {
+      outline: none;
+      border: 1px dotted white; }
   form#news select, form#document select, form#youtube select, form#image select {
     background-color: #7451e9;
     padding: 5px;
     color: white; }
+
+form#youtube input[name=description] {
+  width: 600px; }
+
+form#image input[name=desc_img] {
+  width: 600px; }
 
 .actus figure img {
   width: 200px;
@@ -330,18 +342,18 @@ footer {
     color: #A069E5; }
     footer #credits ul {
       padding-left: 20px; }
-      footer #credits ul li:hover {
-        background-color: #422B7F;
-        width: 250px;
-        border-radius: 5px; }
-      footer #credits ul li a {
-        color: white;
-        text-decoration: none; }
+      footer #credits ul li {
+        content: "♫  "; }
+        footer #credits ul li:hover {
+          background-color: #422B7F;
+          width: 250px;
+          border-radius: 5px; }
+        footer #credits ul li a {
+          color: white;
+          text-decoration: none; }
     footer #credits ul li {
       padding-top: 0;
       padding-bottom: 0; }
-      footer #credits ul li::before {
-        content: "♫  "; }
 
 #liste_chansons {
   margin-left: 20px; }

@@ -14,8 +14,11 @@ body main ul li {
   body main ul li:hover {
     width: 32%; }
   body main ul li em {
-    color: #B9B9B9;
+    color: #b86bff;
     text-transform: capitalize; }
+  body main ul li a {
+    text-decoration: none;
+    color: white; }
 body main #manageform {
   color: black;
   display: none;

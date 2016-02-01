@@ -25,8 +25,12 @@ textarea {
   background-color: #1E1A4D;
   color: white;
   min-width: 50%;
-  height: 131px;
-  border-radius: 10px; }
+  height: 200px;
+  border-radius: 10px;
+  padding: 8px; }
+  textarea:focus {
+    outline: none;
+    border: 1px dotted white; }
 
 input {
   margin-left: 10px;
@@ -36,6 +40,9 @@ input {
   border: 1px solid #8455FF;
   min-width: 250px;
   color: white; }
+  input:focus {
+    outline: none;
+    border: 1px dotted white; }
 
 button {
   color: white;
