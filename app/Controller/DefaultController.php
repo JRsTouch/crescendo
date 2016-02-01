@@ -154,8 +154,8 @@ class DefaultController extends Controller
 											),
 						'tags'		=>	array(
 												'link'		=> array(
-																			'css/presentation.css',
 																			'css/home.css',
+																			'css/presentation.css'
 																	),
 												'script'	=> array(
 																			

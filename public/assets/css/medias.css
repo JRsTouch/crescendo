@@ -7,6 +7,11 @@
 	text-decoration: none;
 }
 
+@font-face {
+	font-family: 'AnabelleScript';
+	src: url('../font/AnabelleScriptLight.ttf') format('truetype');
+}
+
 .clearfix{
 	clear: both;
 }
@@ -35,6 +40,12 @@ header{
 
 header h1{
 	padding-top: 20px;
+	font-family: 'AnabelleScript';
+	font-size: 150px;
+	text-align: center;
+	text-shadow: 3px 2px 20px #765eba, 2px 2px #181540;
+	color: white;
+	position: static;
 }
 
 header a{
@@ -172,4 +183,49 @@ footer li, footer p{
 .news img {
 	display: block;
 	margin: auto;
+}
+
+
+footer {
+	text-align: center;
+	color: #6156FF;
+}
+
+#credits {
+	margin: 0;
+	float: right;
+}
+
+footer ul li {
+	list-style: none;
+	text-transform: uppercase;
+}
+
+footer ul li::before {
+	content: "\266B   ";
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: #584ee6;
+	width: 250px;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+#goup {
+	background: #BC9BFE;
+	text-decoration: none;
+	padding: 10px;
+	font-weight: 700;
+	box-shadow: 0 5px 5px #210075;
+	border-radius: 5px;
+	color: #34007B;
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
 }
