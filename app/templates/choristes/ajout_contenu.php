@@ -57,10 +57,11 @@
 			<label> Titre <input type="text" name="titre" value="" placeholder="Titre de l'article" required></label>
 			<label> Description </label>
 			<textarea name="description" required></textarea><br>
-			Sélectionner le fichier : <input name="my-file" type="file" />
-
-			<input type="text" name="alt" value="" placeholder="description succinte de l'image">
-			<input type="text" name="desc_img" value="" placeholder="description complète de l'image">
+			<label> Sélectionner le fichier 
+				<input name="my-file" type="file" />
+				<input type="text" name="alt" value="" placeholder="description succinte de l'image">
+				<input type="text" name="desc_img" value="" placeholder="description complète de l'image">
+			</label>
 			<div class="private">Cette information est-elle privée (vue uniquement par les choristes) ?
 				<select name="private"> <!-- A mettre en display none en JS si la value du select "table" vaut news -->
 					<option value="1">Oui</option>

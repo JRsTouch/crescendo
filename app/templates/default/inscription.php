@@ -34,7 +34,7 @@
 				
 				<button type="submit" name="sent">Valider</button>
 			</form>
-			<a href="<?= $this->url('home') ?>">Retour à l'acceuil</a>
+			<a href="<?= $this->url('home') ?>">Retour à l'accueil</a>
 		</div>
 	</main>
 
