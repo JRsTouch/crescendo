@@ -114,6 +114,8 @@
 		public function chansons_Ajout($id=0, $update=false){
 			// initialisation de variables 
 
+			$this->allowTo(['admin', 'chef']);
+
 			$title = "";
 			$count = 0;
 			$song_to_update = 0;
@@ -334,6 +336,9 @@
 		 * @return indicateur d'execution de l'update.
 		**/
 		public function updateSong($id){
+
+			$this->allowTo(['admin', 'chef']);
+
 			$chansonsManager = new \Manager\ChansonsManager();
 			$song_to_update = $chansonsManager->find($id);
 			if (isset($_POST['update'])){
@@ -435,6 +440,8 @@
 		 * Retour sur page d'ajout de contenu quand terminé.
 		**/
 		public function gestionContenu(){
+
+			$this->allowTo(['admin', 'chef', 'gestion']);
 			
 			$options = $this->getOptions();
 			$user = $this->getuser();
@@ -741,6 +748,8 @@
 		**/
 		public function repetitions(){
 
+			$this->allowTo(['admin', 'chef']);
+
 			if(isset($_POST['sent'])){
 				$event = array(
 						'heure' => $_POST['heure'],
@@ -962,6 +971,8 @@
 
 
 		public function membersManagement(){
+
+			$this->allowTo(['admin']);
 
 			
 			$options = $this->getOptions();
