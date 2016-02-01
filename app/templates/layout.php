@@ -37,6 +37,7 @@
 			}
 		?>
 		<link rel="stylesheet" href="<?= $this->assetUrl('css/responsive_short_screen.css') ?>">
+		<link rel="stylesheet" href="<?= $this->assetUrl('css/responsive_home_mobile.css') ?>">
 		<link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
@@ -51,6 +52,7 @@
 				<div class="container">
 						<h1><?php echo $layout_data[0]['titre']?></h1> <!--  </h1> Récupération du titre dans le tableau data --> 
 					<nav id="posfixed">
+						<div id="menumobile"></div>
 						<ul>
 							<li><a href="#presentation">Présentation</a></li>
 							<li><a href="#actus">Actualités</a></li>
