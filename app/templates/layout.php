@@ -59,6 +59,7 @@
 							<li><a href="#contact">Contact</a></li>
 							<li><a href="<?= $this->url('users_login') ?>" rel="nofollow">Coin des Choristes</a></li> <!-- No follow de Googlebot et autres sur la partie privée -->
 						</ul>
+						<div id="menumobile"></div>
 						<div
 						  class='fb-share-button'
 						  data-href='http://crescendo.site'

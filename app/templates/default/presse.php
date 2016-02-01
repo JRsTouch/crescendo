@@ -14,10 +14,14 @@
 		<div class="container">
 
 			<ul>
-
 			<?php foreach ($articles as $article): ?> <!-- display des articles en liste -->
 				
-				<li><a class="article" href="<?= $article['titre'] ?>" data-description="<?= $article['description'] ?>"><?= $article['titre'] ?></a></li>
+				<li>
+					<a class="article" href="<?= $article['titre'] ?>" data-description="<?= $article['description'] ?>" data-img="<?= $this->assetUrl($article['url']) ?>">
+						<?= $article['titre'] ?>
+						<img class="thumbpresse" src="<?= $this->assetUrl(preg_replace('/\./', '-thumb.', $article['url'])) ?>" alt="thumbnail">
+					</a>
+				</li>
 				
 			<?php endforeach ?>	
 

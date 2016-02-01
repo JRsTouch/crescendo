@@ -109,9 +109,11 @@ $(function(){
 	$('.article').on('click', function(){ // on affiche l'article souhaiter dans une fenetre modal
 		var title = $(this).attr('href');
 		var description = $(this).attr('data-description');
+		var img = $(this).attr('data-img');
 		
 		$('#presse').empty(); // on commencer par vider l'afficheur s'il dispose d'un contenu
 		$('#presse').append('<h3>'+title+'</h3>'); // on ajoute le nouveau titre
+		$('#presse').append('<img src="'+img+'" alt="thumbnail">');
 		$('#presse').append('<p>'+description+'</p>') // et ca description
 
 		$('#presse').slideDown('slow'); // et on affiche la fenetre

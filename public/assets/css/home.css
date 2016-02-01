@@ -96,6 +96,8 @@ nav {
   padding: 10px;
   margin-top: 0;
   margin-bottom: 0; }
+  nav #menumobile {
+    display: none; }
   nav ul li {
     list-style: none;
     display: inline;
