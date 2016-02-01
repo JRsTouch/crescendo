@@ -1,0 +1,18 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	new file:   0b5a52gv.1vq.txt
+#	modified:   app/Controller/DefaultController.php
+#	new file:   app/templates/default/shaoz.css
+#	modified:   public/assets/css/login.css
+#	modified:   public/assets/css/login.css.map
+#	modified:   public/assets/css/login.sass
+#	modified:   public/assets/css/presentation.css
+#	modified:   public/assets/css/presentation.css.map
+#	modified:   public/assets/css/presentation.sass
+#
+
