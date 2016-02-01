@@ -33,8 +33,6 @@ class DefaultController extends Controller
 												'link'		=> array(
 																			'css/flexslider.css',
 																			'css/home.css',
-																			'css/mobile_landscape.css',
-																			'css/mobile_portrait.css',
 																	),
 												'script'	=> array(
 																			'js/jquery.flexslider.js',
@@ -157,7 +155,7 @@ class DefaultController extends Controller
 						'tags'		=>	array(
 												'link'		=> array(
 																			'css/home.css',
-																			'css/presentation.css',
+																			'css/presentation.css'
 																	),
 												'script'	=> array(
 																			
@@ -224,7 +222,6 @@ class DefaultController extends Controller
 									),
 				'tags'		=>	array(
 										'link'		=> array(
-																			'css/home.css',
 																			'css/medias.css',
 																	),
 										'script'	=> array(
@@ -308,8 +305,6 @@ class DefaultController extends Controller
 											),
 						'tags'		=>	array(
 										'link'		=> array(
-
-																			'css/home.css',
 																			'css/medias.css',
 																	),
 										'script'	=> array(
@@ -346,8 +341,6 @@ class DefaultController extends Controller
 											),
 						'tags'		=>	array(
 												'link'		=> array(
-																			
-																			'css/home.css',
 																			'css/medias.css',
 																	),
 												'script'	=> array(
