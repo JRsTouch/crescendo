@@ -1,6 +1,6 @@
-<?php $this->layout('login', ['title' => 'CrescendO : Connexion']); ?>
+<?php $this->layout('login', ['title' => 'CrescendO : Connexion']) ?>
 
-<?php $this->start('main_content');  ?>
+<?php $this->start('main_content') ?>
 
 	<main>
 		<div id="register">
@@ -29,7 +29,7 @@
 					<option value="tenor">Tenor</option>
 					<option value="alto">Alto</option>
 					<option value="soprane1">Soprane 1</option>
-					<option value="soprane1">Soprane 2</option>
+					<option value="soprane2">Soprane 2</option>
 				</select>
 				
 				<button type="submit" name="sent">Valider</button>

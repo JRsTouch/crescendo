@@ -55,7 +55,7 @@
 
 		public function register(){
 
-			$usersManager = new \manager\UsersManager();
+			$newusersManager = new \Manager\UsersManager();
 
 			if(isset($_POST['sent'])){ // a la soumission du formulaire on insert les nouvelles données en BDD table user
 
@@ -71,7 +71,7 @@
 					$newUser['tel'] = $_POST['tel'];
 				}
 
-				$usersManager->insert($newUser);
+				$newusersManager->insert($newUser);
 
 				$this->show('default/tobevalidate');
 			}

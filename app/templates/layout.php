@@ -12,7 +12,10 @@
 		<link rel="shortcut icon" href="<?= $this->assetUrl('img/favicon.ico') ?>" />
 		<script src="<?= $this->assetUrl('js/jquery-2.1.4.min.js') ?>"></script>
 		<script src="<?= $this->assetUrl('js/facebook.js') ?>"></script>
-		<script src="<?= $this->assetUrl('js/footer.js') ?>" async defer></script>	
+		<script src="<?= $this->assetUrl('js/footer.js') ?>" async defer></script>
+		<script src="<?= $this->assetUrl('js/analytics.js') ?>"></script>
+
+
 
 		<?php 
 
