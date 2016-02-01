@@ -1,3 +1,4 @@
+
 *
 	font-family: Montserrat, sans-serif
 
@@ -9,12 +10,17 @@ body
 			margin-bottom: 10px
 			text-decoration: underline
 		.pupitre
+			&::after
+				display: block
+				content: ' '
+				clear: both
 			.membre
 				figure
 					position: relative
 					float: left
 					width: 10%
 					margin-left: 20px
+					min-height: 200px
 					img
 						display: block
 						margin: auto
@@ -25,21 +31,23 @@ body
 						top: 0
 						overflow: hidden
 						div
+							padding-top: 10px
 							width: 100%
 							height: 100%
 							top: 150px
 							position: absolute
 							background-color: rgba(251, 255, 147, 0.5)
+							text-align: center
 							p
 								text-shadow: 0 0 5px rgb(251, 255, 147)
 								color: #5D007F
 								margin-top: 10%
 								text-align: center
+							.email
+								font-size: 12px
+								margin: 0
 					figcaption
 						text-align: center
 		.clearfix
-			&::before
-				content: " "
-				display: block
-				clear: both
+			clear: both
 			height: 200px

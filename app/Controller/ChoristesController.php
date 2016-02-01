@@ -803,7 +803,6 @@
 			$usersManager = new \Manager\UsersManager();
 
 			$membres = $usersManager->findAllOrder();
-
 			$data = array(
 							'membres'	=>	$membres
 						);
