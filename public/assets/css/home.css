@@ -381,6 +381,7 @@ body {
   position: fixed;
   top: 0px;
   background: #393294;
-  width: 99%; }
+  width: 100%;
+  box-sizing: border-box; }
 
 /*# sourceMappingURL=home.css.map */

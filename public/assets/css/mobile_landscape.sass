@@ -41,6 +41,7 @@
 							&>a
 					&>div
 		&>#presentation
+			padding: 0
 			&>.container
 				&>h2
 				&>img
@@ -59,11 +60,17 @@
 					font-size: 25px
 					margin: 0
 					margin-top: 10px
+					display: block
+					text-align: center
+					width: 100%
 		&>#actus
+			padding: 0
+			padding-bottom: 100px
 			height: auto
 			&>.container
 				&>h2
 				&>.flexslider
+					width: 100%
 				&>a
 					margin: 0
 					display: block
@@ -71,11 +78,16 @@
 					text-align: center
 					margin-top: 50px
 					padding-bottom: 20px
+					width: 100%
 		&>#video
+			padding: 0
+			padding-bottom: 50px
+			padding-top: 50px
 			height: auto
 			&>.container
 				&>h2
 				&>.flexslider
+					display: none
 				&>a					
 					float: none
 					margin: 0
@@ -83,8 +95,11 @@
 					font-size: 25px
 					text-align: center
 					padding-bottom: 20px
+					width: 100%
 		&>#photo
-			height: auto
+			padding: 0
+			padding-bottom: 100px
+			padding-top: 50px
 			&>.container
 				&>h2
 				&>#carousel
@@ -97,7 +112,9 @@
 					text-align: center
 					margin-top: 25px
 					padding-bottom: 20px
+					width: 100%
 		&>#contact
+			padding: 0
 			&>.container
 				&>h2
 				&>form
@@ -128,16 +145,15 @@
 				position: relative
 				left: 40%
 
-
+#actus
 	article
-		width: 100%	
-		margin: 0	
-		&img			
-		&h3 			
-		&a
-			&div
-				&h3
-				&a
+		width: 100% !important
+		img		
+		h3 			
+		a
+			div
+				h3
+				a
 
 	ol
 		display: none

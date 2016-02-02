@@ -35,38 +35,56 @@
         text-align: left; }
         body > header > .container > nav > ul > li:last-of-type {
           padding-left: 25px; }
-  body > #presentation > .container > img {
-    display: block;
-    margin: auto;
-    float: none;
-    padding: 0;
-    width: 100%; }
-  body > #presentation > .container > p {
-    font-size: 20px; }
-  body > #presentation > .container > a {
-    font-size: 25px;
-    margin: 0;
-    margin-top: 10px; }
+  body > #presentation {
+    padding: 0; }
+    body > #presentation > .container > img {
+      display: block;
+      margin: auto;
+      float: none;
+      padding: 0;
+      width: 100%; }
+    body > #presentation > .container > p {
+      font-size: 20px; }
+    body > #presentation > .container > a {
+      font-size: 25px;
+      margin: 0;
+      margin-top: 10px;
+      display: block;
+      text-align: center;
+      width: 100%; }
   body > #actus {
+    padding: 0;
+    padding-bottom: 100px;
     height: auto; }
+    body > #actus > .container > .flexslider {
+      width: 100%; }
     body > #actus > .container > a {
       margin: 0;
       display: block;
       font-size: 25px;
       text-align: center;
       margin-top: 50px;
-      padding-bottom: 20px; }
+      padding-bottom: 20px;
+      width: 100%; }
   body > #video {
+    padding: 0;
+    padding-bottom: 50px;
+    padding-top: 50px;
     height: auto; }
+    body > #video > .container > .flexslider {
+      display: none; }
     body > #video > .container > a {
       float: none;
       margin: 0;
       display: block;
       font-size: 25px;
       text-align: center;
-      padding-bottom: 20px; }
+      padding-bottom: 20px;
+      width: 100%; }
   body > #photo {
-    height: auto; }
+    padding: 0;
+    padding-bottom: 100px;
+    padding-top: 50px; }
     body > #photo > .container > #carousel {
       width: 100%; }
     body > #photo > .container > a {
@@ -76,21 +94,24 @@
       font-size: 25px;
       text-align: center;
       margin-top: 25px;
-      padding-bottom: 20px; }
-  body > #contact > .container > form {
-    width: 70%;
-    margin: auto;
-    padding: 0; }
-    body > #contact > .container > form > label > input {
-      margin: 0;
+      padding-bottom: 20px;
       width: 100%; }
-    body > #contact > .container > form > label > textarea {
-      width: 100%;
-      margin: 0; }
-    body > #contact > .container > form > button {
-      display: block;
+  body > #contact {
+    padding: 0; }
+    body > #contact > .container > form {
+      width: 70%;
       margin: auto;
-      width: 40%; }
+      padding: 0; }
+      body > #contact > .container > form > label > input {
+        margin: 0;
+        width: 100%; }
+      body > #contact > .container > form > label > textarea {
+        width: 100%;
+        margin: 0; }
+      body > #contact > .container > form > button {
+        display: block;
+        margin: auto;
+        width: 40%; }
   body > footer > #credits {
     width: 100%; }
     body > footer > #credits > ul > li {
@@ -99,16 +120,12 @@
     display: none; }
   body > footer > .hover, body > footer .panel {
     position: relative;
-    left: 40%; }
-
-  article {
-    width: 100%;
-    margin: 0; }
-
-  ol {
-    display: none; }
-
-  .infoactu a {
-    font-size: 20px; } }
+    left: 40%; } }
+#actus article {
+  width: 100% !important; }
+#actus ol {
+  display: none; }
+#actus .infoactu a {
+  font-size: 20px; }
 
 /*# sourceMappingURL=mobile_landscape.css.map */

@@ -73,7 +73,7 @@
 					$errors[] = '<p>L\'email doit être renseigné et au format "exemple@email.fr".</p>';
 				}
 
-				if(strlen($_POST['email']) >= 5){
+				if(strlen($_POST['password']) >= 5){
 					$password = $_POST['password'];
 				}else{
 					$errors[] = '<p>Le mot de passe doit contenir minimum 5 caractères.</p>';

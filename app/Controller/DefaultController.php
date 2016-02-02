@@ -31,8 +31,8 @@ class DefaultController extends Controller
 											),
 						'tags'		=>	array(
 												'link'		=> array(
-																			'css/flexslider.css',
 																			'css/home.css',
+																			'css/flexslider.css',
 																			'css/mobile_landscape.css',
 																			'css/mobile_portrait.css',
 																	),

@@ -42,7 +42,8 @@
           body > header > .container > nav > ul > li:last-of-type {
             padding-left: 25px; }
   body > #presentation {
-    padding: 0; }
+    padding: 0;
+    padding-bottom: 50px; }
     body > #presentation > .container > img {
       display: block;
       margin: auto;
@@ -54,45 +55,50 @@
     body > #presentation > .container > a {
       font-size: 25px;
       margin: 0;
-      margin-top: 10px; }
+      margin-top: 10px;
+      display: block;
+      text-align: center; }
   body > #actus {
     padding: 0;
+    padding-bottom: 50px;
     height: auto; }
     body > #actus > .container > .flexslider {
       height: auto; }
     body > #actus > .container > a {
+      float: none !important;
       margin: 0;
-      display: block;
+      display: block !important;
       font-size: 25px;
-      text-align: center;
+      text-align: center !important;
       padding-bottom: 20px; }
   body > #video {
     padding: 0;
-    padding-bottom: 75px;
+    padding-bottom: 50px;
     padding-top: 50px;
     height: auto; }
     body > #video > .container > .flexslider {
       height: auto;
       display: none; }
     body > #video > .container > a {
-      float: none;
+      float: none !important;
       margin: 0;
-      display: block;
+      display: block !important;
       font-size: 25px;
-      text-align: center;
+      text-align: center !important;
       padding-bottom: 20px; }
   body > #photo {
     padding: 0;
     height: auto;
-    padding-bottom: 75px; }
+    padding-bottom: 50px; }
     body > #photo > .container > #carousel {
-      width: 100%; }
+      width: 100%;
+      height: auto; }
     body > #photo > .container > a {
-      float: none;
+      float: none !important;
       margin: 0;
-      display: block;
+      display: block !important;
       font-size: 25px;
-      text-align: center;
+      text-align: center !important;
       margin-top: 25px; }
   body > #contact {
     padding: 0; }
